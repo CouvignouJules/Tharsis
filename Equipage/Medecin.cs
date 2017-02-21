@@ -16,7 +16,7 @@ namespace Equipage
             {
                 if (membre.HP < 6)
                 {
-                    membre.HP = membre.HP + 1;
+                    membre.HP += 1;
                 }  
             }
         }
