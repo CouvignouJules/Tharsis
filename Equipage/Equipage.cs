@@ -9,7 +9,7 @@ namespace Equipage
     abstract class Equipage
     {
         protected int pv;
-        int dice;
+        protected int dice;
         Random rnd = new Random();
 
         public Equipage()
