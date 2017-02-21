@@ -13,11 +13,11 @@ namespace Equipage
         {
             set
             {
-                this.HP = value;
+                this.hp = value;
             }
             get
             {
-                return this.HP;
+                return this.hp;
             }
         }
         private int dices;
@@ -25,7 +25,11 @@ namespace Equipage
         {
             get
             {
-                return this.dices.length;
+                return this.dices;
+            }
+            set
+            {
+                this.dices = value;
             }
         }
         private Vaisseau room;
@@ -34,6 +38,10 @@ namespace Equipage
             get
             {
                 return this.room.Name;
+            }
+            set
+            {
+                this.room = value;
             }
         }
         Random rnd = new Random();
