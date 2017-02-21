@@ -6,7 +6,18 @@ using System.Threading.Tasks;
 
 namespace Equipage
 {
-    class Capitaine : Equipage 
+    class Capitaine : Equipage
     {
+        public Capitaine() : base() { }
+
+        public void Capacite()
+        {
+
+        }
+
+        public override string ToString()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

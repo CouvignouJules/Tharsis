@@ -40,6 +40,6 @@ namespace Equipage
             this.dice = dice;
         }
 
-        public abstract void ToString();
+        public abstract override string ToString();
     }
 }

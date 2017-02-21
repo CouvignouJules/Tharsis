@@ -18,9 +18,9 @@ namespace Equipage
             }
         }
 
-        public override void ToString()
+        public override string ToString()
         {
-            throw new NotImplementedException();
+            return "Le medecin a {0} point de vie et l possede {1} dés";
         }
     }
 }
