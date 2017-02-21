@@ -16,6 +16,6 @@ namespace Equipage
             return rnd.Next(2,4);
         }
 
-        public abstract void toString();
+        public abstract void toString(in truc);
     }
 }
