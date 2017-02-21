@@ -14,7 +14,7 @@ namespace Equipage
         {
             foreach (Equipage membre in equipage)
             {
-                if (membre.HP < 6)
+                if (membre.HP < 6 && membre.HP > 0)
                 {
                     membre.HP += 1;
                 }  
