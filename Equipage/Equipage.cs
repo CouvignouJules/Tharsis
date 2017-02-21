@@ -8,36 +8,50 @@ namespace Equipage
 {
     abstract class Equipage
     {
-        protected int pv;
-        protected int dice;
+        private int hp;
+        public int HP
+        {
+            set
+            {
+                this.HP = value;
+            }
+            get
+            {
+                return this.HP;
+            }
+        }
+        private int dices;
+        public int Dices
+        {
+            get
+            {
+                return this.dices.length;
+            }
+        }
+        private Vaisseau room;
+        public string Room
+        {
+            get
+            {
+                return this.room.Name;
+            }
+        }
         Random rnd = new Random();
 
         public Equipage()
         {
-            pv = pif();
-            dice = pif();
+            generateHP();
+            generateDices();
         }
 
-        public int pif()
+        public void generateHP()
         {
-            return rnd.Next(2,4);
+           this.hp = rnd.Next(2,4);
         }
 
-        public int getPv()
+        public void generateDices()
         {
-            return pv;
-        }
-        public void setPv(int pv)
-        {
-            this.pv = pv;
-        }
-        public int getDice()
-        {
-            return dice;
-        }
-        public void setDice(int dice)
-        {
-            this.dice = dice;
+            this.dices = rnd.Next(2, 4);
         }
 
         public abstract override string ToString();
