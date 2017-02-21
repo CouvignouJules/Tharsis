@@ -14,7 +14,10 @@ namespace Equipage
         {
             foreach ( Equipage membre in list)
             {
-                membre.setPv(membre.getPv() + 1);
+                if (membre.getPv() < 6)
+                {
+                    membre.setPv(membre.getPv() + 1);
+                }  
             }
         }
 

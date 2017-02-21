@@ -10,9 +10,16 @@ namespace Equipage
     {
         public Capitaine() : base() { }
 
-        public void Capacite()
+        public void Capacite(List<Equipage> list)
         {
-
+            foreach (Equipage membre in list)
+            {
+                if (membre.getDice() < 6)
+                {
+                    membre.setDice(membre.getDice() + 1);
+                }
+                
+            }
         }
 
         public override string ToString()

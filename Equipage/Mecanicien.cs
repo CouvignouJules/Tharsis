@@ -9,7 +9,9 @@ namespace Equipage
     class Mecanicien : Equipage
     {
 
-        public override void Capacite()
+
+
+        public override string ToString()
         {
             throw new NotImplementedException();
         }
