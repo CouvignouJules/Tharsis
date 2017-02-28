@@ -21,6 +21,7 @@ namespace Equipage
                 return this.hp;
             }
         }
+
         private int dices;
         public int Dices
         {
@@ -33,7 +34,8 @@ namespace Equipage
                 this.dices = value;
             }
         }
-        private Vaisseau.Room room;
+
+        private Room room;
         public string Room
         {
             get
@@ -55,7 +57,7 @@ namespace Equipage
 
         public void generateHP()
         {
-           this.hp = rnd.Next(2,4);
+           this.hp = rnd.Next(2, 4);
         }
 
         public void generateDices()

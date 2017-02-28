@@ -7,18 +7,16 @@ using Vaisseau;
 
 namespace Equipage
 {
-    class Commandant : Equipage
+    public class Commandant : Equipage
     {
         public Commandant() : base() { }
 
         public void Capacite(Vaisseau.Vaisseau vaisseau)
         {
-            foreach(Vaisseau.Room room in vaisseau.Rooms)
+            foreach(Room room in vaisseau.Rooms)
             {
                 if (room.Nom == this.Room)
-                {
                     room.Panne -= 10;
-                }
             }
         }
 

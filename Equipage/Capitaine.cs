@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Equipage
 {
-    class Capitaine : Equipage
+    public class Capitaine : Equipage
     {
         public Capitaine() : base() { }
 
@@ -15,9 +15,7 @@ namespace Equipage
             foreach (Equipage membre in list)
             {
                 if (membre.Dices < 6)
-                {
                     membre.Dices = membre.Dices + 1;
-                }  
             }
         }
 
