@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vaisseau;
 
 namespace Equipage
 {
@@ -10,7 +11,7 @@ namespace Equipage
     {
         public Mecanicien() : base() { }
 
-        public void Capacite(Vaisseau vaisseau)
+        public void Capacite(Vaisseau.Vaisseau vaisseau)
         {
             if (vaisseau.HP < 10 && vaisseau.HP >0)
             vaisseau.HP += 1;

@@ -9,7 +9,7 @@ namespace Vaisseau
     public class Vaisseau
     {
         private int hp;
-        public int Hp
+        public int HP
         {
             get
             {
