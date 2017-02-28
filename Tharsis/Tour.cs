@@ -9,7 +9,7 @@ using Vaisseau;
 
 namespace Tharsis
 {
-    class Tour
+    public class Tour
     {
         
     }

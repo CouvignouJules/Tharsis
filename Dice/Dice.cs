@@ -19,7 +19,7 @@ namespace Dice
 
             if (numberOfSides <= 0)
             {
-                throw new  Exception("Number of sides must be greater than zero.");
+                throw new Exception("Number of sides must be greater than zero.");
             }
 
             int[] roll = new int[numberOfDice];
@@ -44,3 +44,4 @@ namespace Dice
             return result.ToString();
         }
     }
+}

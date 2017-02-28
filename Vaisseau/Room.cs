@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vaisseau
 {
-    class Room
+    public class Room
     {
         private int numero;
         public int Numero
@@ -35,6 +35,10 @@ namespace Vaisseau
             get
             {
                 return nom;
+            }
+            set
+            {
+                nom = value;
             }
         }
 

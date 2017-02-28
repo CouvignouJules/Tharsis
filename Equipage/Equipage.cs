@@ -33,16 +33,16 @@ namespace Equipage
                 this.dices = value;
             }
         }
-        private Vaisseau.Vaisseau room;
+        private Vaisseau.Room room;
         public string Room
         {
             get
             {
-                return this.room.Name;
+                return this.room.Nom;
             }
             set
             {
-                this.room = value;
+                this.room.Nom = value;
             }
         }
         Random rnd = new Random();
