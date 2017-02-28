@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vaisseau
 {
-    class Vaisseau
+    public class Vaisseau
     {
         private int hp;
         public int Hp

@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vaisseau;
 
 namespace Equipage
 {
-    abstract class Equipage
+    abstract public class Equipage
     {
         private int hp;
         public int HP
@@ -32,7 +33,7 @@ namespace Equipage
                 this.dices = value;
             }
         }
-        private Vaisseau room;
+        private Vaisseau.Vaisseau room;
         public string Room
         {
             get
