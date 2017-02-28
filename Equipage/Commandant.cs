@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vaisseau;
 
 namespace Equipage
 {
@@ -10,11 +11,11 @@ namespace Equipage
     {
         public Commandant() : base() { }
 
-        public void Capacite(Vaisseau vaisseau)
+        public void Capacite(Vaisseau.Vaisseau vaisseau)
         {
-            foreach(Vaisseau room in vaisseau.ListRooms)
+            foreach(Vaisseau.Room room in vaisseau.Rooms)
             {
-                if (room.Name == this.Room)
+                if (room.Nom == this.Room)
                 {
                     room.Panne -= 10;
                 }
