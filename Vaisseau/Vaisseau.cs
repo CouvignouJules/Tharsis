@@ -39,14 +39,14 @@ namespace Vaisseau
 
         public void generateHp()
         {
-            this.hp = rnd.Next(2, 6);
+            hp = rnd.Next(2, 6);
         }
 
 
 
         public override string ToString()
         {
-            return string.Format("le vaisseau a {0} PV",this.Hp);
+            return string.Format("le vaisseau a {0} PV", Hp);
         }
     }
 }

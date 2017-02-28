@@ -16,6 +16,7 @@ namespace Vaisseau
                 return numero;
             }
         }
+
         private int panne;
         public int Panne
         {
@@ -29,6 +30,7 @@ namespace Vaisseau
                 panne = value;
             }
         }
+
         private string nom;
         public string Nom
         {
