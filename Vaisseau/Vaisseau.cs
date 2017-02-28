@@ -47,7 +47,7 @@ namespace Vaisseau
 
         public void generateHp()
         {
-            this.hp = rnd.Next(2, 6);
+            hp = rnd.Next(2, 6);
         }
 
 
