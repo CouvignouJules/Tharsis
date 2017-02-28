@@ -54,7 +54,7 @@ namespace Vaisseau
 
         public override string ToString()
         {
-            return string.Format("le vaisseau a {0} PV", Hp);
+            return string.Format("le vaisseau a {0} PV", HP);
         }
     }
 }
