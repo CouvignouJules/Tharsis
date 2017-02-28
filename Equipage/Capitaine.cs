@@ -23,7 +23,7 @@ namespace Equipage
 
         public override string ToString()
         {
-            return string.Format("Le medecin a {0} point de vie, il possède {1} dés et se trouve dans la salle : {2}.", this.HP, this.Dices, this.Room);
+            return string.Format("Le capitaine a {0} point de vie, il possède {1} dés et se trouve dans la salle : {2}.", this.HP, this.Dices, this.Room);
         }
     }
 }
