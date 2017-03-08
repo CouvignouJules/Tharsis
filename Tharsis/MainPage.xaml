@@ -7,7 +7,34 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <RelativePanel>
+        <RelativePanel.Background>
+            <ImageBrush ImageSource="Assets/background.png"></ImageBrush>
+        </RelativePanel.Background>
 
-    </Grid>
+        <Grid Name="MainGrid" RenderTransformOrigin="0.5,0.5" Margin="474.838,224.516,-474.838,-224.666">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Name="pilotage" Source="Assets/pilotage.png" Width="200" Grid.Row="1" Grid.Column="0"/>
+            <Image Name="serre" Source="Assets/serre.png" Width="200" Grid.Row="1" Grid.Column="1"/>
+            <Image Name="infirmerie" Source="Assets/infirmerie.png" Width="200" Grid.Row="1" Grid.Column="2"/>
+            <Image Name="laboratoire" Source="Assets/laboratoire.png" Width="200" Grid.Row="0" Grid.Column="2"/>
+            <Image Name="survie" Source="Assets/survie.png" Width="200" Grid.Row="2" Grid.Column="2" />
+            <Image Name="detente" Source="Assets/detente.png" Width="150" Height="200" Grid.Row="1" Grid.Column="3" Margin="0,18,0,0"/>
+            <Image Name="maintenance" Source="Assets/maintenance.png" Width="200" Grid.Row="1" Grid.Column="4" />
+
+        </Grid>
+
+    </RelativePanel>
 </Page>
