@@ -12,7 +12,7 @@
             <ImageBrush ImageSource="Assets/background.png"></ImageBrush>
         </RelativePanel.Background>
 
-        <Grid Name="MainGrid" RenderTransformOrigin="0.5,0.5" Margin="474.838,224.516,-474.838,-224.666">
+        <Grid Name="MainGrid">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>

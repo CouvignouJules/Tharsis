@@ -13,11 +13,6 @@
         </RelativePanel.Background>
 
         <Grid Name="StartMenu" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" RenderTransformOrigin="0.988,1.403">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="2*"/>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="1*"/>
-            </Grid.RowDefinitions>
 
             <TextBlock FontSize="300" Grid.Row="1">Jouer</TextBlock>
         </Grid>

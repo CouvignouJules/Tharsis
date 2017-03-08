@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.IO;
 
 namespace Tharsis
 {
@@ -28,8 +29,10 @@ namespace Tharsis
 
         private static void FillDoc()
         {
+            byte[] byteArray = Encoding.UTF8.GetBytes(FileName);
+            MemoryStream stream = new MemoryStream(byteArray);
             _doc = new XmlDocument();
-            _doc.Load(FileName);
+            _doc.Load(stream);   
         }
     }
 }
