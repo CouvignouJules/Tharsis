@@ -14,7 +14,7 @@ namespace Dice
         {
             if (numberOfDice <= 0)
             {
-                throw new Exception("Number of die must be greater than zero.");
+                throw new Exception("Number of dices must be greater than zero.");
             }
 
             if (numberOfSides <= 0)
