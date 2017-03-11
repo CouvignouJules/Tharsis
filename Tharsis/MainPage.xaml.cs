@@ -8,6 +8,7 @@ using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Equipage;
+using Vaisseau;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -28,44 +29,41 @@ namespace Tharsis
             this.InitializeComponent();
         }
 
+        // Ferme l'application
         private void exitButton_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Exit();
         }
 
+        // jete les dés du membre d'équipage puis affiche le résultat dans un bloc de texte
         private void rollDices_Click(object sender, RoutedEventArgs e)
         {
-            Rol
+            Equipage.Equipage membre = (Equipage.Equipage)sender;
+
+            List<String> dicesRolled = new List<string>();
+
+            for (int i = 0; i < membre.Dices; i++) {
+                dicesRolled.Add(Dice.Dice.Roll(6,6));
+            }
+
+            foreach (String result in dicesRolled)
+            {
+                diceResults.Text += result + "\n";
+            }
         }
 
-        private void keepDice_Click(object sender, RoutedEventArgs e)
+        // Activation de la capacité spéciale du membre d'équipage
+        private void specialAbility_Click(object sender, Vaisseau.Vaisseau vaisseau, List<Equipage.Equipage> equipage, RoutedEventArgs e)
         {
+            Equipage.Equipage membre = (Equipage.Equipage)sender;
 
+            membre.Capacite(vaisseau, equipage);
         }
 
-        private void B_pilotage_Click(object sender, RoutedEventArgs e)
+        // Affiche les PV du vaisseau
+        public String Health(Vaisseau.Vaisseau vaisseau)
         {
-
-        }
-
-        private void B_serre_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void B_infirmeri_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void B_laboratoire_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void B_survie_Click(object sender, RoutedEventArgs e)
-        {
-
+            return vaisseau.ToString();
         }
     }
 }
