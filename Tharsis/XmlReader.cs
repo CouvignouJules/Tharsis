@@ -4,32 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace Tharsis
 {
     class XmlReader
     {
-        private static XmlReader instance = null;
-        private const String FileName = "Scenario.xml";
-        private static XmlDocument _doc;
+        private static XmlReader _instance;
+        IEnumerable<XElement> pannes;
+        List<int> semaine = new List<int>();
 
-        private XmlReader() { }
-
-        static XmlReader()
+        // Constructor is 'protected'
+        protected XmlReader()
         {
-            instance = new XmlReader();
-            FillDoc();
+            XElement doc = XElement.Load("..\\..\\senar.xml");
+            pannes = doc.Elements();
         }
 
-        public static XmlReader GetInstance()
+        public static XmlReader Instance()
         {
-            return instance;
-        }
+            // Uses lazy initialization.
+            // Note: this is not thread safe.
+            if (_instance == null)
+            {
+                _instance = new XmlReader();
+            }
 
-        private static void FillDoc()
+            return _instance;
+        }
+        public List<int> getPanne(int numSemaine)
         {
-            _doc = new XmlDocument();
-            _doc.Load(FileName);
+            foreach (var p in pannes)
+            {
+                if (Int32.Parse(p.Element("numero").Value) == numSemaine)
+                {
+                    semaine.Add(Int32.Parse(p.Element("petite").Value));
+                    semaine.Add(Int32.Parse(p.Element("moyenne").Value));
+                    semaine.Add(Int32.Parse(p.Element("grosse").Value));
+                }
+            }
+            return semaine;
         }
     }
 }
