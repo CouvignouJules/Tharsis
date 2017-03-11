@@ -7,7 +7,7 @@ using Vaisseau;
 
 namespace Equipage
 {
-    abstract public class Equipage
+    abstract public class Membre
     {
         private int hp;
         public int HP
@@ -35,24 +35,25 @@ namespace Equipage
             }
         }
 
-        private Room room;
+        private int room;
         public string Room
         {
             get
             {
-                return this.room.Nom;
+                return this.Room;
             }
             set
             {
-                this.room.Nom = value;
+                this.Room = value;
             }
         }
         Random rnd = new Random();
 
-        public Equipage()
+        public Membre()
         {
             generateHP();
             generateDices();
+            giveRoom();
         }
 
         public void generateHP()
@@ -65,7 +66,11 @@ namespace Equipage
             this.dices = rnd.Next(2, 4);
         }
 
-        public abstract void Capacite(Vaisseau.Vaisseau vaisseau, List<Equipage> equipage);
+        public void giveRoom()
+        {
+            this.room = rnd.Next(1, 7);
+        }
+
         public abstract override string ToString();
     }
 }

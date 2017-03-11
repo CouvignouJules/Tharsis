@@ -109,7 +109,7 @@
   <ItemGroup>
     <Compile Include="Capitaine.cs" />
     <Compile Include="Commandant.cs" />
-    <Compile Include="Equipage.cs" />
+    <Compile Include="Membre.cs" />
     <Compile Include="Mecanicien.cs" />
     <Compile Include="Medecin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
