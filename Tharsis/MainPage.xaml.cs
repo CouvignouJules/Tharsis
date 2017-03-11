@@ -9,6 +9,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Equipage;
 using Vaisseau;
+using Dice;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -38,30 +39,26 @@ namespace Tharsis
         // jete les dés du membre d'équipage puis affiche le résultat dans un bloc de texte
         private void rollDices_Click(object sender, RoutedEventArgs e)
         {
-            Equipage.Equipage membre = (Equipage.Equipage)sender;
+            Membre membre = (Membre)sender;
+            int[] dicesRolled ;
 
-            List<String> dicesRolled = new List<string>();
+               dicesRolled = Dice.Roll.RollTheDices(6,6);
+            
 
-            for (int i = 0; i < membre.Dices; i++) {
-                dicesRolled.Add(Dice.Dice.Roll(6,6));
-            }
-
-            foreach (String result in dicesRolled)
+            foreach (int result in dicesRolled)
             {
                 diceResults.Text += result + "\n";
             }
         }
 
-        // Activation de la capacité spéciale du membre d'équipage
-        private void specialAbility_Click(object sender, Vaisseau.Vaisseau vaisseau, List<Equipage.Equipage> equipage, RoutedEventArgs e)
+         //Activation de la capacité spéciale du membre d'équipage
+         void specialAbility_Click(object sender, Appareille vaisseau, List<Membre> menbres, RoutedEventArgs e)
         {
-            Equipage.Equipage membre = (Equipage.Equipage)sender;
-
-            membre.Capacite(vaisseau, equipage);
+            
         }
 
         // Affiche les PV du vaisseau
-        public String Health(Vaisseau.Vaisseau vaisseau)
+        public String Health(Vaisseau.Appareille vaisseau)
         {
             return vaisseau.ToString();
         }

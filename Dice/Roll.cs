@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Dice
 {
-    public class Dice
+    public class Roll
     {
         private static Random _random = new Random(); // une seule instance !
 
 
-        public static int[] Roll(int numberOfDice, int numberOfSides)
+        public static int[] RollTheDices(int numberOfDice, int numberOfSides)
         {
             if (numberOfDice <= 0)
             {
