@@ -7,7 +7,6 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Dice;
 using Equipage;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
@@ -36,7 +35,37 @@ namespace Tharsis
 
         private void rollDices_Click(object sender, RoutedEventArgs e)
         {
-            
+            Rol
+        }
+
+        private void keepDice_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void B_pilotage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void B_serre_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void B_infirmeri_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void B_laboratoire_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void B_survie_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

@@ -95,6 +95,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Dice.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -145,10 +146,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Dice\Dice.csproj">
-      <Project>{46b3b59f-aeb7-4006-ad59-3aa9fb2b2b96}</Project>
-      <Name>Dice</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Equipage\Equipage.csproj">
       <Project>{b751ef8e-c268-48f5-b074-7a735648a92a}</Project>
       <Name>Equipage</Name>
@@ -157,6 +154,9 @@
       <Project>{3709350c-bb82-40a5-be46-86316622ab68}</Project>
       <Name>Vaisseau</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

@@ -7,10 +7,12 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:gif="using:XamlAnimatedGif"
     mc:Ignorable="d">
+    
 
     <RelativePanel>
 
-        <Grid Name="MainGrid" Margin="45,39,-45,-39">
+   
+        <Grid Name="MainGrid" Margin="45,-418,-804,21.667">
 
             <Grid.Background>
                 <ImageBrush ImageSource="Assets/space.gif"/>
@@ -23,7 +25,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -32,19 +34,40 @@
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Name="pilotage" Source="Assets/pilotage.png" Width="200" Grid.Row="1" Grid.Column="0"/>
-            <Image Name="serre" Source="Assets/serre.png" Width="200" Grid.Row="1" Grid.Column="1"/>
-            <Image Name="infirmerie" Source="Assets/infirmerie.png" Width="200" Grid.Row="1" Grid.Column="2" Margin="0,10,0,200" Grid.RowSpan="2"/>
-            <Image Name="laboratoire" Source="Assets/laboratoire.png" Width="200" Grid.Row="0" Grid.Column="2"/>
-            <Image Name="survie" Source="Assets/survie.png" Width="200" Grid.Row="2" Grid.Column="2" />
-            <Image Name="detente" Source="Assets/detente.png" Width="150" Height="200" Grid.Row="1" Grid.Column="2" Margin="190,28,10,200" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <Image Name="maintenance" Source="Assets/maintenance.png" Width="200" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Margin="165,0,10,0" />
+            <Button Name="B_pilotage" Width="200" Grid.Row="1" Grid.Column="0" Click="B_pilotage_Click">
+                <Image Name="pilotage" Source="Assets/pilotage.png" />
+            </Button>
+
+            <Button Name="B_serre" Width="200" Grid.Row="1" Grid.Column="1" Click="B_serre_Click">
+                <Image Name="serre" Source="Assets/serre.png"/>
+            </Button>
+
+            <Button Name="B_infirmeri" Width="200" Grid.Row="1" Grid.Column="2" Click="B_infirmeri_Click">
+                <Image Name="infirmerie" Source="Assets/infirmerie.png"/>
+            </Button>
+
+            <Button Name="B_laboratoire" Width="200" Grid.Row="0" Grid.Column="2" Click="B_laboratoire_Click">
+                <Image Name="laboratoire" Source="Assets/laboratoire.png"/>
+            </Button>
+
+            <Button Name="B_survie" Width="200" Grid.Row="2" Grid.Column="2" Click="B_survie_Click">
+                <Image Name="survie" Source="Assets/survie.png"/>
+            </Button>
+
+            <Button Name="B_detente" Width="200" Grid.Row="1" Grid.Column="3">
+               <Image Name="detente" Source="Assets/detente.png"  Margin="9,27.667,28.667,10.333"/>
+            </Button>
+
+            <Button Name="B_maintenance" Grid.Column="4" Grid.Row="1" Margin="10.333,9.667,10.667,0.333">
+                <Image Name="maintenance" Source="Assets/maintenance.png"  />
+            </Button>
             
+
             <Button Name="rollDices" Content="Jeter les dés" Background="White" FontSize="20" FontFamily="Arial" Grid.Row="3" Grid.Column="1" Width="150" Height="50" Margin="25,0,0,0" Click="rollDices_Click"/>
-            <Button Name="keepDice" Content="Mettre de côté" Background="White" FontSize="20" FontFamily="Arial" Width="150" Height="50" Grid.Column="4" Grid.Row="3" Margin="25,0,0,0"/>
+            <Button Name="keepDice" Content="Mettre de côté" Background="White" FontSize="20" FontFamily="Arial" Width="150" Height="50" Grid.Column="4" Grid.Row="3" Margin="25,0,0,0" Click="keepDice_Click"/>
             <Button Name="exitButton" Content="Quitter" Background="White" FontSize="20" FontFamily="Arial" Width="150" Height="50" Grid.Column="4" Margin="27.5,10,0,126" Click="exitButton_Click"/>
 
-            <TextBlock Name="member" />
+            <TextBlock Name="info"/>
             <TextBlock Name="diceResults" Width="150" Height="50" Grid.Row="3" Grid.Column="0" Margin="25,0,0,0"/>
 
         </Grid>

@@ -10,8 +10,7 @@ namespace Dice
     {
         private static Random _random = new Random(); // une seule instance !
 
-
-        public static int[] Roll(int numberOfDice, int numberOfSides)
+        public static string Roll(int numberOfDice, int numberOfSides)
         {
             if (numberOfDice <= 0)
             {
@@ -42,7 +41,7 @@ namespace Dice
             result.AppendFormat("\t\t--\n");
             result.AppendFormat("TOTAL:\t\t{0}", total);
 
-            return roll;
+            return result.ToString();
         }
     }
 }

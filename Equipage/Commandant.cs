@@ -11,7 +11,7 @@ namespace Equipage
     {
         public Commandant() : base() { }
 
-        public void Capacite(Vaisseau.Vaisseau vaisseau)
+        public void Capacite(Vaisseau.Appareille vaisseau)
         {
             foreach(Room room in vaisseau.Rooms)
             {
