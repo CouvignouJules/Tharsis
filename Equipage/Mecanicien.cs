@@ -11,7 +11,7 @@ namespace Equipage
     {
         public Mecanicien() : base() { }
 
-        public void Capacite(Vaisseau.Vaisseau vaisseau)
+        public override void Capacite(Vaisseau.Vaisseau vaisseau, List<Equipage> equipage)
         {
             if (vaisseau.HP < 10 && vaisseau.HP > 0)
                 vaisseau.HP += 1;

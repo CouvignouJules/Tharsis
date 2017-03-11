@@ -10,7 +10,7 @@ namespace Equipage
     {
         public Medecin() : base() { }
 
-        public void Capacite(List<Equipage> equipage)
+        public override void Capacite(Vaisseau.Vaisseau vaisseau, List<Equipage> equipage)
         {
             foreach (Equipage membre in equipage)
             {

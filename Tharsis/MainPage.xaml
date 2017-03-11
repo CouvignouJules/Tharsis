@@ -6,11 +6,11 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:gif="using:XamlAnimatedGif"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Height="810" Width="1350">
 
     <RelativePanel>
 
-        <Grid Name="MainGrid" Margin="45,39,-45,-39">
+        <Grid Name="MainGrid" Margin="0,0,-1920,-1080">
 
             <Grid.Background>
                 <ImageBrush ImageSource="Assets/space.gif"/>
@@ -23,7 +23,7 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
-            
+
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -39,12 +39,12 @@
             <Image Name="survie" Source="Assets/survie.png" Width="200" Grid.Row="2" Grid.Column="2" />
             <Image Name="detente" Source="Assets/detente.png" Width="150" Height="200" Grid.Row="1" Grid.Column="2" Margin="190,28,10,200" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
             <Image Name="maintenance" Source="Assets/maintenance.png" Width="200" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Margin="165,0,10,0" />
-            
-            <Button Name="rollDices" Content="Jeter les dés" Background="White" FontSize="20" FontFamily="Arial" Grid.Row="3" Grid.Column="1" Width="150" Height="50" Margin="25,0,0,0" Click="rollDices_Click"/>
-            <Button Name="keepDice" Content="Mettre de côté" Background="White" FontSize="20" FontFamily="Arial" Width="150" Height="50" Grid.Column="4" Grid.Row="3" Margin="25,0,0,0"/>
-            <Button Name="exitButton" Content="Quitter" Background="White" FontSize="20" FontFamily="Arial" Width="150" Height="50" Grid.Column="4" Margin="27.5,10,0,126" Click="exitButton_Click"/>
 
-            <TextBlock Name="member" />
+            <Button Name="rollDices" Content="Jeter les dés" Background="White" FontSize="40" FontFamily="Arial" Grid.Row="4" Width="259" Height="60" Margin="129,72,0,161" Click="rollDices_Click" Grid.ColumnSpan="2"/>
+            <Button Name="exitButton" Content="Quitter" Background="White" FontSize="40" FontFamily="Arial" Width="259" Height="60" Grid.Column="4" Margin="85,54,0,180" Click="exitButton_Click"/>
+            <Button Name="specialAbility" Content="Capacité spéciale" Background="White" FontSize="40" FontFamily="Arial" Width="350" Height="60" Grid.Column="4" Grid.Row="4" Margin="10,76,0,165" Click="specialAbility_Click"/>
+
+            <TextBlock Name="shipHealth" Width="150" Height="50" Grid.Row="0" Grid.Column="0" Margin="0,0,50,136" RenderTransformOrigin="0.5,0.5" Text="{Binding Health}"/>
             <TextBlock Name="diceResults" Width="150" Height="50" Grid.Row="3" Grid.Column="0" Margin="25,0,0,0"/>
 
         </Grid>

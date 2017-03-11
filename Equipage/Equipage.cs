@@ -65,6 +65,7 @@ namespace Equipage
             this.dices = rnd.Next(2, 4);
         }
 
+        public abstract void Capacite(Vaisseau.Vaisseau vaisseau, List<Equipage> equipage);
         public abstract override string ToString();
     }
 }

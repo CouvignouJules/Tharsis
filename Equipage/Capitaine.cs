@@ -10,9 +10,9 @@ namespace Equipage
     {
         public Capitaine() : base() { }
 
-        public void Capacite(List<Equipage> list)
+        public override void Capacite(Vaisseau.Vaisseau vaisseau, List<Equipage> equipage)
         {
-            foreach (Equipage membre in list)
+            foreach (Equipage membre in equipage)
             {
                 if (membre.Dices < 6)
                     membre.Dices = membre.Dices + 1;
