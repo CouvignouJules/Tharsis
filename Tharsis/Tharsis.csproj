@@ -109,14 +109,29 @@
     <None Include="Tharsis_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\background.png" />
+    <Content Include="Assets\detente.png" />
+    <Content Include="Assets\dicefacefive.jpeg" />
+    <Content Include="Assets\dicefacefour.jpeg" />
+    <Content Include="Assets\dicefaceone.jpeg" />
+    <Content Include="Assets\dicefacesix.jpeg" />
+    <Content Include="Assets\dicefacethree.jpeg" />
+    <Content Include="Assets\dicefacetwo.jpeg" />
+    <Content Include="Assets\infirmerie.png" />
+    <Content Include="Assets\laboratoire.png" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\maintenance.png" />
+    <Content Include="Assets\pilotage.png" />
+    <Content Include="Assets\serre.png" />
+    <Content Include="Assets\space.gif" />
     <Content Include="Assets\SplashScreen.scale-200.png" />
     <Content Include="Assets\Square150x150Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.scale-200.png" />
     <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
     <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\survie.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Properties\Default.rd.xml" />
     <Content Include="Scenario.xml" />
   </ItemGroup>
   <ItemGroup>

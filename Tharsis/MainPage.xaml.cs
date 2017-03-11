@@ -7,6 +7,8 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Dice;
+using Equipage;
 using Windows.UI.Xaml.Controls.Primitives;
 using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
@@ -25,6 +27,16 @@ namespace Tharsis
         public MainPage()
         {
             this.InitializeComponent();
+        }
+
+        private void exitButton_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
+
+        private void rollDices_Click(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }
