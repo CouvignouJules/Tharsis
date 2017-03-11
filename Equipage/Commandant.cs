@@ -7,7 +7,7 @@ using Vaisseau;
 
 namespace Equipage
 {
-    public class Commandant : Equipage
+    public class Commandant : Membre
     {
         public Commandant() : base() { }
 

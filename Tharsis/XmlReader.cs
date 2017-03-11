@@ -14,17 +14,14 @@ namespace Tharsis
         IEnumerable<XElement> pannes;
         List<int> semaine = new List<int>();
 
-        // Constructor is 'protected'
         protected XmlReader()
         {
-            XElement doc = XElement.Load("..\\..\\senar.xml");
+            XElement doc = XElement.Load("..\\..\\Scenario.xml");
             pannes = doc.Elements();
         }
 
         public static XmlReader Instance()
         {
-            // Uses lazy initialization.
-            // Note: this is not thread safe.
             if (_instance == null)
             {
                 _instance = new XmlReader();

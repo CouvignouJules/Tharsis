@@ -11,6 +11,7 @@ namespace Tharsis
 {
     public class Tour
     {
+        List<> equipage = new List<Equipage>();
         
     }
 }

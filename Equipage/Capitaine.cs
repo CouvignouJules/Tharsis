@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace Equipage
 {
-    public class Capitaine : Equipage
+    public class Capitaine : Membre
     {
         public Capitaine() : base() { }
 
-        public void Capacite(List<Equipage> list)
+        public void Capacite(List<Membre> list)
         {
-            foreach (Equipage membre in list)
+            foreach (Membre membre in list)
             {
                 if (membre.Dices < 6)
                     membre.Dices = membre.Dices + 1;

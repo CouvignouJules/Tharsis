@@ -7,7 +7,7 @@ using Vaisseau;
 
 namespace Equipage
 {
-    public class Mecanicien : Equipage
+    public class Mecanicien : Membre
     {
         public Mecanicien() : base() { }
 

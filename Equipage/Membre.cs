@@ -7,7 +7,7 @@ using Vaisseau;
 
 namespace Equipage
 {
-    abstract public class Equipage
+    abstract public class Membre
     {
         private int hp;
         public int HP
