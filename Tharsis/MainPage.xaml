@@ -52,11 +52,11 @@
                 <Image Name="survie" Source="Assets/survie.png"/>
             </Button>
 
-            <Button Name="B_detente" Width="200" Grid.Row="1" Grid.Column="3">
+            <Button Name="B_detente" Width="200" Grid.Row="1" Grid.Column="3" Click="B_detente_Click">
                <Image Name="detente" Source="Assets/detente.png"  Margin="9,27.667,28.667,10.333"/>
             </Button>
 
-            <Button Name="B_maintenance" Width="200" Grid.Column="4" Grid.Row="1" Margin="10.333,9.667,10.667,0.333">
+            <Button Name="B_maintenance" Width="200" Grid.Column="4" Grid.Row="1" Margin="10.333,9.667,10.667,0.333" Click="B_maintenance_Click">
                 <Image Name="maintenance" Source="Assets/maintenance.png"  />
             </Button>
             

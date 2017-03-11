@@ -39,10 +39,10 @@ namespace Tharsis
         // jete les dés du membre d'équipage puis affiche le résultat dans un bloc de texte
         private void rollDices_Click(object sender, RoutedEventArgs e)
         {
-            Membre membre = (Membre)sender;
-            int[] dicesRolled ;
+            
+            int[] dicesRolled;
 
-               dicesRolled = Dice.Roll.RollTheDices(6,6);
+               dicesRolled = Roll.RollTheDices(6,6);
             
 
             foreach (int result in dicesRolled)
@@ -58,9 +58,49 @@ namespace Tharsis
         }
 
         // Affiche les PV du vaisseau
-        public String Health(Vaisseau.Appareille vaisseau)
+        public String Health(Appareille vaisseau)
         {
             return vaisseau.ToString();
+        }
+
+        private void B_survie_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void B_laboratoire_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void B_infirmeri_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void B_serre_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void B_pilotage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void B_maintenance_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void B_detente_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void keepDice_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

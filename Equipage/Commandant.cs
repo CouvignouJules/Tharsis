@@ -11,7 +11,7 @@ namespace Equipage
     {
         public Commandant() : base() { }
 
-        public override void Capacite(Vaisseau.Vaisseau vaisseau, List<Equipage> equipage)
+        public void Capacite(Appareille vaisseau, List<Membre> equipage)
         {
             foreach(Room room in vaisseau.Rooms)
             {
