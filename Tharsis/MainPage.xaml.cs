@@ -41,6 +41,8 @@ namespace Tharsis
             comboMembre.Items.Add(Mecanicien);
             comboMembre.Items.Add(Medecin);
             comboMembre.SelectedIndex = 0;
+
+            InitRooms();
         }
 
         public void InitEquipage()
@@ -49,6 +51,16 @@ namespace Tharsis
             equipage.Add(new Commandant());
             equipage.Add(new Mecanicien());
             equipage.Add(new Medecin());
+        }
+
+        public void InitRooms()
+        {
+            List<Room> rooms = Falconne.Rooms;
+
+            foreach (Room room in rooms)
+            {
+                roomMoving.Items.Add(room.Nom);
+            }
         }
 
         // Ferme l'application
@@ -123,6 +135,17 @@ namespace Tharsis
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
             equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Capacite(Falconne, equipage);
+        }
+
+        private void B_deplacement_Click(object sender, RoutedEventArgs e)
+        {
+            if (equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room != roomMoving.SelectedIndex)
+            {
+                equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room = roomMoving.SelectedIndex;
+                B_info_Click(sender, e);
+            } else {
+                infoRomm.Text = "Ce membre d'équipage se situe déjà dans cette salle !";
+            }
         }
     }
 }

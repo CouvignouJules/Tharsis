@@ -1,0 +1,33 @@
+﻿<Page
+    x:Class="Tharsis.StartPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tharsis"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <RelativePanel>
+        <Grid Name="Start" Margin="0,0,-1920,-1080">
+            <Grid.Background>
+                <ImageBrush ImageSource="Assets/space.gif"/>
+            </Grid.Background>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Button Name="play" Content="Jouer" Background="White" FontSize="50" FontFamily="Arial" Width="442" Height="163" Grid.Column="1"  Grid.Row="1" Margin="238,10,0,87" Click="play_Click"/>
+            <Button Name="quit" Content="Quitter" Background="White" FontSize="50" FontFamily="Arial" Width="442" Height="163" Grid.Column="1" Grid.Row="2" Margin="238,10,0,87" Click="quit_Click"/>
+        </Grid>
+
+    </RelativePanel>
+</Page>

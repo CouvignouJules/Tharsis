@@ -22,9 +22,9 @@ namespace Tharsis
 
             while (numSemaine < 10)
             {
-                //recuperation de la liste des panne de la semaine en cour
+                //recuperation de la liste des pannes de la semaine en cours
                 List<int> listPannes = reader.getPanne(numSemaine);
-                //genere les panne requise
+                //genere les pannes requises
                 if (listPannes[0] > 0)
                 {
                     for(int i = 0; i <= listPannes[0]; i++)
@@ -51,7 +51,7 @@ namespace Tharsis
             }
         }
 
-        //genere la liste des menbres d'equipage
+        //genere la liste des membres d'equipage
         public void InitEquipage()
         {
             equipage.Add(new Capitaine());
@@ -60,22 +60,22 @@ namespace Tharsis
             equipage.Add(new Medecin());
         }
 
-        //affecte a une salle au hasar la valeur d'une petite panne
+        //affecte à une salle au hasard la valeur d'une petite panne
         public void MakeGrossePanne()
         {
 
         }
-        //affecte a une salle au hasar la valeur d'une moyenne panne
+        //affecte a une salle au hasard la valeur d'une moyenne panne
         public void MakeMoyennePanne()
         {
 
         }
-        //affecte a une salle au hasar la valeur d'une grosse panne
+        //affecte a une salle au hasard la valeur d'une grosse panne
         public void MakePetitePanne()
         {
 
         }
-        //decrit le cour de capitaine
+        //decrit le tour de capitaine
         public void TourCapitaine()
         {
 
