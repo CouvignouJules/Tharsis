@@ -25,7 +25,7 @@ namespace Tharsis
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        Appareille Falconne = new Appareille();
+        Appareil Falconne = new Appareil();
         List<Membre> equipage = new List<Membre>();
 
         public MainPage()
@@ -69,7 +69,7 @@ namespace Tharsis
         }
 
         // Affiche les PV du vaisseau
-        public String Health(Appareille vaisseau)
+        public String Health(Appareil vaisseau)
         {
             return vaisseau.ToString();
         }

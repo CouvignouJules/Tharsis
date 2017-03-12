@@ -13,7 +13,7 @@ namespace Tharsis
     {
         int numSemaine = 1;
         List<Membre> equipage = new List<Membre>();
-        Appareille vaisseau = new Appareille();
+        Appareil vaisseau = new Appareil();
         // gere le deroulement general du jeu
         public void game()
         { 

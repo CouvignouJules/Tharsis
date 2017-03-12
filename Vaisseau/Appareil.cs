@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vaisseau
 {
-    public class Appareille
+    public class Appareil
     {
         private int hp;
         public int HP
@@ -33,7 +33,7 @@ namespace Vaisseau
 
         Random rnd = new Random();
 
-        public Appareille()
+        public Appareil()
         {
             generateHp();
             rooms.Add(new Room(1, "Pilotage", 0));
