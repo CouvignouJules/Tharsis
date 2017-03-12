@@ -27,22 +27,12 @@ namespace Tharsis
     {
         Appareil Falconne = new Appareil();
         List<Membre> equipage = new List<Membre>();
+        int MembreSelected;
 
         public MainPage()
         {
             this.InitializeComponent();
             InitEquipage();
-            ComboMenbre capitaine = new ComboMenbre("Capitaine", 0);
-            ComboMenbre Commandant = new ComboMenbre("Commandant", 1);
-            ComboMenbre Mecanicien = new ComboMenbre("Mecanicien", 2);
-            ComboMenbre Medecin = new ComboMenbre("Medecin", 3);
-            comboMembre.Items.Add(capitaine);
-            comboMembre.Items.Add(Commandant);
-            comboMembre.Items.Add(Mecanicien);
-            comboMembre.Items.Add(Medecin);
-            comboMembre.SelectedIndex = 0;
-
-            InitRooms();
         }
 
         public void InitEquipage()
@@ -51,16 +41,6 @@ namespace Tharsis
             equipage.Add(new Commandant());
             equipage.Add(new Mecanicien());
             equipage.Add(new Medecin());
-        }
-
-        public void InitRooms()
-        {
-            List<Room> rooms = Falconne.Rooms;
-
-            foreach (Room room in rooms)
-            {
-                roomMoving.Items.Add(room.Nom);
-            }
         }
 
         // Ferme l'application
@@ -127,31 +107,50 @@ namespace Tharsis
 
         }
 
-        private void B_info_Click(object sender, RoutedEventArgs e)
-        {
-            infoRomm.Text = equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].info(Falconne);
-        }
-
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
-            equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Capacite(Falconne, equipage);
+            equipage[MembreSelected].Capacite(Falconne, equipage);
+            info .Text = string.Format("Hp : {0} \nDice: {1} \nsalle : {2} \n ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
         }
 
         private void B_deplacement_Click(object sender, RoutedEventArgs e)
         {
-            if (equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room != roomMoving.SelectedIndex)
+            /*if (equipage[MembreSelected].Room != roomMoving.SelectedIndex)
             {
-                equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room = roomMoving.SelectedIndex;
-                B_info_Click(sender, e);
+                equipage[MembreSelected].Room = roomMoving.SelectedIndex;
+                //B_info_Click(sender, e);
             } else {
                 infoRomm.Text = "Ce membre d'équipage se situe déjà dans cette salle !";
-            }
+            }*/
+        }
+
+
+        private void B_capitaine_Click(object sender, RoutedEventArgs e)
+        {
+            menuaction.IsOpen = true;
+            MembreSelected = 0;
+            info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
         }
 
         private void B_commandant_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
+            MembreSelected = 1;
             info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[1].HP, equipage[1].Dices, Falconne.getRommName(equipage[1].Room));
+        }
+
+        private void B_medecin_Click(object sender, RoutedEventArgs e)
+        {
+            menuaction.IsOpen = true;
+            MembreSelected = 3;
+            info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[2].HP, equipage[2].Dices, Falconne.getRommName(equipage[2].Room));
+        }
+
+        private void B_mecano_Click_1(object sender, RoutedEventArgs e)
+        {
+            menuaction.IsOpen = true;
+            MembreSelected = 2;
+            info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[3].HP, equipage[3].Dices, Falconne.getRommName(equipage[3].Room));
         }
     }
 }
