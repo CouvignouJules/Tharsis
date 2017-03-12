@@ -147,5 +147,10 @@ namespace Tharsis
                 infoRomm.Text = "Ce membre d'équipage se situe déjà dans cette salle !";
             }
         }
+
+        private void B_commandant_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

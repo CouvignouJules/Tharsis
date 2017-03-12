@@ -6,15 +6,15 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:gif="using:XamlAnimatedGif"
-    mc:Ignorable="d" Height="810" Width="1350">
+    mc:Ignorable="d" Height="720" Width="1208" >
 
-    <RelativePanel>
+    <RelativePanel Margin="0,0,-72,0">
 
-        <Grid Name="MainGrid" Margin="0,0,-1920,-1080" Background="AliceBlue">
+        <Grid Name="MainGrid" Margin="0,0,-1208,-720" Height="720" Width="1208">
 
-            <!-- <Grid.Background>
+            <Grid.Background>
                 <ImageBrush ImageSource="Assets/space.gif"/>
-            </Grid.Background> -->
+            </Grid.Background>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -53,26 +53,37 @@
             </Button>
 
             <Button Name="B_detente" Width="200" Grid.Row="1" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_detente_Click">
-                <Image Name="detente" Source="Assets/detente.png"  Margin="9,27.667,28.667,10.333"/>
+                <Image Name="detente" Source="Assets/detente.png" Margin="0,0,0,0"/>
             </Button>
 
             <Button Name="B_maintenance" Width="200" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_maintenance_Click">
                 <Image Name="maintenance" Source="Assets/maintenance.png"  />
             </Button>
 
+            <Button Name="B_commandant" Width="42" Height="69" Click="B_commandant_Click"   Margin="166,25,0,34.667">
+                <Image Name="commandant" Source="Assets/Commandant.png" Margin="-21,-10,-21,-12.667" HorizontalAlignment="Right" Width="42" Height="69"/>
+            </Button>
 
             <Button Name="rollDices" Content="Jeter les dés" Background="White" FontSize="20" FontFamily="Arial" Grid.Row="3" Grid.Column="1" Width="150" Height="50" Margin="25,0,0,0" Click="rollDices_Click"/>
             <Button Name="keepDice" Content="Mettre de côté" Background="White" FontSize="20" FontFamily="Arial" Width="150" Height="50" Grid.Column="4" Grid.Row="3" Margin="25,0,0,0" Click="keepDice_Click"/>
-            <Button Name="exitButton" Content="Quitter" Background="White" FontSize="20" FontFamily="Arial" Width="150" Height="50" Grid.Column="4" Margin="27.5,10,0,126" Click="exitButton_Click"/>
+            <Button Name="exitButton" Content="Quitter" Background="White" FontSize="20" FontFamily="Arial" Grid.Column="4" Margin="81.333,10,10,68.667" Click="exitButton_Click" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
 
             <TextBlock Name="shipHealth" Width="150" Height="50" FontWeight="Bold" Foreground="White" Grid.Row="0" Grid.Column="1" Margin="0,25,234,236" RenderTransformOrigin="0.5,0.5" Text="{Binding Health}"/>
             <TextBlock Name="diceResults" Width="150" Height="50" FontWeight="Bold" Foreground="White" Grid.Row="3" Grid.Column="0" Margin="25,0,0,0"/>
-            <TextBlock Name="infoRomm" FontWeight="Bold" Foreground="White"  Grid.Column="1" Margin="25,72,10,65.667"/>
-            <Button Name="B_info" Content="info" HorizontalAlignment="Left" Margin="207,25,0,0" VerticalAlignment="Top" Click="B_info_Click"/>
-            <Button Name="B_capaciter" Content="capacite" HorizontalAlignment="Left" Margin="207,62,0,0" VerticalAlignment="Top" Click="B_capaciter_Click"/>
-            <Button Name="B_deplacement" Content="déplacer" HorizontalAlignment="Left" Margin="207,110,0,0" VerticalAlignment="Top" Click="B_deplacement_Click"/>
+            <TextBlock Name="infoRomm" FontWeight="Bold" Foreground="Red" Grid.Column="3" Margin="25,25,10,112"/>
+
             <ComboBox Name="comboMembre" HorizontalAlignment="Left" Margin="26,25,0,0" VerticalAlignment="Top" Width="120"/>
-            <ComboBox Name="roomMoving" HorizontalAlignment="Left" Margin="70,110,0,0" VerticalAlignment="Top" Width="120"/>
+            <ComboBox Name="roomMoving" HorizontalAlignment="Left" Margin="26,77,0,0" VerticalAlignment="Top" Width="120"/>
+
+            <Popup Name="menuaction" Grid.Column="1" Margin="25.333,25,49.333,9.667" RenderTransformOrigin="0.5,0.5">
+                <Grid>
+                    <Button Name="B_info" Content="info" HorizontalAlignment="Left" Background="Gray" Margin="207,25,0,0" VerticalAlignment="Top" Click="B_info_Click"/>
+                    <Button Name="B_capaciter" Content="capacite" HorizontalAlignment="Left" Background="Gray" Margin="207,62,0,0" VerticalAlignment="Top" Click="B_capaciter_Click"/>
+                    <Button Name="B_deplacement" Content="déplacer" HorizontalAlignment="Left" Background="Gray" Margin="207,110,0,0" VerticalAlignment="Top" Click="B_deplacement_Click"/>
+                </Grid>
+            </Popup>
+
+
 
         </Grid>
 
