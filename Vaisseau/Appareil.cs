@@ -52,7 +52,7 @@ namespace Vaisseau
 
         public string getRommName(int numRomm)
         {
-            return Rooms[numRomm].Nom;
+            return Rooms[numRomm-1].Nom;
         }
 
         public override string ToString()

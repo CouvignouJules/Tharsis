@@ -68,38 +68,100 @@ namespace Tharsis
 
         private void B_survie_Click(object sender, RoutedEventArgs e)
         {
-            infoRomm.Text = Falconne.Rooms[6].ToString();
+            if (!B_deplacement.IsEnabled)
+            {
+                equipage[MembreSelected].Room = 6;
+                B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
+            }
+            else
+            {
+                infoRomm.Text = Falconne.Rooms[5].ToString();
+            }
         }
 
         private void B_laboratoire_Click(object sender, RoutedEventArgs e)
         {
-            infoRomm.Text = Falconne.Rooms[4].ToString();
+            if (!B_deplacement.IsEnabled)
+            {
+                equipage[MembreSelected].Room = 4;
+                B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
+            }
+            else
+            {
+                infoRomm.Text = Falconne.Rooms[3].ToString();
+            }
         }
 
         private void B_infirmeri_Click(object sender, RoutedEventArgs e)
         {
-            infoRomm.Text = Falconne.Rooms[3].ToString();
+            if (!B_deplacement.IsEnabled)
+            {
+                equipage[MembreSelected].Room = 3;
+                B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
+            }
+            else
+            {
+                infoRomm.Text = Falconne.Rooms[2].ToString();
+            }
         }
 
         private void B_serre_Click(object sender, RoutedEventArgs e)
         {
-            infoRomm.Text = Falconne.Rooms[2].ToString();
+            if (!B_deplacement.IsEnabled)
+            {
+                equipage[MembreSelected].Room = 2;
+                B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
+            }
+            else
+            {
+                infoRomm.Text = Falconne.Rooms[1].ToString();
+            }
         }
 
         private void B_pilotage_Click(object sender, RoutedEventArgs e)
         {
-            infoRomm.Text = Falconne.Rooms[1].ToString();
+            if (!B_deplacement.IsEnabled)
+            {
+                equipage[MembreSelected].Room = 1;
+                B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
+            }
+            else
+            {
+                infoRomm.Text = Falconne.Rooms[0].ToString();
+            }
         }
 
         private void B_maintenance_Click(object sender, RoutedEventArgs e)
         {
-            infoRomm.Text = Falconne.Rooms[7].ToString();
+            if (!B_deplacement.IsEnabled)
+            {
+                equipage[MembreSelected].Room = 7;
+                B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
+            }
+            else
+            {
+                infoRomm.Text = Falconne.Rooms[6].ToString();
+            }
         }
 
         private void B_detente_Click(object sender, RoutedEventArgs e)
         {
-            
-            infoRomm.Text = Falconne.Rooms[5].ToString();
+            if (!B_deplacement.IsEnabled)
+            {
+                equipage[MembreSelected].Room = 5;
+                B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
+            }
+            else
+            {
+                infoRomm.Text = Falconne.Rooms[4].ToString();
+            }
         }
 
         private void keepDice_Click(object sender, RoutedEventArgs e)
@@ -110,18 +172,14 @@ namespace Tharsis
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
             equipage[MembreSelected].Capacite(Falconne, equipage);
-            info .Text = string.Format("Hp : {0} \nDice: {1} \nsalle : {2} \n ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
+            info.Text = string.Format("Hp : {0} \nDice: {1} \nsalle : {2} \n ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
         }
 
         private void B_deplacement_Click(object sender, RoutedEventArgs e)
         {
-            /*if (equipage[MembreSelected].Room != roomMoving.SelectedIndex)
-            {
-                equipage[MembreSelected].Room = roomMoving.SelectedIndex;
-                //B_info_Click(sender, e);
-            } else {
-                infoRomm.Text = "Ce membre d'équipage se situe déjà dans cette salle !";
-            }*/
+            int currentRoom = equipage[MembreSelected].Room;
+
+            B_deplacement.IsEnabled = false;
         }
 
 
@@ -142,14 +200,14 @@ namespace Tharsis
         private void B_medecin_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
-            MembreSelected = 3;
+            MembreSelected = 2;
             info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[2].HP, equipage[2].Dices, Falconne.getRommName(equipage[2].Room));
         }
 
         private void B_mecano_Click_1(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
-            MembreSelected = 2;
+            MembreSelected = 3;
             info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[3].HP, equipage[3].Dices, Falconne.getRommName(equipage[3].Room));
         }
     }
