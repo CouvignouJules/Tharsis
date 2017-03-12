@@ -151,6 +151,7 @@ namespace Tharsis
         private void B_commandant_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
+            info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[1].HP, equipage[1].Dices, Falconne.getRommName(equipage[1].Room));
         }
     }
 }
