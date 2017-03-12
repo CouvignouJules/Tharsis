@@ -32,6 +32,11 @@ namespace Tharsis
         {
             this.InitializeComponent();
             InitEquipage();
+            ComboMenbre capitaine = new ComboMenbre("Capitaine", 0);
+            ComboMenbre Commandant = new ComboMenbre("Commandant", 1);
+            comboBox.Items.Add(capitaine);
+            comboBox.Items.Add(Commandant);
+            comboBox.SelectedIndex = 0;
         }
 
         public void InitEquipage()
@@ -114,7 +119,7 @@ namespace Tharsis
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            infoRomm.Text = equipage[0].info(Falconne);            
+            infoRomm.Text = equipage[Int32.Parse((comboBox.SelectedItem as ComboMenbre).Value.ToString())].info(Falconne);            
         }
     }
 }
