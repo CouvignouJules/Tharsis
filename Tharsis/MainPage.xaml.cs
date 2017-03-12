@@ -118,13 +118,12 @@ namespace Tharsis
 
         private void B_detente_Click(object sender, RoutedEventArgs e)
         {
-            
             infoRomm.Text = Falconne.Rooms[5].ToString();
         }
 
         private void keepDice_Click(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
         private void B_info_Click(object sender, RoutedEventArgs e)
@@ -139,13 +138,50 @@ namespace Tharsis
 
         private void B_deplacement_Click(object sender, RoutedEventArgs e)
         {
-            if (equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room != roomMoving.SelectedIndex)
+            int currentRoom = equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room;
+
+            B_deplacement.IsEnabled = false;
+
+            while (!B_pilotage.IsPressed || !B_serre.IsPressed || !B_maintenance.IsPressed || !B_infirmeri.IsPressed || !B_survie.IsPressed || !B_detente.IsPressed || !B_laboratoire.IsPressed)
             {
-                equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room = roomMoving.SelectedIndex;
-                B_info_Click(sender, e);
-            } else {
-                infoRomm.Text = "Ce membre d'équipage se situe déjà dans cette salle !";
+
+                if (B_pilotage.IsPressed)
+                {
+                    equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room = 1;
+                }
+                else if (B_serre.IsPressed)
+                {
+                    equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room = 2;
+                }
+                else if (B_infirmeri.IsPressed)
+                {
+                    equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room = 3;
+                }
+                else if (B_laboratoire.IsPressed)
+                {
+                    equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room = 4;
+                }
+                else if (B_detente.IsPressed)
+                {
+                    equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room = 5;
+                }
+                else if (B_survie.IsPressed)
+                {
+                    equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room = 6;
+                }
+                else if (B_maintenance.IsPressed)
+                {
+                    equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room = 7;
+                }
+
+                if (equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Room == currentRoom)
+                {
+                    infoRomm.Text = "Ce membre d'équipage se situe déjà dans cette salle !";
+                }
+              
             }
+
+            B_deplacement.IsEnabled = true;
         }
 
         private void B_commandant_Click(object sender, RoutedEventArgs e)
