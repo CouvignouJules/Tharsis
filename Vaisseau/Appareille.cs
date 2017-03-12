@@ -50,7 +50,10 @@ namespace Vaisseau
             hp = rnd.Next(2, 6);
         }
 
-
+        public string getRommName(int numRomm)
+        {
+            return Rooms[numRomm].Nom;
+        }
 
         public override string ToString()
         {

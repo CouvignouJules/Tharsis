@@ -15,14 +15,14 @@ namespace Equipage
         {
             foreach(Room room in vaisseau.Rooms)
             {
-                if (room.Nom == this.Room)
+                if (room.Numero == this.Room)
                     room.Panne -= 10;
             }
         }
 
-        public override string ToString()
+        public override string info(Appareille appareille)
         {
-            return string.Format("Le commandant a {0} point de vie, il possède {1} dés et se trouve dans la salle : {2}.", this.HP, this.Dices, this.Room);
+            return string.Format("Le commandant a {0} point de vie, il possède {1} dés et se trouve dans la salle : {2}.", this.HP, this.Dices, appareille.getRommName(this.Room));
         }
     }
 }

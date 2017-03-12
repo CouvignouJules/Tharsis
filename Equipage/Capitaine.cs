@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Vaisseau;
 
 namespace Equipage
 {
@@ -19,9 +20,9 @@ namespace Equipage
             }
         }
 
-        public override string ToString()
+        public override string info(Appareille appareille)
         {
-            return string.Format("Le capitaine a {0} point de vie, il possède {1} dés et se trouve dans la salle : {2}.", this.HP, this.Dices, this.Room);
+            return string.Format("Le capitaine a {0} point de vie, il possède {1} dés et se trouve dans la salle : {2}.", this.HP, this.Dices, appareille.getRommName(this.Room));
         }
     }
 }

@@ -10,11 +10,11 @@
 
     <RelativePanel>
 
-        <Grid Name="MainGrid" Margin="0,0,-1920,-1080">
+        <Grid Name="MainGrid" Margin="0,0,-1920,-1080" Background="AliceBlue">
 
-            <Grid.Background>
+            <!-- <Grid.Background>
                 <ImageBrush ImageSource="Assets/space.gif"/>
-            </Grid.Background>
+            </Grid.Background> -->
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
@@ -53,13 +53,13 @@
             </Button>
 
             <Button Name="B_detente" Width="200" Grid.Row="1" Grid.Column="3" Click="B_detente_Click">
-               <Image Name="detente" Source="Assets/detente.png"  Margin="9,27.667,28.667,10.333"/>
+                <Image Name="detente" Source="Assets/detente.png"  Margin="9,27.667,28.667,10.333"/>
             </Button>
 
             <Button Name="B_maintenance" Width="200" Grid.Column="4" Grid.Row="1" Margin="10.333,9.667,10.667,0.333" Click="B_maintenance_Click">
                 <Image Name="maintenance" Source="Assets/maintenance.png"  />
             </Button>
-            
+
 
             <Button Name="rollDices" Content="Jeter les dés" Background="White" FontSize="20" FontFamily="Arial" Grid.Row="3" Grid.Column="1" Width="150" Height="50" Margin="25,0,0,0" Click="rollDices_Click"/>
             <Button Name="keepDice" Content="Mettre de côté" Background="White" FontSize="20" FontFamily="Arial" Width="150" Height="50" Grid.Column="4" Grid.Row="3" Margin="25,0,0,0" Click="keepDice_Click"/>
@@ -67,6 +67,9 @@
 
             <TextBlock Name="shipHealth" Width="150" Height="50" Grid.Row="0" Grid.Column="0" Margin="0,0,50,136" RenderTransformOrigin="0.5,0.5" Text="{Binding Health}"/>
             <TextBlock Name="diceResults" Width="150" Height="50" Grid.Row="3" Grid.Column="0" Margin="25,0,0,0"/>
+            <TextBlock Name="infoRomm"  Grid.Column="1" Margin="25,72,10,65.667"/>
+            <Button x:Name="button" Content="Capitaine" HorizontalAlignment="Left" Margin="207,25,0,0" VerticalAlignment="Top" Click="button_Click"/>
+            <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="26,25,0,0" VerticalAlignment="Top" Width="120"/>
 
         </Grid>
 

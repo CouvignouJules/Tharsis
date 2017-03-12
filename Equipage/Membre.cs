@@ -36,15 +36,15 @@ namespace Equipage
         }
 
         private int room;
-        public string Room
+        public int Room
         {
             get
             {
-                return this.Room;
+                return this.room;
             }
             set
             {
-                this.Room = value;
+                this.room = value;
             }
         }
         Random rnd = new Random();
@@ -71,6 +71,6 @@ namespace Equipage
             this.room = rnd.Next(1, 7);
         }
 
-        public abstract override string ToString();
+        public abstract string info(Vaisseau.Appareille appareille);
     }
 }

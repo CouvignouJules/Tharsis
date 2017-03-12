@@ -25,9 +25,21 @@ namespace Tharsis
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        Appareille Falconne = new Appareille();
+        List<Membre> equipage = new List<Membre>();
+
         public MainPage()
         {
             this.InitializeComponent();
+            InitEquipage();
+        }
+
+        public void InitEquipage()
+        {
+            equipage.Add(new Capitaine());
+            equipage.Add(new Commandant());
+            equipage.Add(new Mecanicien());
+            equipage.Add(new Medecin());
         }
 
         // Ferme l'application
@@ -39,12 +51,8 @@ namespace Tharsis
         // jete les dés du membre d'équipage puis affiche le résultat dans un bloc de texte
         private void rollDices_Click(object sender, RoutedEventArgs e)
         {
-            
             int[] dicesRolled;
-
-               dicesRolled = Roll.RollTheDices(6,6);
-            
-
+            dicesRolled = Roll.RollTheDices(6,6);
             foreach (int result in dicesRolled)
             {
                 diceResults.Text += result + "\n";
@@ -65,42 +73,48 @@ namespace Tharsis
 
         private void B_survie_Click(object sender, RoutedEventArgs e)
         {
-
+            infoRomm.Text = Falconne.Rooms[6].ToString();
         }
 
         private void B_laboratoire_Click(object sender, RoutedEventArgs e)
         {
-
+            infoRomm.Text = Falconne.Rooms[4].ToString();
         }
 
         private void B_infirmeri_Click(object sender, RoutedEventArgs e)
         {
-
+            infoRomm.Text = Falconne.Rooms[3].ToString();
         }
 
         private void B_serre_Click(object sender, RoutedEventArgs e)
         {
-
+            infoRomm.Text = Falconne.Rooms[2].ToString();
         }
 
         private void B_pilotage_Click(object sender, RoutedEventArgs e)
         {
-
+            infoRomm.Text = Falconne.Rooms[1].ToString();
         }
 
         private void B_maintenance_Click(object sender, RoutedEventArgs e)
         {
-
+            infoRomm.Text = Falconne.Rooms[7].ToString();
         }
 
         private void B_detente_Click(object sender, RoutedEventArgs e)
         {
-
+            
+            infoRomm.Text = Falconne.Rooms[5].ToString();
         }
 
         private void keepDice_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            infoRomm.Text = equipage[0].info(Falconne);            
         }
     }
 }

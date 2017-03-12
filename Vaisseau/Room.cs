@@ -51,5 +51,10 @@ namespace Vaisseau
             this.panne = panne;
         }
 
+        public override string ToString()
+        {
+            return string.Format("le montant de panne de la salle {0} est de {1}",this.Nom,this.Panne);
+        }
+
     }
 }
