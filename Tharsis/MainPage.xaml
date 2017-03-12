@@ -68,8 +68,9 @@
             <TextBlock Name="shipHealth" Width="150" Height="50" Grid.Row="0" Grid.Column="0" Margin="0,0,50,136" RenderTransformOrigin="0.5,0.5" Text="{Binding Health}"/>
             <TextBlock Name="diceResults" Width="150" Height="50" Grid.Row="3" Grid.Column="0" Margin="25,0,0,0"/>
             <TextBlock Name="infoRomm"  Grid.Column="1" Margin="25,72,10,65.667"/>
-            <Button x:Name="button" Content="info" HorizontalAlignment="Left" Margin="207,25,0,0" VerticalAlignment="Top" Click="button_Click"/>
-            <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="26,25,0,0" VerticalAlignment="Top" Width="120"/>
+            <Button Name="B_info" Content="info" HorizontalAlignment="Left" Margin="207,25,0,0" VerticalAlignment="Top" Click="B_info_Click"/>
+            <Button Name="B_capaciter" Content="capacite" HorizontalAlignment="Left" Margin="207,62,0,0" VerticalAlignment="Top" Click="B_capaciter_Click"/>
+            <ComboBox Name="comboMembre" HorizontalAlignment="Left" Margin="26,25,0,0" VerticalAlignment="Top" Width="120"/>
 
         </Grid>
 

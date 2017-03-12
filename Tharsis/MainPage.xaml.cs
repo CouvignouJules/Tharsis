@@ -34,9 +34,13 @@ namespace Tharsis
             InitEquipage();
             ComboMenbre capitaine = new ComboMenbre("Capitaine", 0);
             ComboMenbre Commandant = new ComboMenbre("Commandant", 1);
-            comboBox.Items.Add(capitaine);
-            comboBox.Items.Add(Commandant);
-            comboBox.SelectedIndex = 0;
+            ComboMenbre Mecanicien = new ComboMenbre("Mecanicien", 2);
+            ComboMenbre Medecin = new ComboMenbre("Medecin", 3);
+            comboMembre.Items.Add(capitaine);
+            comboMembre.Items.Add(Commandant);
+            comboMembre.Items.Add(Mecanicien);
+            comboMembre.Items.Add(Medecin);
+            comboMembre.SelectedIndex = 0;
         }
 
         public void InitEquipage()
@@ -117,9 +121,14 @@ namespace Tharsis
 
         }
 
-        private void button_Click(object sender, RoutedEventArgs e)
+        private void B_info_Click(object sender, RoutedEventArgs e)
         {
-            infoRomm.Text = equipage[Int32.Parse((comboBox.SelectedItem as ComboMenbre).Value.ToString())].info(Falconne);            
+            infoRomm.Text = equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].info(Falconne);
+        }
+
+        private void B_capaciter_Click(object sender, RoutedEventArgs e)
+        {
+            equipage[Int32.Parse((comboMembre.SelectedItem as ComboMenbre).Value.ToString())].Capacite(Falconne, equipage);
         }
     }
 }
