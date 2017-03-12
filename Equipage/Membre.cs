@@ -71,7 +71,7 @@ namespace Equipage
             this.room = rnd.Next(1, 7);
         }
 
-        public abstract void Capacite(Appareille vaisseau, List<Membre> equipage);
-        public abstract string info(Appareille appareille);
+        public abstract void Capacite(Appareil vaisseau, List<Membre> equipage);
+        public abstract string info(Appareil vaisseau);
     }
 }

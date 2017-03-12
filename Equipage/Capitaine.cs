@@ -11,7 +11,7 @@ namespace Equipage
     {
         public Capitaine() : base() { }
 
-        public override void Capacite(Appareille vaisseau, List<Membre> equipage)
+        public override void Capacite(Appareil vaisseau, List<Membre> equipage)
         {
             foreach (Membre membre in equipage)
             {
@@ -20,9 +20,9 @@ namespace Equipage
             }
         }
 
-        public override string info(Appareille appareille)
+        public override string info(Appareil vaisseau)
         {
-            return string.Format("Le capitaine a {0} point de vie, il possède {1} dés et se trouve dans la salle : {2}.", this.HP, this.Dices, appareille.getRommName(this.Room));
+            return string.Format("Le capitaine a {0} point de vie, il possède {1} dés et se trouve dans la salle : {2}.", this.HP, this.Dices, vaisseau.getRommName(this.Room));
         }
     }
 }

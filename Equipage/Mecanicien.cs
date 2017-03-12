@@ -11,15 +11,15 @@ namespace Equipage
     {
         public Mecanicien() : base() { }
 
-        public override void Capacite(Appareille vaisseau, List<Membre> equipage)
+        public override void Capacite(Appareil vaisseau, List<Membre> equipage)
         {
             if (vaisseau.HP < 10 && vaisseau.HP > 0)
                 vaisseau.HP += 1;
         }
 
-        public override string info(Appareille appareille)
+        public override string info(Appareil vaisseau)
         {
-            return string.Format("Le mécanicien a {0} point de vie, il possède {1} dés et se trouve dans la salle : {2}.", this.HP, this.Dices, appareille.getRommName(this.Room));
+            return string.Format("Le mécanicien a {0} point de vie, il possède {1} dés et se trouve dans la salle : {2}.", this.HP, this.Dices, vaisseau.getRommName(this.Room));
         }
     }
 }
