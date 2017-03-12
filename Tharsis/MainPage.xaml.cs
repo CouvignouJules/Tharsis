@@ -68,12 +68,6 @@ namespace Tharsis
             }
         }
 
-         //Activation de la capacité spéciale du membre d'équipage
-         void specialAbility_Click(object sender, Appareille vaisseau, List<Membre> menbres, RoutedEventArgs e)
-        {
-            
-        }
-
         // Affiche les PV du vaisseau
         public String Health(Appareille vaisseau)
         {
