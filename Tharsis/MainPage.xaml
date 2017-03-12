@@ -75,11 +75,14 @@
             <ComboBox Name="comboMembre" HorizontalAlignment="Left" Margin="26,25,0,0" VerticalAlignment="Top" Width="120"/>
             <ComboBox Name="roomMoving" HorizontalAlignment="Left" Margin="26,77,0,0" VerticalAlignment="Top" Width="120"/>
 
-            <Popup Name="menuaction" Grid.Column="1" Margin="25.333,25,49.333,9.667" RenderTransformOrigin="0.5,0.5">
-                <Grid>
-                    <Button Name="B_info" Content="info" HorizontalAlignment="Left" Background="Gray" Margin="207,25,0,0" VerticalAlignment="Top" Click="B_info_Click"/>
-                    <Button Name="B_capaciter" Content="capacite" HorizontalAlignment="Left" Background="Gray" Margin="207,62,0,0" VerticalAlignment="Top" Click="B_capaciter_Click"/>
-                    <Button Name="B_deplacement" Content="déplacer" HorizontalAlignment="Left" Background="Gray" Margin="207,110,0,0" VerticalAlignment="Top" Click="B_deplacement_Click"/>
+            <Popup Name="menuaction" Grid.Column="1" IsOpen="False" Margin="10.333,10,20.333,9.667" RenderTransformOrigin="0.5,0.5">
+                <Grid Height="107" Width="211">
+                    <TextBox Name="info" Margin="10,10,137,25"></TextBox>
+                        
+                   
+                    <Button Name="B_info" Content="info" HorizontalAlignment="Left" Background="Gray" Margin="133,10,0,0" VerticalAlignment="Top" Click="B_info_Click" Width="68" Height="25"/>
+                    <Button Name="B_capaciter" Content="capacite" HorizontalAlignment="Left" Background="Gray" Margin="127,35,0,0" VerticalAlignment="Top" Click="B_capaciter_Click" Width="74"/>
+                    <Button Name="B_deplacement" Content="déplacer" HorizontalAlignment="Left" Background="Gray" Margin="133,72,0,0" VerticalAlignment="Top" Click="B_deplacement_Click" Height="25" Width="68"/>
                 </Grid>
             </Popup>
 

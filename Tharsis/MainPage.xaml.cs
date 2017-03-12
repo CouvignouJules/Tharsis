@@ -150,7 +150,7 @@ namespace Tharsis
 
         private void B_commandant_Click(object sender, RoutedEventArgs e)
         {
-
+            menuaction.IsOpen = true;
         }
     }
 }
