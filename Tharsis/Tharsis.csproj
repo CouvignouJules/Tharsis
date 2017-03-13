@@ -120,12 +120,12 @@
     <Content Include="Assets\Capitaine.png" />
     <Content Include="Assets\Commandant.png" />
     <Content Include="Assets\detente.png" />
-    <Content Include="Assets\dicefacefive.jpeg" />
-    <Content Include="Assets\dicefacefour.jpeg" />
-    <Content Include="Assets\dicefaceone.jpeg" />
-    <Content Include="Assets\dicefacesix.jpeg" />
-    <Content Include="Assets\dicefacethree.jpeg" />
-    <Content Include="Assets\dicefacetwo.jpeg" />
+    <Content Include="Assets\d5.jpeg" />
+    <Content Include="Assets\d4.jpeg" />
+    <Content Include="Assets\d1.jpeg" />
+    <Content Include="Assets\d6.jpeg" />
+    <Content Include="Assets\d3.jpeg" />
+    <Content Include="Assets\d2.jpeg" />
     <Content Include="Assets\infirmerie.png" />
     <Content Include="Assets\laboratoire.png" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
@@ -142,6 +142,7 @@
     <Content Include="Assets\StoreLogo.png" />
     <Content Include="Assets\survie.png" />
     <Content Include="Assets\Tharsis_title.jpg" />
+    <Content Include="Assets\Tharsis_title.png" />
     <Content Include="Assets\Wide310x150Logo.scale-200.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Scenario.xml" />

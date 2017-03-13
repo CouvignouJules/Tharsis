@@ -25,7 +25,7 @@
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
-            <Image Source="Assets/Tharsis_title.jpg" Grid.Column="1" Height="150"/>
+            <Image Source="Assets/Tharsis_title.png" Grid.Column="1" Height="150"/>
 
             <Button Name="play" Content="Jouer" Background="White" FontSize="50" FontFamily="Arial" Width="442" Height="163" Grid.Column="1"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="play_Click"/>
             <Button Name="quit" Content="Quitter" Background="White" FontSize="50" FontFamily="Arial" Width="442" Height="163" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Center" VerticalAlignment="Center" Click="quit_Click"/>

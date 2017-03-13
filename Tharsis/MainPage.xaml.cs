@@ -15,6 +15,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Windows.UI.Xaml.Media.Imaging;
 
 // Pour plus d'informations sur le modèle d'élément Page vierge, consultez la page http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
 
@@ -53,10 +54,35 @@ namespace Tharsis
         private void rollDices_Click(object sender, RoutedEventArgs e)
         {
             int[] dicesRolled;
-            dicesRolled = Roll.RollTheDices(6,6);
+            dicesRolled = Roll.RollTheDices(equipage[MembreSelected].Dices,6);
             foreach (int result in dicesRolled)
             {
-                diceResults.Text += result + "\n";
+                
+                string nomImage = string.Format("ms-appx:///Assets//d{0}.jpeg", result);
+                for(int i = 1; i <= dicesRolled.Length; i++)
+                {
+                    switch (i)
+                    {
+                        case 1:
+                            dés1.Source =new BitmapImage(new Uri(nomImage));
+                            break;
+                        case 2:
+                            dés2.Source = new BitmapImage(new Uri(nomImage));
+                            break;
+                        case 3:
+                            dés3.Source = new BitmapImage(new Uri(nomImage));
+                            break;
+                        case 4:
+                            dés4.Source = new BitmapImage(new Uri(nomImage));
+                            break;
+                        case 5:
+                            dés5.Source = new BitmapImage(new Uri(nomImage));
+                            break;
+                        case 6:
+                            dés6.Source = new BitmapImage(new Uri(nomImage));
+                            break;
+                    }    
+                }                               
             }
         }
 
@@ -74,10 +100,6 @@ namespace Tharsis
                 B_deplacement.IsEnabled = true;
                 info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
             }
-            else
-            {
-                infoRomm.Text = Falconne.Rooms[5].ToString();
-            }
         }
 
         private void B_laboratoire_Click(object sender, RoutedEventArgs e)
@@ -87,10 +109,6 @@ namespace Tharsis
                 equipage[MembreSelected].Room = 4;
                 B_deplacement.IsEnabled = true;
                 info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
-            }
-            else
-            {
-                infoRomm.Text = Falconne.Rooms[3].ToString();
             }
         }
 
@@ -102,10 +120,6 @@ namespace Tharsis
                 B_deplacement.IsEnabled = true;
                 info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
             }
-            else
-            {
-                infoRomm.Text = Falconne.Rooms[2].ToString();
-            }
         }
 
         private void B_serre_Click(object sender, RoutedEventArgs e)
@@ -115,10 +129,6 @@ namespace Tharsis
                 equipage[MembreSelected].Room = 2;
                 B_deplacement.IsEnabled = true;
                 info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
-            }
-            else
-            {
-                infoRomm.Text = Falconne.Rooms[1].ToString();
             }
         }
 
@@ -130,10 +140,6 @@ namespace Tharsis
                 B_deplacement.IsEnabled = true;
                 info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
             }
-            else
-            {
-                infoRomm.Text = Falconne.Rooms[0].ToString();
-            }
         }
 
         private void B_maintenance_Click(object sender, RoutedEventArgs e)
@@ -144,10 +150,6 @@ namespace Tharsis
                 B_deplacement.IsEnabled = true;
                 info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
             }
-            else
-            {
-                infoRomm.Text = Falconne.Rooms[6].ToString();
-            }
         }
 
         private void B_detente_Click(object sender, RoutedEventArgs e)
@@ -157,10 +159,6 @@ namespace Tharsis
                 equipage[MembreSelected].Room = 5;
                 B_deplacement.IsEnabled = true;
                 info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
-            }
-            else
-            {
-                infoRomm.Text = Falconne.Rooms[4].ToString();
             }
         }
 
@@ -200,14 +198,14 @@ namespace Tharsis
         private void B_medecin_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
-            MembreSelected = 2;
+            MembreSelected = 3;
             info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[2].HP, equipage[2].Dices, Falconne.getRommName(equipage[2].Room));
         }
 
         private void B_mecano_Click_1(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
-            MembreSelected = 3;
+            MembreSelected = 2;
             info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[3].HP, equipage[3].Dices, Falconne.getRommName(equipage[3].Room));
         }
     }
