@@ -55,35 +55,31 @@ namespace Tharsis
         {
             int[] dicesRolled;
             dicesRolled = Roll.RollTheDices(equipage[MembreSelected].Dices,6);
-            foreach (int result in dicesRolled)
+            for(int i = 1; i <= dicesRolled.Length; i++)
             {
-                
-                string nomImage = string.Format("ms-appx:///Assets//d{0}.jpeg", result);
-                for(int i = 1; i <= dicesRolled.Length; i++)
+                string nomImage = string.Format("ms-appx:///Assets//d{0}.jpeg", dicesRolled[i-1]);
+                switch (i)
                 {
-                    switch (i)
-                    {
-                        case 1:
-                            dés1.Source =new BitmapImage(new Uri(nomImage));
-                            break;
-                        case 2:
-                            dés2.Source = new BitmapImage(new Uri(nomImage));
-                            break;
-                        case 3:
-                            dés3.Source = new BitmapImage(new Uri(nomImage));
-                            break;
-                        case 4:
-                            dés4.Source = new BitmapImage(new Uri(nomImage));
-                            break;
-                        case 5:
-                            dés5.Source = new BitmapImage(new Uri(nomImage));
-                            break;
-                        case 6:
-                            dés6.Source = new BitmapImage(new Uri(nomImage));
-                            break;
-                    }    
-                }                               
-            }
+                    case 1:
+                        dés1.Source =new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 2:
+                        dés2.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 3:
+                        dés3.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 4:
+                        dés4.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 5:
+                        dés5.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 6:
+                        dés6.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                }    
+            }                               
         }
 
         // Affiche les PV du vaisseau
@@ -162,11 +158,6 @@ namespace Tharsis
             }
         }
 
-        private void keepDice_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
             equipage[MembreSelected].Capacite(Falconne, equipage);
@@ -207,6 +198,15 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 2;
             info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[3].HP, equipage[3].Dices, Falconne.getRommName(equipage[3].Room));
+        }
+        
+        List<int> SelectedDice = new List<int>();
+        private void B_d_Click(object sender, RoutedEventArgs e)
+        {
+            Button But = (Button)sender;
+            SelectedDice.Add(Int32.Parse(But.Tag.ToString()));
+            But.IsEnabled = false;
+            info.Text += Int32.Parse(But.Tag.ToString());
         }
     }
 }
