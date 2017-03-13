@@ -47,7 +47,6 @@ namespace Equipage
                 this.room = value;
             }
         }
-        Random rnd = new Random();
 
         public Membre()
         {
@@ -58,17 +57,27 @@ namespace Equipage
 
         public void generateHP()
         {
-           this.hp = rnd.Next(2, 4);
+           this.hp = RandomNumber(2, 4);
         }
 
         public void generateDices()
         {
-            this.dices = rnd.Next(2, 4);
+            this.dices = RandomNumber(2, 4);
         }
 
         public void giveRoom()
         {
-            this.room = rnd.Next(1, 7);
+            this.room = RandomNumber(1, 7);
+        }
+
+        private static readonly Random rdm = new Random();
+        private static readonly object syncLock = new object();
+        public static int RandomNumber(int min, int max)
+        {
+            lock (syncLock)
+            {
+                return rdm.Next(min, max);
+            }
         }
 
         public abstract void Capacite(Appareil vaisseau, List<Membre> equipage);
