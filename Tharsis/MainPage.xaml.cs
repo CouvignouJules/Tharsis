@@ -171,17 +171,12 @@ namespace Tharsis
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
             equipage[MembreSelected].Capacite(Falconne, equipage);
-            UpdateMembre();
+            info.Text = equipage[MembreSelected].info(Falconne);
         }
 
         private void B_deplacement_Click(object sender, RoutedEventArgs e)
         {
             B_deplacement.IsEnabled = false;
-        }
-
-        private void UpdateMembre()
-        {
-            info.Text = equipage[MembreSelected].info(Falconne);
         }
 
         private void B_capitaine_Click(object sender, RoutedEventArgs e)
@@ -205,7 +200,7 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 1;
             memberName.Text = "Commandant";
-            UpdateMembre();
+            info.Text = equipage[MembreSelected].info(Falconne);
             if (equipage[1].MyDyce.Count == 0)
             {
                 resetDes();
@@ -221,7 +216,7 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 2;
             memberName.Text = "Médecin";
-            UpdateMembre();
+            info.Text = equipage[MembreSelected].info(Falconne);
             if (equipage[3].MyDyce.Count == 0)
             {
                 resetDes();
@@ -237,7 +232,7 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 3;
             memberName.Text = "Mécanicien";
-            UpdateMembre();
+            info.Text = equipage[MembreSelected].info(Falconne);
             if (equipage[2].MyDyce.Count == 0)
             {
                 resetDes();
