@@ -289,6 +289,33 @@ namespace Tharsis
             }
             Falconne.Rooms[equipage[MembreSelected].Room].Panne -= totalRepart;
             info.Text += string.Format("\npanne {0} - {1}", Falconne.getRommName(equipage[MembreSelected].Room),totalRepart);
+            
+
+            foreach(int des in SelectedDice)
+            {
+                string nomImage = string.Format("ms-appx:///Assets//d{0}_utiliser.jpeg", equipage[MembreSelected].MyDyce[des]);
+                switch (des)
+                {
+                    case 0:
+                        dés1.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 1:
+                        dés2.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 2:
+                        dés3.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 3:
+                        dés4.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 4:
+                        dés5.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 5:
+                        dés6.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                }
+            }
             SelectedDice.Clear();
             B_annule.IsEnabled = false;
         }

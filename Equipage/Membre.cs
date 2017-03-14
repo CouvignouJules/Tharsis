@@ -46,6 +46,18 @@ namespace Equipage
                 this.myDice = value;
             }
         }
+        private List<int> usedDice = new List<int>();
+        public List<int> UsedDice
+        {
+            get
+            {
+                return usedDice;
+            }
+            set
+            {
+                this.usedDice = value;
+            }
+        }
 
         private int room;
         public int Room
