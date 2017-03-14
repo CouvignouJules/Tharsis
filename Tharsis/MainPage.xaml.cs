@@ -189,8 +189,8 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 0;
             memberName.Text = "Capitaine";
-            UpdateMembre();
-            if(equipage[0].MyDyce.Count == 0)
+            info.Text = equipage[MembreSelected].info(Falconne);
+            if (equipage[0].MyDyce.Count == 0)
             {
                 resetDes();
             }
