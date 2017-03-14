@@ -57,10 +57,10 @@ namespace Tharsis
         {
            
             equipage[MembreSelected].MyDyce = Roll.RollTheDices(equipage[MembreSelected].Dices,6);
-            setDes();                              
+            SetDes();                              
         }
 
-        public void setDes()
+        public void SetDes()
         {
             for (int i = 1; i <= equipage[MembreSelected].MyDyce.Count; i++)
             {
@@ -89,7 +89,7 @@ namespace Tharsis
             }
         }
 
-        public void resetDes()
+        public void ResetDes()
         {
             dés1.Source = null;
             dés2.Source = null;
@@ -187,11 +187,11 @@ namespace Tharsis
             info.Text = equipage[MembreSelected].info(Falconne);
             if (equipage[0].MyDyce.Count == 0)
             {
-                resetDes();
+                ResetDes();
             }
             else
             {
-                setDes();
+                SetDes();
             }
         }
 
@@ -203,11 +203,11 @@ namespace Tharsis
             info.Text = equipage[MembreSelected].info(Falconne);
             if (equipage[1].MyDyce.Count == 0)
             {
-                resetDes();
+                ResetDes();
             }
             else
             {
-                setDes();
+                SetDes();
             }
         }
 
@@ -219,11 +219,11 @@ namespace Tharsis
             info.Text = equipage[MembreSelected].info(Falconne);
             if (equipage[3].MyDyce.Count == 0)
             {
-                resetDes();
+                ResetDes();
             }
             else
             {
-                setDes();
+                SetDes();
             }
         }
 
@@ -235,11 +235,11 @@ namespace Tharsis
             info.Text = equipage[MembreSelected].info(Falconne);
             if (equipage[2].MyDyce.Count == 0)
             {
-                resetDes();
+                ResetDes();
             }
             else
             {
-                setDes();
+                SetDes();
             }
         }
         
@@ -324,7 +324,7 @@ namespace Tharsis
             B_dés4.IsEnabled = true;
             B_dés5.IsEnabled = true;
             B_dés6.IsEnabled = true;
-            setDes();
+            SetDes();
             B_annule.IsEnabled = false;
         }
     }
