@@ -10,10 +10,10 @@
 
     <RelativePanel Margin="0,0,-72,0">
 
-        <RelativePanel.Background>
+        <!--<RelativePanel.Background>
             <ImageBrush ImageSource="Assets/space.gif"/>
         </RelativePanel.Background>
-
+        -->
 
         <Button Name="B_pilotage" Width="195" Height="164" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_pilotage_Click" Margin="183,241,830,315">
             <Image Name="pilotage" Source="Assets/pilotage.png" Margin="-10,-17,-10,-17.333" />

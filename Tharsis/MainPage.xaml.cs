@@ -111,6 +111,7 @@ namespace Tharsis
             {
                 equipage[MembreSelected].Room = 6;
                 B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2}", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
             }
         }
 
@@ -120,6 +121,7 @@ namespace Tharsis
             {
                 equipage[MembreSelected].Room = 4;
                 B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2}", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
             }
         }
 
@@ -129,6 +131,7 @@ namespace Tharsis
             {
                 equipage[MembreSelected].Room = 3;
                 B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2}", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
             }
         }
 
@@ -138,6 +141,7 @@ namespace Tharsis
             {
                 equipage[MembreSelected].Room = 2;
                 B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2}", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
             }
         }
 
@@ -147,6 +151,7 @@ namespace Tharsis
             {
                 equipage[MembreSelected].Room = 1;
                 B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2}", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
             }
         }
 
@@ -156,6 +161,7 @@ namespace Tharsis
             {
                 equipage[MembreSelected].Room = 7;
                 B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2}", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
             }
         }
 
@@ -165,19 +171,20 @@ namespace Tharsis
             {
                 equipage[MembreSelected].Room = 5;
                 B_deplacement.IsEnabled = true;
+                info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2}", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
             }
         }
 
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
             equipage[MembreSelected].Capacite(Falconne, equipage);
-            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
+            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2}", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
         }
 
         private void B_deplacement_Click(object sender, RoutedEventArgs e)
         {
             int currentRoom = equipage[MembreSelected].Room;
-
+            
             B_deplacement.IsEnabled = false;
         }
 
@@ -186,7 +193,7 @@ namespace Tharsis
         {
             menuaction.IsOpen = true;
             MembreSelected = 0;
-            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
+            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2}", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
             if(equipage[0].MyDyce.Count == 0)
             {
                 resetDes();
@@ -201,7 +208,7 @@ namespace Tharsis
         {
             menuaction.IsOpen = true;
             MembreSelected = 1;
-            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", equipage[1].HP, equipage[1].Dices, Falconne.getRommName(equipage[1].Room));
+            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2}", equipage[1].HP, equipage[1].Dices, Falconne.getRommName(equipage[1].Room));
             if (equipage[1].MyDyce.Count == 0)
             {
                 resetDes();
@@ -216,7 +223,7 @@ namespace Tharsis
         {
             menuaction.IsOpen = true;
             MembreSelected = 3;
-            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", equipage[2].HP, equipage[2].Dices, Falconne.getRommName(equipage[2].Room));
+            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2}", equipage[2].HP, equipage[2].Dices, Falconne.getRommName(equipage[2].Room));
             if (equipage[3].MyDyce.Count == 0)
             {
                 resetDes();
@@ -231,7 +238,7 @@ namespace Tharsis
         {
             menuaction.IsOpen = true;
             MembreSelected = 2;
-            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", equipage[3].HP, equipage[3].Dices, Falconne.getRommName(equipage[3].Room));
+            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2}", equipage[3].HP, equipage[3].Dices, Falconne.getRommName(equipage[3].Room));
             if (equipage[2].MyDyce.Count == 0)
             {
                 resetDes();
@@ -285,6 +292,32 @@ namespace Tharsis
             info.Text += string.Format("\npanne {0} - {1}", Falconne.getRommName(equipage[MembreSelected].Room),totalRepart);
             SelectedDice.Clear();
             B_annule.IsEnabled = false;
+
+            foreach(int des in SelectedDice)
+            {
+                string nomImage = string.Format("ms-appx:///Assets//d{0}_utiliser.jpeg", equipage[MembreSelected].MyDyce[des]);
+                switch (des)
+                {
+                    case 0:
+                        dés1.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 1:
+                        dés2.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 2:
+                        dés3.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 3:
+                        dés4.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 4:
+                        dés5.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                    case 5:
+                        dés6.Source = new BitmapImage(new Uri(nomImage));
+                        break;
+                }
+            }
         }
 
         private void B_annule_Click(object sender, RoutedEventArgs e)
