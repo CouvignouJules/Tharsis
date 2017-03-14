@@ -171,23 +171,25 @@ namespace Tharsis
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
             equipage[MembreSelected].Capacite(Falconne, equipage);
-            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n ", equipage[MembreSelected].HP, equipage[MembreSelected].Dices, Falconne.getRommName(equipage[MembreSelected].Room));
+            UpdateMembre();
         }
 
         private void B_deplacement_Click(object sender, RoutedEventArgs e)
         {
-            int currentRoom = equipage[MembreSelected].Room;
-
             B_deplacement.IsEnabled = false;
         }
 
+        private void UpdateMembre()
+        {
+            info.Text = equipage[MembreSelected].info(Falconne);
+        }
 
         private void B_capitaine_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
             MembreSelected = 0;
             memberName.Text = "Capitaine";
-            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
+            UpdateMembre();
             if(equipage[0].MyDyce.Count == 0)
             {
                 resetDes();
@@ -203,7 +205,7 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 1;
             memberName.Text = "Commandant";
-            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", equipage[1].HP, equipage[1].Dices, Falconne.getRommName(equipage[1].Room));
+            UpdateMembre();
             if (equipage[1].MyDyce.Count == 0)
             {
                 resetDes();
@@ -217,9 +219,9 @@ namespace Tharsis
         private void B_medecin_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
-            MembreSelected = 3;
+            MembreSelected = 2;
             memberName.Text = "Médecin";
-            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", equipage[2].HP, equipage[2].Dices, Falconne.getRommName(equipage[2].Room));
+            UpdateMembre();
             if (equipage[3].MyDyce.Count == 0)
             {
                 resetDes();
@@ -233,9 +235,9 @@ namespace Tharsis
         private void B_mecano_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
-            MembreSelected = 2;
+            MembreSelected = 3;
             memberName.Text = "Mécanicien";
-            info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", equipage[3].HP, equipage[3].Dices, Falconne.getRommName(equipage[3].Room));
+            UpdateMembre();
             if (equipage[2].MyDyce.Count == 0)
             {
                 resetDes();
