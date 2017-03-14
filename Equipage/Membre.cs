@@ -58,6 +58,18 @@ namespace Equipage
                 this.usedDice = value;
             }
         }
+        Boolean validatDice;
+        public Boolean ValidateDice
+        {
+            get
+            {
+                return validatDice;
+            }
+            set
+            {
+                this.validatDice = value;
+            }
+        }
 
         private int room;
         public int Room
@@ -77,6 +89,7 @@ namespace Equipage
             GenerateHP();
             GenerateDices();
             GiveRoom();
+            validatDice = false;
         }
 
         public void GenerateHP()

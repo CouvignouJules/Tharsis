@@ -53,11 +53,11 @@ namespace Tharsis
         }
 
         // jete les dés du membre d'équipage puis affiche le résultat dans un bloc de texte
-        private void rollDices_Click(object sender, RoutedEventArgs e)
+        private void B_rollDices_Click(object sender, RoutedEventArgs e)
         {
             equipage[membreSelected].MyDice = Roll.RollTheDices(equipage[membreSelected].Dices,6);
             SetDes();
-            rollDices.IsEnabled = false;                              
+            B_rollDices.IsEnabled = false;                     
         }
 
         public void SetDes()
@@ -235,7 +235,9 @@ namespace Tharsis
             menuaction.IsOpen = true;
             membreSelected = 0;
             if (equipage[membreSelected].MyDice.Count != 0)
-                rollDices.IsEnabled = false;
+                B_rollDices.IsEnabled = false;
+            else
+                B_rollDices.IsEnabled = true;
             memberName.Text = "Capitaine";
             info.Text = equipage[membreSelected].Info(falcon);
             SetDes();
@@ -247,7 +249,9 @@ namespace Tharsis
             menuaction.IsOpen = true;
             membreSelected = 1;
             if (equipage[membreSelected].MyDice.Count != 0)
-                rollDices.IsEnabled = false;
+                B_rollDices.IsEnabled = false;
+            else
+                B_rollDices.IsEnabled = true;
             memberName.Text = "Commandant";
             info.Text = equipage[membreSelected].Info(falcon);
             SetDes();
@@ -259,7 +263,9 @@ namespace Tharsis
             menuaction.IsOpen = true;
             membreSelected = 2;
             if (equipage[membreSelected].MyDice.Count != 0)
-                rollDices.IsEnabled = false;
+                B_rollDices.IsEnabled = false;
+            else
+                B_rollDices.IsEnabled = true;
             memberName.Text = "Médecin";
             info.Text = equipage[membreSelected].Info(falcon);
             SetDes();
@@ -271,7 +277,9 @@ namespace Tharsis
             menuaction.IsOpen = true;
             membreSelected = 3;
             if (equipage[membreSelected].MyDice.Count != 0)
-                rollDices.IsEnabled = false;
+                B_rollDices.IsEnabled = false;
+            else
+                B_rollDices.IsEnabled = true;
             memberName.Text = "Mécanicien";
             info.Text = equipage[membreSelected].Info(falcon);
             SetDes();
@@ -284,6 +292,9 @@ namespace Tharsis
             string nomImage = string.Format("ms-appx:///Assets//d{0}_select.jpeg", equipage[membreSelected].MyDice[Int32.Parse(But.Tag.ToString())]);
             SelectedDice.Add(Int32.Parse(But.Tag.ToString()));
             But.IsEnabled = false;
+
+            if(!equipage[membreSelected].ValidateDice)
+                B_reRollDices.IsEnabled = true;
             B_capaciter.IsEnabled = true;
             B_repare.IsEnabled = true;
             B_annule.IsEnabled = true;
@@ -321,12 +332,11 @@ namespace Tharsis
             falcon.Rooms[equipage[membreSelected].Room].Panne -= totalRepart;
             info.Text += string.Format("panne {0} - {1}", falcon.getRommName(equipage[membreSelected].Room),totalRepart);
 
-            
-
             foreach (int i in SelectedDice)
                 equipage[membreSelected].UsedDice.Add(i);
             SetDes(); 
             SelectedDice.Clear();
+
             B_capaciter.IsEnabled = false;
             B_repare.IsEnabled = false;
             B_annule.IsEnabled = false;
@@ -336,9 +346,25 @@ namespace Tharsis
         {
             SelectedDice.Clear();
             SetDes();
+
             B_capaciter.IsEnabled = false;
             B_repare.IsEnabled = false;
             B_annule.IsEnabled = false;
+        }
+
+        private void B_reRollDices_Click(object sender, RoutedEventArgs e)
+        {
+            B_reRollDices.IsEnabled = false;
+            B_capaciter.IsEnabled = false;
+            B_annule.IsEnabled = false;
+            B_repare.IsEnabled = false;
+            foreach(int des in SelectedDice)
+            {
+                equipage[membreSelected].MyDice[des] = Roll.RollTheDices(1,6)[0];
+            }
+            equipage[membreSelected].ValidateDice = true;
+            SetDes();
+            SelectedDice.Clear();
         }
     }
 }
