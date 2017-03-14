@@ -27,10 +27,10 @@ namespace Tharsis
     public sealed partial class MainPage : Page
     {
         //creation du vaisseau
-        Appareil Falconne = new Appareil();
+        Appareil falcon = new Appareil();
         //list contenent le menbre dequipage
         List<Membre> equipage = new List<Membre>();
-        int MembreSelected;
+        int membreSelected;
  
         public MainPage()
         {
@@ -56,15 +56,15 @@ namespace Tharsis
         private void rollDices_Click(object sender, RoutedEventArgs e)
         {
            
-            equipage[MembreSelected].MyDice = Roll.RollTheDices(equipage[MembreSelected].Dices,6);
+            equipage[membreSelected].MyDice = Roll.RollTheDices(equipage[membreSelected].Dices,6);
             SetDes();                              
         }
 
         public void SetDes()
         {
-            for (int i = 1; i <= equipage[MembreSelected].MyDice.Count; i++)
+            for (int i = 1; i <= equipage[membreSelected].MyDice.Count; i++)
             {
-                string nomImage = string.Format("ms-appx:///Assets//d{0}.jpeg", equipage[MembreSelected].MyDice[i - 1]);
+                string nomImage = string.Format("ms-appx:///Assets//d{0}.jpeg", equipage[membreSelected].MyDice[i - 1]);
                 switch (i)
                 {
                     case 1:
@@ -109,7 +109,7 @@ namespace Tharsis
         {
             if (!B_deplacement.IsEnabled)
             {
-                equipage[MembreSelected].Room = 6;
+                equipage[membreSelected].Room = 6;
                 B_deplacement.IsEnabled = true;
             }
         }
@@ -118,7 +118,7 @@ namespace Tharsis
         {
             if (!B_deplacement.IsEnabled)
             {
-                equipage[MembreSelected].Room = 4;
+                equipage[membreSelected].Room = 4;
                 B_deplacement.IsEnabled = true;
             }
         }
@@ -127,7 +127,7 @@ namespace Tharsis
         {
             if (!B_deplacement.IsEnabled)
             {
-                equipage[MembreSelected].Room = 3;
+                equipage[membreSelected].Room = 3;
                 B_deplacement.IsEnabled = true;
             }
         }
@@ -136,7 +136,7 @@ namespace Tharsis
         {
             if (!B_deplacement.IsEnabled)
             {
-                equipage[MembreSelected].Room = 2;
+                equipage[membreSelected].Room = 2;
                 B_deplacement.IsEnabled = true;
             }
         }
@@ -145,7 +145,7 @@ namespace Tharsis
         {
             if (!B_deplacement.IsEnabled)
             {
-                equipage[MembreSelected].Room = 1;
+                equipage[membreSelected].Room = 1;
                 B_deplacement.IsEnabled = true;
             }
         }
@@ -154,7 +154,7 @@ namespace Tharsis
         {
             if (!B_deplacement.IsEnabled)
             {
-                equipage[MembreSelected].Room = 7;
+                equipage[membreSelected].Room = 7;
                 B_deplacement.IsEnabled = true;
             }
         }
@@ -163,15 +163,15 @@ namespace Tharsis
         {
             if (!B_deplacement.IsEnabled)
             {
-                equipage[MembreSelected].Room = 5;
+                equipage[membreSelected].Room = 5;
                 B_deplacement.IsEnabled = true;
             }
         }
 
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
-            equipage[MembreSelected].Capacite(Falconne, equipage);
-            info.Text = equipage[MembreSelected].Info(Falconne);
+            equipage[membreSelected].Capacite(falcon, equipage);
+            info.Text = equipage[membreSelected].Info(falcon);
         }
 
         private void B_deplacement_Click(object sender, RoutedEventArgs e)
@@ -182,9 +182,9 @@ namespace Tharsis
         private void B_capitaine_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
-            MembreSelected = 0;
+            membreSelected = 0;
             memberName.Text = "Capitaine";
-            info.Text = equipage[MembreSelected].Info(Falconne);
+            info.Text = equipage[membreSelected].Info(falcon);
             if (equipage[0].MyDice.Count == 0)
             {
                 ResetDes();
@@ -198,9 +198,9 @@ namespace Tharsis
         private void B_commandant_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
-            MembreSelected = 1;
+            membreSelected = 1;
             memberName.Text = "Commandant";
-            info.Text = equipage[MembreSelected].Info(Falconne);
+            info.Text = equipage[membreSelected].Info(falcon);
             if (equipage[1].MyDice.Count == 0)
             {
                 ResetDes();
@@ -214,9 +214,9 @@ namespace Tharsis
         private void B_medecin_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
-            MembreSelected = 2;
+            membreSelected = 2;
             memberName.Text = "Médecin";
-            info.Text = equipage[MembreSelected].Info(Falconne);
+            info.Text = equipage[membreSelected].Info(falcon);
             if (equipage[3].MyDice.Count == 0)
             {
                 ResetDes();
@@ -230,9 +230,9 @@ namespace Tharsis
         private void B_mecano_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
-            MembreSelected = 3;
+            membreSelected = 3;
             memberName.Text = "Mécanicien";
-            info.Text = equipage[MembreSelected].Info(Falconne);
+            info.Text = equipage[membreSelected].Info(falcon);
             if (equipage[2].MyDice.Count == 0)
             {
                 ResetDes();
@@ -247,7 +247,7 @@ namespace Tharsis
         private void B_d_Click(object sender, RoutedEventArgs e)
         {
             Button But = (Button)sender;
-            string nomImage = string.Format("ms-appx:///Assets//d{0}_select.jpeg", equipage[MembreSelected].MyDice[Int32.Parse(But.Tag.ToString())]);
+            string nomImage = string.Format("ms-appx:///Assets//d{0}_select.jpeg", equipage[membreSelected].MyDice[Int32.Parse(But.Tag.ToString())]);
             SelectedDice.Add(Int32.Parse(But.Tag.ToString()));
             But.IsEnabled = false;
             B_annule.IsEnabled = true;
@@ -280,15 +280,15 @@ namespace Tharsis
             int totalRepart = 0;
             foreach(int nDés in SelectedDice)
             {               
-                totalRepart += equipage[MembreSelected].MyDice[nDés];
+                totalRepart += equipage[membreSelected].MyDice[nDés];
             }
-            Falconne.Rooms[equipage[MembreSelected].Room].Panne -= totalRepart;
-            info.Text += string.Format("\npanne {0} - {1}", Falconne.getRommName(equipage[MembreSelected].Room),totalRepart);
+            falcon.Rooms[equipage[membreSelected].Room].Panne -= totalRepart;
+            info.Text += string.Format("\npanne {0} - {1}", falcon.getRommName(equipage[membreSelected].Room),totalRepart);
             
 
             foreach(int des in SelectedDice)
             {
-                string nomImage = string.Format("ms-appx:///Assets//d{0}_utiliser.jpeg", equipage[MembreSelected].MyDice[des]);
+                string nomImage = string.Format("ms-appx:///Assets//d{0}_utiliser.jpeg", equipage[membreSelected].MyDice[des]);
                 switch (des)
                 {
                     case 0:

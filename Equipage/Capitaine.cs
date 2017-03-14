@@ -22,7 +22,7 @@ namespace Equipage
 
         public override string Info(Appareil vaisseau)
         {
-            return string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", this.HP, this.Dices, vaisseau.getRommName(this.Room));
+            return string.Format("PV: {0} \nDés: {1} \nSalle: {2} \n", this.HP, this.Dices, vaisseau.getRommName(this.Room));
         }
     }
 }
