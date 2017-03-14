@@ -253,10 +253,32 @@ namespace Tharsis
         private void B_d_Click(object sender, RoutedEventArgs e)
         {
             Button But = (Button)sender;
+            string nomImage = string.Format("ms-appx:///Assets//d{0}_select.jpeg", equipage[MembreSelected].MyDyce[Int32.Parse(But.Tag.ToString())]);
             SelectedDice.Add(Int32.Parse(But.Tag.ToString()));
-            info.Text+= Int32.Parse(But.Tag.ToString());
             But.IsEnabled = false;
             B_annule.IsEnabled = true;
+            //atribut limage du des selectione
+            switch (But.Tag.ToString())
+            {
+                case "0":
+                    dés1.Source = new BitmapImage(new Uri(nomImage));
+                    break;
+                case "1":
+                    dés2.Source = new BitmapImage(new Uri(nomImage));
+                    break;
+                case "2":
+                    dés3.Source = new BitmapImage(new Uri(nomImage));
+                    break;
+                case "3":
+                    dés4.Source = new BitmapImage(new Uri(nomImage));
+                    break;
+                case "4":
+                    dés5.Source = new BitmapImage(new Uri(nomImage));
+                    break;
+                case "5":
+                    dés6.Source = new BitmapImage(new Uri(nomImage));
+                    break;
+            }
         }
 
         private void B_repare_Click(object sender, RoutedEventArgs e)
@@ -267,7 +289,9 @@ namespace Tharsis
                 totalRepart += equipage[MembreSelected].MyDyce[nDés];
             }
             Falconne.Rooms[equipage[MembreSelected].Room].Panne -= totalRepart;
-            info.Text += string.Format("\n panne {0} - {1}", Falconne.getRommName(equipage[MembreSelected].Room),totalRepart);    
+            info.Text += string.Format("\n panne {0} - {1}", Falconne.getRommName(equipage[MembreSelected].Room),totalRepart);
+            SelectedDice.Clear();
+            B_annule.IsEnabled = false;
         }
 
         private void B_annule_Click(object sender, RoutedEventArgs e)
@@ -279,6 +303,7 @@ namespace Tharsis
             B_dés4.IsEnabled = true;
             B_dés5.IsEnabled = true;
             B_dés6.IsEnabled = true;
+            setDes();
             B_annule.IsEnabled = false;
         }
     }

@@ -119,6 +119,12 @@
     <Content Include="Assets\background.png" />
     <Content Include="Assets\Capitaine.png" />
     <Content Include="Assets\Commandant.png" />
+    <Content Include="Assets\d1_select.jpeg" />
+    <Content Include="Assets\d2_select.jpeg" />
+    <Content Include="Assets\d3_select.jpeg" />
+    <Content Include="Assets\d4_select.jpeg" />
+    <Content Include="Assets\d5_select.jpeg" />
+    <Content Include="Assets\d6_select.jpeg" />
     <Content Include="Assets\detente.png" />
     <Content Include="Assets\d5.jpeg" />
     <Content Include="Assets\d4.jpeg" />
