@@ -186,6 +186,7 @@ namespace Tharsis
         {
             menuaction.IsOpen = true;
             MembreSelected = 0;
+            memberName.Text = "Capitaine";
             info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
             if(equipage[0].MyDyce.Count == 0)
             {
@@ -201,6 +202,7 @@ namespace Tharsis
         {
             menuaction.IsOpen = true;
             MembreSelected = 1;
+            memberName.Text = "Commandant";
             info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", equipage[1].HP, equipage[1].Dices, Falconne.getRommName(equipage[1].Room));
             if (equipage[1].MyDyce.Count == 0)
             {
@@ -216,6 +218,7 @@ namespace Tharsis
         {
             menuaction.IsOpen = true;
             MembreSelected = 3;
+            memberName.Text = "Médecin";
             info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", equipage[2].HP, equipage[2].Dices, Falconne.getRommName(equipage[2].Room));
             if (equipage[3].MyDyce.Count == 0)
             {
@@ -231,6 +234,7 @@ namespace Tharsis
         {
             menuaction.IsOpen = true;
             MembreSelected = 2;
+            memberName.Text = "Mécanicien";
             info.Text = string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", equipage[3].HP, equipage[3].Dices, Falconne.getRommName(equipage[3].Room));
             if (equipage[2].MyDyce.Count == 0)
             {
