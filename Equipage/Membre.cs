@@ -35,7 +35,7 @@ namespace Equipage
             }
         }
         private List<int> myDice = new List<int>();
-        public List<int> MyDyce
+        public List<int> MyDice
         {
             get
             {
@@ -74,22 +74,22 @@ namespace Equipage
 
         public Membre()
         {
-            generateHP();
-            generateDices();
-            giveRoom();
+            GenerateHP();
+            GenerateDices();
+            GiveRoom();
         }
 
-        public void generateHP()
+        public void GenerateHP()
         {
            this.hp = RandomNumber(2, 4);
         }
 
-        public void generateDices()
+        public void GenerateDices()
         {
             this.dices = RandomNumber(2, 4);
         }
 
-        public void giveRoom()
+        public void GiveRoom()
         {
             this.room = RandomNumber(1, 7);
         }
@@ -105,6 +105,6 @@ namespace Equipage
         }
 
         public abstract void Capacite(Appareil vaisseau, List<Membre> equipage);
-        public abstract string info(Appareil vaisseau);
+        public abstract string Info(Appareil vaisseau);
     }
 }

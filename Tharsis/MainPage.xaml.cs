@@ -56,15 +56,15 @@ namespace Tharsis
         private void rollDices_Click(object sender, RoutedEventArgs e)
         {
            
-            equipage[MembreSelected].MyDyce = Roll.RollTheDices(equipage[MembreSelected].Dices,6);
+            equipage[MembreSelected].MyDice = Roll.RollTheDices(equipage[MembreSelected].Dices,6);
             SetDes();                              
         }
 
         public void SetDes()
         {
-            for (int i = 1; i <= equipage[MembreSelected].MyDyce.Count; i++)
+            for (int i = 1; i <= equipage[MembreSelected].MyDice.Count; i++)
             {
-                string nomImage = string.Format("ms-appx:///Assets//d{0}.jpeg", equipage[MembreSelected].MyDyce[i - 1]);
+                string nomImage = string.Format("ms-appx:///Assets//d{0}.jpeg", equipage[MembreSelected].MyDice[i - 1]);
                 switch (i)
                 {
                     case 1:
@@ -171,7 +171,7 @@ namespace Tharsis
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
             equipage[MembreSelected].Capacite(Falconne, equipage);
-            info.Text = equipage[MembreSelected].info(Falconne);
+            info.Text = equipage[MembreSelected].Info(Falconne);
         }
 
         private void B_deplacement_Click(object sender, RoutedEventArgs e)
@@ -184,8 +184,8 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 0;
             memberName.Text = "Capitaine";
-            info.Text = equipage[MembreSelected].info(Falconne);
-            if (equipage[0].MyDyce.Count == 0)
+            info.Text = equipage[MembreSelected].Info(Falconne);
+            if (equipage[0].MyDice.Count == 0)
             {
                 ResetDes();
             }
@@ -200,8 +200,8 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 1;
             memberName.Text = "Commandant";
-            info.Text = equipage[MembreSelected].info(Falconne);
-            if (equipage[1].MyDyce.Count == 0)
+            info.Text = equipage[MembreSelected].Info(Falconne);
+            if (equipage[1].MyDice.Count == 0)
             {
                 ResetDes();
             }
@@ -216,8 +216,8 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 2;
             memberName.Text = "Médecin";
-            info.Text = equipage[MembreSelected].info(Falconne);
-            if (equipage[3].MyDyce.Count == 0)
+            info.Text = equipage[MembreSelected].Info(Falconne);
+            if (equipage[3].MyDice.Count == 0)
             {
                 ResetDes();
             }
@@ -232,8 +232,8 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 3;
             memberName.Text = "Mécanicien";
-            info.Text = equipage[MembreSelected].info(Falconne);
-            if (equipage[2].MyDyce.Count == 0)
+            info.Text = equipage[MembreSelected].Info(Falconne);
+            if (equipage[2].MyDice.Count == 0)
             {
                 ResetDes();
             }
@@ -247,7 +247,7 @@ namespace Tharsis
         private void B_d_Click(object sender, RoutedEventArgs e)
         {
             Button But = (Button)sender;
-            string nomImage = string.Format("ms-appx:///Assets//d{0}_select.jpeg", equipage[MembreSelected].MyDyce[Int32.Parse(But.Tag.ToString())]);
+            string nomImage = string.Format("ms-appx:///Assets//d{0}_select.jpeg", equipage[MembreSelected].MyDice[Int32.Parse(But.Tag.ToString())]);
             SelectedDice.Add(Int32.Parse(But.Tag.ToString()));
             But.IsEnabled = false;
             B_annule.IsEnabled = true;
@@ -280,7 +280,7 @@ namespace Tharsis
             int totalRepart = 0;
             foreach(int nDés in SelectedDice)
             {               
-                totalRepart += equipage[MembreSelected].MyDyce[nDés];
+                totalRepart += equipage[MembreSelected].MyDice[nDés];
             }
             Falconne.Rooms[equipage[MembreSelected].Room].Panne -= totalRepart;
             info.Text += string.Format("\npanne {0} - {1}", Falconne.getRommName(equipage[MembreSelected].Room),totalRepart);
@@ -288,7 +288,7 @@ namespace Tharsis
 
             foreach(int des in SelectedDice)
             {
-                string nomImage = string.Format("ms-appx:///Assets//d{0}_utiliser.jpeg", equipage[MembreSelected].MyDyce[des]);
+                string nomImage = string.Format("ms-appx:///Assets//d{0}_utiliser.jpeg", equipage[MembreSelected].MyDice[des]);
                 switch (des)
                 {
                     case 0:

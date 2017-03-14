@@ -17,7 +17,7 @@ namespace Equipage
                 vaisseau.HP += 1;
         }
 
-        public override string info(Appareil vaisseau)
+        public override string Info(Appareil vaisseau)
         {
             return string.Format("Hp: {0} \nDice: {1} \nsalle: {2} \n", this.HP, this.Dices, vaisseau.getRommName(this.Room));
         }
