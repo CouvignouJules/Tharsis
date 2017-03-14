@@ -290,8 +290,7 @@ namespace Tharsis
             }
             Falconne.Rooms[equipage[MembreSelected].Room].Panne -= totalRepart;
             info.Text += string.Format("\npanne {0} - {1}", Falconne.getRommName(equipage[MembreSelected].Room),totalRepart);
-            SelectedDice.Clear();
-            B_annule.IsEnabled = false;
+            
 
             foreach(int des in SelectedDice)
             {
@@ -318,6 +317,8 @@ namespace Tharsis
                         break;
                 }
             }
+            SelectedDice.Clear();
+            B_annule.IsEnabled = false;
         }
 
         private void B_annule_Click(object sender, RoutedEventArgs e)
