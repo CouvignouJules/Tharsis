@@ -36,5 +36,10 @@ namespace Tharsis
         {
             Application.Current.Exit();
         }
+
+        private void hard_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
