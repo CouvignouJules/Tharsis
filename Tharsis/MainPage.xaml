@@ -10,87 +10,81 @@
 
     <RelativePanel Margin="0,0,-72,0">
 
-        <Grid Name="MainGrid" Margin="0,-10,-1208,-710" Height="720" Width="1208">
-
-            <Grid.Background>
-                <ImageBrush ImageSource="Assets/space.gif"/>
-            </Grid.Background>
+        <RelativePanel.Background>
+            <ImageBrush ImageSource="Assets/space.gif"/>
+        </RelativePanel.Background>
 
 
-            <Button Name="B_pilotage" Width="200" Height="169" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_pilotage_Click" Margin="124,236,884,315">
-                <Image Name="pilotage" Source="Assets/pilotage.png" Margin="-10,-17,-10,-17.333" />
-            </Button>
+        <Button Name="B_pilotage" Width="195" Height="164" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_pilotage_Click" Margin="183,241,830,315">
+            <Image Name="pilotage" Source="Assets/pilotage.png" Margin="-10,-17,-10,-17.333" />
+        </Button>
 
-            <Button Name="B_serre" Width="200" Height="169" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_serre_Click" Margin="329,236,679,315">
-                <Image Name="serre" Source="Assets/serre.png" Margin="-100,-6"/>
-            </Button>
+        <Button Name="B_serre" Width="151" Height="169" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_serre_Click" Margin="378,241,679,310">
+            <Image Name="serre" Source="Assets/serre.png" Height="169" Margin="-10,-6" />
+        </Button>
 
-            <Button Name="B_infirmeri" Width="200" Height="169" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_infirmeri_Click" Margin="529,236,479,315">
-                <Image Name="infirmerie" Source="Assets/infirmerie.png" Margin="-11,-53.333,-10,-53.333" Height="169" VerticalAlignment="Bottom"/>
-            </Button>
+        <Button Name="B_infirmeri" Width="200" Height="129" Click="B_infirmeri_Click" Margin="529,273,0,318">
+            <Image Name="infirmerie" Source="Assets/infirmerie.png" Margin="-10,-46,-10,-46.333"/>
+        </Button>
 
-            <Button Name="B_laboratoire" Width="200" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_laboratoire_Click" Height="129" Margin="690,10,318,581">
-                <Image Name="laboratoire" Source="Assets/laboratoire.png" Margin="-34,-6,-34.333,-6" HorizontalAlignment="Left" Width="200" Height="129" VerticalAlignment="Top"/>
-            </Button>
+        <Button Name="B_laboratoire" Width="143" Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_laboratoire_Click" Height="129" Margin="569,144,496,447">
+            <Image Name="laboratoire" Source="Assets/laboratoire.png" Margin="-18,-6,-16,-6" HorizontalAlignment="Left" Width="141" Height="129" VerticalAlignment="Top"/>
+        </Button>
 
-            <Button Name="B_survie" Width="111" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_survie_Click" Height="132" Margin="574,463,523,125">
-                <Image Name="survie" Source="Assets/survie.png" Margin="-11.333,-15.667,-10,-16" Height="132" VerticalAlignment="Top" HorizontalAlignment="Left" Width="112"/>
-            </Button>
+        <Button Name="B_survie" Width="111" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_survie_Click" Height="132" Margin="585,402,512,186">
+            <Image Name="survie" Source="Assets/survie.png" Margin="-11.333,-15.667,-10,-16" Height="132" VerticalAlignment="Top" HorizontalAlignment="Left" Width="112"/>
+        </Button>
 
-            <Button Name="B_detente" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_detente_Click" Height="212" Margin="752,193,256,315">
-                <Image Name="detente" Source="Assets/detente.png" Margin="0,0,0,0"/>
-            </Button>
+        <Button Name="B_detente" Width="135" Height="149" Click="B_detente_Click" Margin="729,273,-2,255">
+            <Image Name="detente" Source="Assets/detente.png" Margin="-11,-7.667,-12,-7.333" Width="136"/>
+        </Button>
 
-            <Button Name="B_maintenance" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_maintenance_Click" Height="139" Margin="952,236,56,345">
-                <Image Name="maintenance" Source="Assets/maintenance.png"  />
-            </Button>
+        <Button Name="B_maintenance" Width="200" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_maintenance_Click" Height="139" Margin="864,266,144,315">
+            <Image Name="maintenance" Source="Assets/maintenance.png" Margin="-10,-15.667,-10,-17.333"  />
+        </Button>
 
-            <Button Name="B_commandant" Width="42" Height="69" Click="B_commandant_Click"   Margin="171,70,0,581">
-                <Image Name="commandant" Source="Assets/Commandant.png" Margin="-21,-10,-21,-12.667" HorizontalAlignment="Right" Width="42" Height="69"/>
-            </Button>
-            <Button Name="B_capitaine" Width="42" Height="69" Click="B_capitaine_Click"   Margin="77,70,0,581">
-                <Image Name="capitaine" Source="Assets/Capitaine.png" Margin="-21,-11.333" HorizontalAlignment="Left" Width="42" Height="69"/>
-            </Button>
-            <Button Name="B_mecano" Width="42" Height="69" Click="B_mecano_Click"   Margin="124,70,0,581">
-                <Image Name="Mecano" Source="Assets/Mecano.png" Margin="-21,-11.333" HorizontalAlignment="Left" Width="42" Height="69"/>
-            </Button>
-            <Button Name="B_medecin" Width="42" Height="69" Click="B_medecin_Click"   Margin="10,70,0,581">
-                <Image Name="medecin" Source="Assets/Medecin.png" Margin="-21,-11.333" HorizontalAlignment="Left" Width="42" Height="69" RenderTransformOrigin="-1.19,0.681"/>
-            </Button>
+        <Button Name="B_commandant" Width="42" Height="69" Click="B_commandant_Click"   Margin="171,70,0,581">
+            <Image Name="commandant" Source="Assets/Commandant.png" Margin="-21,-10,-21,-12.667" HorizontalAlignment="Right" Width="42" Height="69"/>
+        </Button>
+        <Button Name="B_capitaine" Width="42" Height="69" Click="B_capitaine_Click"   Margin="77,70,0,581">
+            <Image Name="capitaine" Source="Assets/Capitaine.png" Margin="-21,-11.333" HorizontalAlignment="Left" Width="42" Height="69"/>
+        </Button>
+        <Button Name="B_mecano" Width="42" Height="69" Click="B_mecano_Click"   Margin="124,70,0,581">
+            <Image Name="Mecano" Source="Assets/Mecano.png" Margin="-21,-11.333" HorizontalAlignment="Left" Width="42" Height="69"/>
+        </Button>
+        <Button Name="B_medecin" Width="42" Height="69" Click="B_medecin_Click"   Margin="10,70,0,581">
+            <Image Name="medecin" Source="Assets/Medecin.png" Margin="-21,-11.333" HorizontalAlignment="Left" Width="42" Height="69" RenderTransformOrigin="-1.19,0.681"/>
+        </Button>
 
-            <Popup Name="menuaction" Height="196" Width="241" IsOpen="False" Margin="288,463,679,61" RenderTransformOrigin="0.5,0.5" >
-                <Grid Height="196" Width="241" Background="White">
-                    <TextBlock Name="info" Margin="10,5,113,0" Height="77" VerticalAlignment="Top"></TextBlock>
+        <Popup Name="menuaction" Height="196" Width="241" IsOpen="False" Margin="288,463,679,61" RenderTransformOrigin="0.5,0.5" >
+            <Grid Height="196" Width="241" Background="White">
+                <TextBlock Name="info" Margin="10,5,113,0" Height="77" VerticalAlignment="Top"></TextBlock>
 
-                    <Button Name="B_capaciter" Content="capacite" HorizontalAlignment="Left" Background="Gray" Margin="133,10,0,0" VerticalAlignment="Top" Click="B_capaciter_Click" Width="98" Height="32"/>
-                    <Button Name="B_deplacement" Content="déplacer" HorizontalAlignment="Left" Background="Gray" Margin="133,47,0,0" VerticalAlignment="Top" Click="B_deplacement_Click" Height="35" Width="98"/>
-                    <Button Name="B_repare" Content="reparer" HorizontalAlignment="Left" Background="Gray" Margin="133,116,0,0" VerticalAlignment="Top" Click="B_repare_Click" Height="35" Width="98"/>
-                    <Button Name="B_annule" Content="Annuler" HorizontalAlignment="Left" Background="Gray" Margin="133,161,0,0" VerticalAlignment="Top" Click="B_annule_Click" IsEnabled="False" Height="35" Width="98"/>
-                    <Button Name="rollDices" Content="Lancer les dés" Background="White" FontSize="20" FontFamily="Arial" Width="166" Height="30" Margin="40,87,0,79" Click="rollDices_Click" />
+                <Button Name="B_capaciter" Content="capacite" HorizontalAlignment="Left" Background="Gray" Margin="133,10,0,0" VerticalAlignment="Top" Click="B_capaciter_Click" Width="98" Height="32"/>
+                <Button Name="B_deplacement" Content="déplacer" HorizontalAlignment="Left" Background="Gray" Margin="133,47,0,0" VerticalAlignment="Top" Click="B_deplacement_Click" Height="35" Width="98"/>
+                <Button Name="B_repare" Content="reparer" HorizontalAlignment="Left" Background="Gray" Margin="133,116,0,0" VerticalAlignment="Top" Click="B_repare_Click" Height="35" Width="98"/>
+                <Button Name="B_annule" Content="Annuler" HorizontalAlignment="Left" Background="Gray" Margin="133,161,0,0" VerticalAlignment="Top" Click="B_annule_Click" IsEnabled="False" Height="35" Width="98"/>
+                <Button Name="rollDices" Content="Lancer les dés" Background="White" FontSize="20" FontFamily="Arial" Width="166" Height="30" Margin="40,87,0,79" Click="rollDices_Click" />
 
-                    <Button Name="B_dés1" Click="B_d_Click" Width="25" Height="25" Tag="0" Margin="10,122,0,49">
-                        <Image Name="dés1" Margin="-12.667,-11.333,-12.333,-11.333" HorizontalAlignment="Left" Width="25" Height="25" RenderTransformOrigin="-1.19,0.681"/>
-                    </Button>
-                    <Button Name="B_dés2"  Click="B_d_Click" Width="25" Height="25" Tag="1" Margin="40,122,0,49">
-                        <Image Name="dés2" Margin="-12.667,-11.333,-12.333,-11.333" HorizontalAlignment="Left" Width="25" Height="25" RenderTransformOrigin="-1.19,0.681"/>
-                    </Button>
-                    <Button Name="B_dés3"  Click="B_d_Click" Width="25" Height="25" Tag="2" Margin="70,122,0,49">
-                        <Image Name="dés3" Margin="-12.667,-11.333,-12.333,-11.333" HorizontalAlignment="Left" Width="25" Height="25" RenderTransformOrigin="-1.19,0.681"/>
-                    </Button>
-                    <Button Name="B_dés4"  Click="B_d_Click" Width="25" Height="25" Tag="3" Margin="10,152,0,19">
-                        <Image Name="dés4" Margin="-12.667,-11.333,-12.333,-11.333" HorizontalAlignment="Left" Width="25" Height="25" RenderTransformOrigin="-1.19,0.681"/>
-                    </Button>
-                    <Button Name="B_dés5"  Click="B_d_Click" Width="25" Height="25" Tag="4" Margin="40,152,0,19">
-                        <Image Name="dés5" Margin="-12.667,-11.333,-12.333,-11.333" HorizontalAlignment="Left" Width="25" Height="25" RenderTransformOrigin="-1.19,0.681"/>
-                    </Button>
-                    <Button Name="B_dés6"  Click="B_d_Click" Width="25" Height="25" Tag="5" Margin="70,152,0,19">
-                        <Image Name="dés6" Margin="-12.667,-11.333,-12.333,-11.333" HorizontalAlignment="Left" Width="25" Height="25" RenderTransformOrigin="-1.19,0.681"/>
-                    </Button>
-                </Grid>
-            </Popup>
-
-
-        </Grid>
-
+                <Button Name="B_dés1" Click="B_d_Click" Width="25" Height="25" Tag="0" Margin="10,122,0,49">
+                    <Image Name="dés1" Margin="-12.667,-11.333,-12.333,-11.333" HorizontalAlignment="Left" Width="25" Height="25" RenderTransformOrigin="-1.19,0.681"/>
+                </Button>
+                <Button Name="B_dés2"  Click="B_d_Click" Width="25" Height="25" Tag="1" Margin="40,122,0,49">
+                    <Image Name="dés2" Margin="-12.667,-11.333,-12.333,-11.333" HorizontalAlignment="Left" Width="25" Height="25" RenderTransformOrigin="-1.19,0.681"/>
+                </Button>
+                <Button Name="B_dés3"  Click="B_d_Click" Width="25" Height="25" Tag="2" Margin="70,122,0,49">
+                    <Image Name="dés3" Margin="-12.667,-11.333,-12.333,-11.333" HorizontalAlignment="Left" Width="25" Height="25" RenderTransformOrigin="-1.19,0.681"/>
+                </Button>
+                <Button Name="B_dés4"  Click="B_d_Click" Width="25" Height="25" Tag="3" Margin="10,152,0,19">
+                    <Image Name="dés4" Margin="-12.667,-11.333,-12.333,-11.333" HorizontalAlignment="Left" Width="25" Height="25" RenderTransformOrigin="-1.19,0.681"/>
+                </Button>
+                <Button Name="B_dés5"  Click="B_d_Click" Width="25" Height="25" Tag="4" Margin="40,152,0,19">
+                    <Image Name="dés5" Margin="-12.667,-11.333,-12.333,-11.333" HorizontalAlignment="Left" Width="25" Height="25" RenderTransformOrigin="-1.19,0.681"/>
+                </Button>
+                <Button Name="B_dés6"  Click="B_d_Click" Width="25" Height="25" Tag="5" Margin="70,152,0,19">
+                    <Image Name="dés6" Margin="-12.667,-11.333,-12.333,-11.333" HorizontalAlignment="Left" Width="25" Height="25" RenderTransformOrigin="-1.19,0.681"/>
+                </Button>
+            </Grid>
+        </Popup>
     </RelativePanel>
 </Page>

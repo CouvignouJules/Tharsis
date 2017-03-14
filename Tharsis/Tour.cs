@@ -46,8 +46,6 @@ namespace Tharsis
                         MakeGrossePanne();
                     }
                 }
-
-
             }
         }
 

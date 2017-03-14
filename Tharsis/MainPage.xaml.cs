@@ -26,7 +26,9 @@ namespace Tharsis
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        //creation du vaisseau
         Appareil Falconne = new Appareil();
+        //list contenent le menbre dequipage
         List<Membre> equipage = new List<Membre>();
         int MembreSelected;
         int[] dicesRolled;
