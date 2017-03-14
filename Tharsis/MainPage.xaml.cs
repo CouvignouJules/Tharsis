@@ -29,6 +29,7 @@ namespace Tharsis
         Appareil Falconne = new Appareil();
         List<Membre> equipage = new List<Membre>();
         int MembreSelected;
+        int[] dicesRolled;
 
         public MainPage()
         {
@@ -53,7 +54,7 @@ namespace Tharsis
         // jete les dés du membre d'équipage puis affiche le résultat dans un bloc de texte
         private void rollDices_Click(object sender, RoutedEventArgs e)
         {
-            int[] dicesRolled;
+           
             dicesRolled = Roll.RollTheDices(equipage[MembreSelected].Dices,6);
             for(int i = 1; i <= dicesRolled.Length; i++)
             {
@@ -176,28 +177,28 @@ namespace Tharsis
         {
             menuaction.IsOpen = true;
             MembreSelected = 0;
-            info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
+            info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} \n", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
         }
 
         private void B_commandant_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
             MembreSelected = 1;
-            info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[1].HP, equipage[1].Dices, Falconne.getRommName(equipage[1].Room));
+            info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} \n", equipage[1].HP, equipage[1].Dices, Falconne.getRommName(equipage[1].Room));
         }
 
         private void B_medecin_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
             MembreSelected = 3;
-            info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[2].HP, equipage[2].Dices, Falconne.getRommName(equipage[2].Room));
+            info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} \n", equipage[2].HP, equipage[2].Dices, Falconne.getRommName(equipage[2].Room));
         }
 
-        private void B_mecano_Click_1(object sender, RoutedEventArgs e)
+        private void B_mecano_Click(object sender, RoutedEventArgs e)
         {
             menuaction.IsOpen = true;
             MembreSelected = 2;
-            info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} ", equipage[3].HP, equipage[3].Dices, Falconne.getRommName(equipage[3].Room));
+            info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} \n", equipage[3].HP, equipage[3].Dices, Falconne.getRommName(equipage[3].Room));
         }
         
         List<int> SelectedDice = new List<int>();
@@ -205,8 +206,32 @@ namespace Tharsis
         {
             Button But = (Button)sender;
             SelectedDice.Add(Int32.Parse(But.Tag.ToString()));
+            info.Text+= Int32.Parse(But.Tag.ToString());
             But.IsEnabled = false;
-            info.Text += Int32.Parse(But.Tag.ToString());
+            B_annule.IsEnabled = true;
+        }
+
+        private void B_repare_Click(object sender, RoutedEventArgs e)
+        {
+            int totalRepart = 0;
+            foreach(int nDés in SelectedDice)
+            {
+                
+                totalRepart += dicesRolled[nDés];
+            }
+            Falconne.Rooms[equipage[MembreSelected].Room].Panne -= totalRepart;
+            info.Text += string.Format("\n panne {0} - {1}", Falconne.getRommName(equipage[MembreSelected].Room),totalRepart);    
+        }
+
+        private void B_annule_Click(object sender, RoutedEventArgs e)
+        {
+            SelectedDice.Clear();
+            B_dés1.IsEnabled = true;
+            B_dés2.IsEnabled = true;
+            B_dés3.IsEnabled = true;
+            B_dés4.IsEnabled = true;
+            B_dés5.IsEnabled = true;
+            B_dés6.IsEnabled = true;
         }
     }
 }
