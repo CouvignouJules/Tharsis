@@ -9,11 +9,11 @@
     mc:Ignorable="d" Height="720" Width="1208" >
 
     <RelativePanel Margin="0,0,-72,0">
-
+    <!--
         <RelativePanel.Background>
             <ImageBrush ImageSource="Assets/space.gif"/>
         </RelativePanel.Background>
-
+    -->
         <Button Name="B_pilotage" Width="195" Height="164" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Click="B_pilotage_Click" Margin="183,241,830,315">
             <Image Name="pilotage" Source="Assets/pilotage.png" Margin="-10,-17,-10,-17.333" />
         </Button>
@@ -62,9 +62,9 @@
             <Grid Height="196" Width="241" Background="White">
                 <TextBlock Name="info" Margin="10,5,113,0" Height="77" VerticalAlignment="Top"></TextBlock>
 
-                <Button Name="B_capaciter" Content="capacite" HorizontalAlignment="Left" Background="Gray" Margin="133,10,0,0" VerticalAlignment="Top" Click="B_capaciter_Click" Width="98" Height="32"/>
+                <Button Name="B_capaciter" Content="capacite" HorizontalAlignment="Left" Background="Gray" Margin="133,10,0,0" VerticalAlignment="Top" Click="B_capaciter_Click" IsEnabled="False" Width="98" Height="32"/>
                 <Button Name="B_deplacement" Content="déplacer" HorizontalAlignment="Left" Background="Gray" Margin="133,47,0,0" VerticalAlignment="Top" Click="B_deplacement_Click" Height="35" Width="98"/>
-                <Button Name="B_repare" Content="reparer" HorizontalAlignment="Left" Background="Gray" Margin="133,116,0,0" VerticalAlignment="Top" Click="B_repare_Click" Height="35" Width="98"/>
+                <Button Name="B_repare" Content="reparer" HorizontalAlignment="Left" Background="Gray" Margin="133,116,0,0" VerticalAlignment="Top" Click="B_repare_Click" IsEnabled="False" Height="35" Width="98"/>
                 <Button Name="B_annule" Content="Annuler" HorizontalAlignment="Left" Background="Gray" Margin="133,161,0,0" VerticalAlignment="Top" Click="B_annule_Click" IsEnabled="False" Height="35" Width="98"/>
                 <Button Name="rollDices" Content="Lancer les dés" Background="White" FontSize="20" FontFamily="Arial" Width="166" Height="30" Margin="40,87,0,79" Click="rollDices_Click" />
 

@@ -55,9 +55,9 @@ namespace Tharsis
         // jete les dés du membre d'équipage puis affiche le résultat dans un bloc de texte
         private void rollDices_Click(object sender, RoutedEventArgs e)
         {
-           
             equipage[membreSelected].MyDice = Roll.RollTheDices(equipage[membreSelected].Dices,6);
-            SetDes();                              
+            SetDes();
+            rollDices.IsEnabled = false;                              
         }
 
         public void SetDes()
@@ -69,21 +69,58 @@ namespace Tharsis
                 {
                     case 1:
                         dés1.Source = new BitmapImage(new Uri(nomImage));
+                        B_dés1.IsEnabled = true;
                         break;
                     case 2:
                         dés2.Source = new BitmapImage(new Uri(nomImage));
+                        B_dés2.IsEnabled = true;
                         break;
                     case 3:
                         dés3.Source = new BitmapImage(new Uri(nomImage));
+                        B_dés3.IsEnabled = true;
                         break;
                     case 4:
                         dés4.Source = new BitmapImage(new Uri(nomImage));
+                        B_dés4.IsEnabled = true;
                         break;
                     case 5:
                         dés5.Source = new BitmapImage(new Uri(nomImage));
+                        B_dés5.IsEnabled = true;
                         break;
                     case 6:
                         dés6.Source = new BitmapImage(new Uri(nomImage));
+                        B_dés6.IsEnabled = true;
+                        break;
+                }
+            }
+            foreach(int i in equipage[membreSelected].UsedDice)
+            {
+                string nomImage = string.Format("ms-appx:///Assets//d{0}_utiliser.jpeg", equipage[membreSelected].MyDice[i]);
+                switch (i)
+                {
+                    case 0:
+                        dés1.Source = new BitmapImage(new Uri(nomImage));
+                        B_dés1.IsEnabled = false;
+                        break;
+                    case 1:
+                        dés2.Source = new BitmapImage(new Uri(nomImage));
+                        B_dés2.IsEnabled = false;
+                        break;
+                    case 2:
+                        dés3.Source = new BitmapImage(new Uri(nomImage));
+                        B_dés3.IsEnabled = false;
+                        break;
+                    case 3:
+                        dés4.Source = new BitmapImage(new Uri(nomImage));
+                        B_dés4.IsEnabled = false;
+                        break;
+                    case 4:
+                        dés5.Source = new BitmapImage(new Uri(nomImage));
+                        B_dés5.IsEnabled = false;
+                        break;
+                    case 5:
+                        dés6.Source = new BitmapImage(new Uri(nomImage));
+                        B_dés6.IsEnabled = false;
                         break;
                 }
             }
@@ -92,11 +129,17 @@ namespace Tharsis
         public void ResetDes()
         {
             dés1.Source = null;
+            B_dés1.IsEnabled = true;
             dés2.Source = null;
+            B_dés2.IsEnabled = true;
             dés3.Source = null;
+            B_dés3.IsEnabled = true;
             dés4.Source = null;
+            B_dés4.IsEnabled = true;
             dés5.Source = null;
+            B_dés5.IsEnabled = true;
             dés6.Source = null;
+            B_dés6.IsEnabled = true;
         }
 
         // Affiche les PV du vaisseau
@@ -111,6 +154,7 @@ namespace Tharsis
             {
                 equipage[membreSelected].Room = 6;
                 B_deplacement.IsEnabled = true;
+                info.Text = equipage[membreSelected].Info(falcon);
             }
         }
 
@@ -120,6 +164,7 @@ namespace Tharsis
             {
                 equipage[membreSelected].Room = 4;
                 B_deplacement.IsEnabled = true;
+                info.Text = equipage[membreSelected].Info(falcon);
             }
         }
 
@@ -129,6 +174,7 @@ namespace Tharsis
             {
                 equipage[membreSelected].Room = 3;
                 B_deplacement.IsEnabled = true;
+                info.Text = equipage[membreSelected].Info(falcon);
             }
         }
 
@@ -138,6 +184,7 @@ namespace Tharsis
             {
                 equipage[membreSelected].Room = 2;
                 B_deplacement.IsEnabled = true;
+                info.Text = equipage[membreSelected].Info(falcon);
             }
         }
 
@@ -147,6 +194,7 @@ namespace Tharsis
             {
                 equipage[membreSelected].Room = 1;
                 B_deplacement.IsEnabled = true;
+                info.Text = equipage[membreSelected].Info(falcon);
             }
         }
 
@@ -156,6 +204,7 @@ namespace Tharsis
             {
                 equipage[membreSelected].Room = 7;
                 B_deplacement.IsEnabled = true;
+                info.Text = equipage[membreSelected].Info(falcon);
             }
         }
 
@@ -165,6 +214,7 @@ namespace Tharsis
             {
                 equipage[membreSelected].Room = 5;
                 B_deplacement.IsEnabled = true;
+                info.Text = equipage[membreSelected].Info(falcon);
             }
         }
 
@@ -181,66 +231,50 @@ namespace Tharsis
 
         private void B_capitaine_Click(object sender, RoutedEventArgs e)
         {
+            ResetDes();
             menuaction.IsOpen = true;
             membreSelected = 0;
+            if (equipage[membreSelected].MyDice.Count != 0)
+                rollDices.IsEnabled = false;
             memberName.Text = "Capitaine";
             info.Text = equipage[membreSelected].Info(falcon);
-            if (equipage[0].MyDice.Count == 0)
-            {
-                ResetDes();
-            }
-            else
-            {
-                SetDes();
-            }
+            SetDes();
         }
 
         private void B_commandant_Click(object sender, RoutedEventArgs e)
         {
+            ResetDes();
             menuaction.IsOpen = true;
             membreSelected = 1;
+            if (equipage[membreSelected].MyDice.Count != 0)
+                rollDices.IsEnabled = false;
             memberName.Text = "Commandant";
             info.Text = equipage[membreSelected].Info(falcon);
-            if (equipage[1].MyDice.Count == 0)
-            {
-                ResetDes();
-            }
-            else
-            {
-                SetDes();
-            }
+            SetDes();
         }
 
         private void B_medecin_Click(object sender, RoutedEventArgs e)
         {
+            ResetDes();
             menuaction.IsOpen = true;
             membreSelected = 2;
+            if (equipage[membreSelected].MyDice.Count != 0)
+                rollDices.IsEnabled = false;
             memberName.Text = "Médecin";
             info.Text = equipage[membreSelected].Info(falcon);
-            if (equipage[3].MyDice.Count == 0)
-            {
-                ResetDes();
-            }
-            else
-            {
-                SetDes();
-            }
+            SetDes();
         }
 
         private void B_mecano_Click(object sender, RoutedEventArgs e)
         {
+            ResetDes();
             menuaction.IsOpen = true;
             membreSelected = 3;
+            if (equipage[membreSelected].MyDice.Count != 0)
+                rollDices.IsEnabled = false;
             memberName.Text = "Mécanicien";
             info.Text = equipage[membreSelected].Info(falcon);
-            if (equipage[2].MyDice.Count == 0)
-            {
-                ResetDes();
-            }
-            else
-            {
-                SetDes();
-            }
+            SetDes();
         }
         
         List<int> SelectedDice = new List<int>();
@@ -250,6 +284,8 @@ namespace Tharsis
             string nomImage = string.Format("ms-appx:///Assets//d{0}_select.jpeg", equipage[membreSelected].MyDice[Int32.Parse(But.Tag.ToString())]);
             SelectedDice.Add(Int32.Parse(But.Tag.ToString()));
             But.IsEnabled = false;
+            B_capaciter.IsEnabled = true;
+            B_repare.IsEnabled = true;
             B_annule.IsEnabled = true;
             //atribut limage du des selectione
             switch (But.Tag.ToString())
@@ -283,48 +319,25 @@ namespace Tharsis
                 totalRepart += equipage[membreSelected].MyDice[nDés];
             }
             falcon.Rooms[equipage[membreSelected].Room].Panne -= totalRepart;
-            info.Text += string.Format("\npanne {0} - {1}", falcon.getRommName(equipage[membreSelected].Room),totalRepart);
+            info.Text += string.Format("panne {0} - {1}", falcon.getRommName(equipage[membreSelected].Room),totalRepart);
+
             
 
-            foreach(int des in SelectedDice)
-            {
-                string nomImage = string.Format("ms-appx:///Assets//d{0}_utiliser.jpeg", equipage[membreSelected].MyDice[des]);
-                switch (des)
-                {
-                    case 0:
-                        dés1.Source = new BitmapImage(new Uri(nomImage));
-                        break;
-                    case 1:
-                        dés2.Source = new BitmapImage(new Uri(nomImage));
-                        break;
-                    case 2:
-                        dés3.Source = new BitmapImage(new Uri(nomImage));
-                        break;
-                    case 3:
-                        dés4.Source = new BitmapImage(new Uri(nomImage));
-                        break;
-                    case 4:
-                        dés5.Source = new BitmapImage(new Uri(nomImage));
-                        break;
-                    case 5:
-                        dés6.Source = new BitmapImage(new Uri(nomImage));
-                        break;
-                }
-            }
+            foreach (int i in SelectedDice)
+                equipage[membreSelected].UsedDice.Add(i);
+            SetDes(); 
             SelectedDice.Clear();
+            B_capaciter.IsEnabled = false;
+            B_repare.IsEnabled = false;
             B_annule.IsEnabled = false;
         }
 
         private void B_annule_Click(object sender, RoutedEventArgs e)
         {
             SelectedDice.Clear();
-            B_dés1.IsEnabled = true;
-            B_dés2.IsEnabled = true;
-            B_dés3.IsEnabled = true;
-            B_dés4.IsEnabled = true;
-            B_dés5.IsEnabled = true;
-            B_dés6.IsEnabled = true;
             SetDes();
+            B_capaciter.IsEnabled = false;
+            B_repare.IsEnabled = false;
             B_annule.IsEnabled = false;
         }
     }
