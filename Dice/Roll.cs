@@ -11,7 +11,7 @@ namespace Dice
         private static Random _random = new Random(); // une seule instance !
 
 
-        public static int[] RollTheDices(int numberOfDice, int numberOfSides)
+        public static List<int> RollTheDices(int numberOfDice, int numberOfSides)
         {
             if (numberOfDice <= 0)
             {
@@ -23,24 +23,12 @@ namespace Dice
                 throw new Exception("Number of sides must be greater than zero.");
             }
 
-            int[] roll = new int[numberOfDice];
+            List<int> roll = new List<int>();
 
             for (int i = 0; i < numberOfDice; i++)
             {
-                roll[i] = _random.Next(1, numberOfSides + 1);
+                roll.Add(_random.Next(1, numberOfSides + 1));
             }
-
-            StringBuilder result = new StringBuilder();
-            int total = 0;
-
-            for (int i = 0; i < roll.Length; i++)
-            {
-                total += roll[i];
-                result.AppendFormat("Dice {0:00}:\t{1}\n", i + 1, roll[i]);
-            }
-
-            result.AppendFormat("\t\t--\n");
-            result.AppendFormat("TOTAL:\t\t{0}", total);
 
             return roll;
         }

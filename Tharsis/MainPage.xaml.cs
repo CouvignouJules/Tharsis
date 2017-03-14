@@ -31,8 +31,7 @@ namespace Tharsis
         //list contenent le menbre dequipage
         List<Membre> equipage = new List<Membre>();
         int MembreSelected;
-        int[] dicesRolled;
-
+ 
         public MainPage()
         {
             this.InitializeComponent();
@@ -57,14 +56,19 @@ namespace Tharsis
         private void rollDices_Click(object sender, RoutedEventArgs e)
         {
            
-            dicesRolled = Roll.RollTheDices(equipage[MembreSelected].Dices,6);
-            for(int i = 1; i <= dicesRolled.Length; i++)
+            equipage[MembreSelected].MyDyce = Roll.RollTheDices(equipage[MembreSelected].Dices,6);
+            setDes();                              
+        }
+
+        public void setDes()
+        {
+            for (int i = 1; i <= equipage[MembreSelected].MyDyce.Count; i++)
             {
-                string nomImage = string.Format("ms-appx:///Assets//d{0}.jpeg", dicesRolled[i-1]);
+                string nomImage = string.Format("ms-appx:///Assets//d{0}.jpeg", equipage[MembreSelected].MyDyce[i - 1]);
                 switch (i)
                 {
                     case 1:
-                        dés1.Source =new BitmapImage(new Uri(nomImage));
+                        dés1.Source = new BitmapImage(new Uri(nomImage));
                         break;
                     case 2:
                         dés2.Source = new BitmapImage(new Uri(nomImage));
@@ -81,8 +85,18 @@ namespace Tharsis
                     case 6:
                         dés6.Source = new BitmapImage(new Uri(nomImage));
                         break;
-                }    
-            }                               
+                }
+            }
+        }
+
+        public void resetDes()
+        {
+            dés1.Source = null;
+            dés2.Source = null;
+            dés3.Source = null;
+            dés4.Source = null;
+            dés5.Source = null;
+            dés6.Source = null;
         }
 
         // Affiche les PV du vaisseau
@@ -180,6 +194,14 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 0;
             info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} \n", equipage[0].HP, equipage[0].Dices, Falconne.getRommName(equipage[0].Room));
+            if(equipage[0].MyDyce.Count == 0)
+            {
+                resetDes();
+            }
+            else
+            {
+                setDes();
+            }
         }
 
         private void B_commandant_Click(object sender, RoutedEventArgs e)
@@ -187,6 +209,14 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 1;
             info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} \n", equipage[1].HP, equipage[1].Dices, Falconne.getRommName(equipage[1].Room));
+            if (equipage[1].MyDyce.Count == 0)
+            {
+                resetDes();
+            }
+            else
+            {
+                setDes();
+            }
         }
 
         private void B_medecin_Click(object sender, RoutedEventArgs e)
@@ -194,6 +224,14 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 3;
             info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} \n", equipage[2].HP, equipage[2].Dices, Falconne.getRommName(equipage[2].Room));
+            if (equipage[3].MyDyce.Count == 0)
+            {
+                resetDes();
+            }
+            else
+            {
+                setDes();
+            }
         }
 
         private void B_mecano_Click(object sender, RoutedEventArgs e)
@@ -201,6 +239,14 @@ namespace Tharsis
             menuaction.IsOpen = true;
             MembreSelected = 2;
             info.Text = string.Format("Hp : {0} \nDice:{1} \nsalle : {2} \n", equipage[3].HP, equipage[3].Dices, Falconne.getRommName(equipage[3].Room));
+            if (equipage[2].MyDyce.Count == 0)
+            {
+                resetDes();
+            }
+            else
+            {
+                setDes();
+            }
         }
         
         List<int> SelectedDice = new List<int>();
@@ -217,9 +263,8 @@ namespace Tharsis
         {
             int totalRepart = 0;
             foreach(int nDés in SelectedDice)
-            {
-                
-                totalRepart += dicesRolled[nDés];
+            {               
+                totalRepart += equipage[MembreSelected].MyDyce[nDés];
             }
             Falconne.Rooms[equipage[MembreSelected].Room].Panne -= totalRepart;
             info.Text += string.Format("\n panne {0} - {1}", Falconne.getRommName(equipage[MembreSelected].Room),totalRepart);    
@@ -234,6 +279,7 @@ namespace Tharsis
             B_dés4.IsEnabled = true;
             B_dés5.IsEnabled = true;
             B_dés6.IsEnabled = true;
+            B_annule.IsEnabled = false;
         }
     }
 }
