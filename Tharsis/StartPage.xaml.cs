@@ -39,7 +39,11 @@ namespace Tharsis
 
         private void hard_Click(object sender, RoutedEventArgs e)
         {
-
+            /*TODO: 
+                - Page Hardmode
+                - Mode difficile
+             
+             */
         }
     }
 }
