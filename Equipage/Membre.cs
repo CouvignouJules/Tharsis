@@ -66,7 +66,7 @@ namespace Equipage
         }
 
         // Savoir si un dé a déjà été utilisé
-        Boolean validatDice;
+        private Boolean validatDice;
         public Boolean ValidateDice
         {
             get
@@ -76,6 +76,19 @@ namespace Equipage
             set
             {
                 this.validatDice = value;
+            }
+        }
+
+        private int capaciteNumber;
+        public int CapaciteNumber
+        {
+            get
+            {
+                return capaciteNumber;
+            }
+            set
+            {
+                this.capaciteNumber = value;
             }
         }
 

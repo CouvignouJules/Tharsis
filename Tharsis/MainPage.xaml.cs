@@ -259,6 +259,34 @@ namespace Tharsis
             equipage[membreSelected].Capacite(falcon, equipage);
             info.Text = equipage[membreSelected].Info(falcon);
             shipHealth.Text = falcon.ToString();
+
+            foreach(int i in SelectedDice)
+            {
+                if (equipage[membreSelected].CapaciteNumber < 1)
+                {
+                    if(equipage[membreSelected].MyDice[i] >= 5)
+                    {
+                        equipage[membreSelected].Capacite(falcon, equipage);
+                        equipage[membreSelected].UsedDice.Add(i);
+                        equipage[membreSelected].CapaciteNumber += 1;
+                        info.Text = "capacite utiliser";
+                    }
+                    else
+                    {
+                        info.Text = "dés invalide";
+                    }
+                }
+                else
+                {
+                    info.Text = "plus de capaciter utilisable";
+                }
+                SelectedDice.Clear();
+            }
+
+            //sa bug par la
+
+
+
             foreach (int i in SelectedDice)
                 equipage[membreSelected].UsedDice.Add(i);
             SetDes();
@@ -350,7 +378,10 @@ namespace Tharsis
 
             if(!equipage[membreSelected].ValidateDice)
                 B_reRollDices.IsEnabled = true;
-            B_capaciter.IsEnabled = true;
+
+            if(equipage[membreSelected].CapaciteNumber < 1)
+                B_capaciter.IsEnabled = true;
+
             B_repare.IsEnabled = true;
             B_annule.IsEnabled = true;
             //atribut limage du des selectione
