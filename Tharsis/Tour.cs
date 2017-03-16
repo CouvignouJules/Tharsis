@@ -11,16 +11,13 @@ namespace Tharsis
 {
     public class Tour
     {
-        int numSemaine = 1;
-        List<Membre> equipage = new List<Membre>();
-        Appareil vaisseau = new Appareil();
         // gere le deroulement general du jeu
-        public void game()
+        public static void game(int numSemaine,  List<Membre> equipage, Appareil vaisseau)
         { 
-            InitEquipage();
             XmlReader reader = XmlReader.Instance();
+            int salle = 0;
 
-            while (numSemaine < 10)
+            if (numSemaine <= 10)
             {
                 //recuperation de la liste des pannes de la semaine en cours
                 List<int> listPannes = reader.getPanne(numSemaine);
@@ -29,69 +26,31 @@ namespace Tharsis
                 {
                     for(int i = 0; i <= listPannes[0]; i++)
                     {
-                        MakePetitePanne();
+                        salle = Membre.RandomNumber(1, 7);
+                        vaisseau.Rooms[salle].Panne += Membre.RandomNumber(1, 11);
                     }
                 }
                 if (listPannes[1] > 0)
                 {
                     for (int i = 0; i <= listPannes[1]; i++)
                     {
-                        MakeMoyennePanne();
+                        salle = Membre.RandomNumber(1, 7);
+                        vaisseau.Rooms[salle].Panne += Membre.RandomNumber(12, 23);
                     }
                 }
                 if (listPannes[2] > 0)
                 {
                     for (int i = 0; i <= listPannes[2]; i++)
                     {
-                        MakeGrossePanne();
+                        salle = Membre.RandomNumber(1, 7);
+                        vaisseau.Rooms[salle].Panne += Membre.RandomNumber(24,35);
                     }
                 }
             }
-        }
-
-        //genere la liste des membres d'equipage
-        public void InitEquipage()
-        {
-            equipage.Add(new Capitaine());
-            equipage.Add(new Commandant());
-            equipage.Add(new Mecanicien());
-            equipage.Add(new Medecin());
-        }
-
-        //affecte à une salle au hasard la valeur d'une petite panne
-        public void MakeGrossePanne()
-        {
-
-        }
-        //affecte a une salle au hasard la valeur d'une moyenne panne
-        public void MakeMoyennePanne()
-        {
-
-        }
-        //affecte a une salle au hasard la valeur d'une grosse panne
-        public void MakePetitePanne()
-        {
-
-        }
-        //decrit le tour de capitaine
-        public void TourCapitaine()
-        {
-
-        }
-        //decrit le tour de commandant
-        public void TourCommandant()
-        {
-
-        }
-        //decrit le tour du mecanicien
-        public void TourMecanicien()
-        {
-
-        }
-        //decrit le tour du medecin
-        public void TourMedecin()
-        {
-
+            else
+            {
+                //gg gagner
+            }          
         }
     }
 }

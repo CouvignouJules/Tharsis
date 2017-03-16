@@ -113,6 +113,7 @@ namespace Equipage
             GenerateDices();
             GiveRoom();
             validatDice = false;
+            capaciteNumber = 0;
         }
 
         // Le nombre de PV de départ du membre

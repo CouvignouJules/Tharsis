@@ -32,12 +32,16 @@ namespace Tharsis
         List<Membre> equipage = new List<Membre>();
         // Indicateur du membre d'équipage sélectionné
         int membreSelected;
+
+        int semaine = 1;
  
         public MainPage()
         {
             this.InitializeComponent();
             InitEquipage();
             shipHealth.Text = falcon.ToString();
+            Tour.game(semaine, equipage, falcon);
+            setPannes();
         }
 
         // Remplissage de la liste par les membres d'équipage
@@ -54,7 +58,8 @@ namespace Tharsis
         {
             equipage[membreSelected].MyDice = Roll.RollTheDices(equipage[membreSelected].Dices,6);
             SetDes();
-            B_rollDices.IsEnabled = false;     
+            B_rollDices.IsEnabled = false;
+            
         }
 
         // Affichage des dés lancés par le membre d'équipage et grisage des dés sélectionnés (utilisés)
@@ -139,6 +144,18 @@ namespace Tharsis
             B_dés5.IsEnabled = true;
             dés6.Source = null;
             B_dés6.IsEnabled = true;
+        }
+
+        public void setPannes()
+        {
+            PanneInfo.Text = string.Format("Semmaine {0}\n", semaine);
+            foreach (Room salle in falcon.Rooms)
+            {
+                if (salle.Panne > 0)
+                {
+                    PanneInfo.Text += string.Format("{0} panne de : {1}",salle.Nom,salle.Panne);
+                }
+            }
         }
 
         // Affiche les PV du vaisseau
@@ -256,10 +273,9 @@ namespace Tharsis
         // Active la capacité spéciale du membre d'équipage
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
-            equipage[membreSelected].Capacite(falcon, equipage);
-            info.Text = equipage[membreSelected].Info(falcon);
+            //info.Text = equipage[membreSelected].Info(falcon);
             shipHealth.Text = falcon.ToString();
-
+            info.Text = "";
             foreach(int i in SelectedDice)
             {
                 if (equipage[membreSelected].CapaciteNumber < 1)
@@ -269,28 +285,22 @@ namespace Tharsis
                         equipage[membreSelected].Capacite(falcon, equipage);
                         equipage[membreSelected].UsedDice.Add(i);
                         equipage[membreSelected].CapaciteNumber += 1;
-                        info.Text = "capacite utiliser";
+                        info.Text += "\ncapacite utiliser";
                     }
                     else
                     {
-                        info.Text = "dés invalide";
+                        info.Text += "\ndés invalide";
                     }
                 }
                 else
                 {
-                    info.Text = "plus de capaciter utilisable";
+                    info.Text += "\nplus de capaciter utilisable";
                 }
-                SelectedDice.Clear();
             }
 
-            //sa bug par la
-
-
-
-            foreach (int i in SelectedDice)
-                equipage[membreSelected].UsedDice.Add(i);
             SetDes();
             SelectedDice.Clear();
+            setPannes();
 
             B_capaciter.IsEnabled = false;
             B_repare.IsEnabled = false;
@@ -423,6 +433,7 @@ namespace Tharsis
                 equipage[membreSelected].UsedDice.Add(i);
             SetDes(); 
             SelectedDice.Clear();
+            setPannes();
 
             B_capaciter.IsEnabled = false;
             B_repare.IsEnabled = false;
@@ -454,6 +465,16 @@ namespace Tharsis
             equipage[membreSelected].ValidateDice = true;
             SetDes();
             SelectedDice.Clear();
+        }
+
+        private void nextTurn_Click(object sender, RoutedEventArgs e)
+        {
+            semaine += 1;
+            foreach(Membre menbre in equipage)
+            {
+                menbre.MyDice.Clear();
+                menbre.UsedDice.Clear();
+            }
         }
     }
 }
