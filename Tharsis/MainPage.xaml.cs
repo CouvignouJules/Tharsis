@@ -259,6 +259,14 @@ namespace Tharsis
             equipage[membreSelected].Capacite(falcon, equipage);
             info.Text = equipage[membreSelected].Info(falcon);
             shipHealth.Text = falcon.ToString();
+            foreach (int i in SelectedDice)
+                equipage[membreSelected].UsedDice.Add(i);
+            SetDes();
+            SelectedDice.Clear();
+
+            B_capaciter.IsEnabled = false;
+            B_repare.IsEnabled = false;
+            B_annule.IsEnabled = false;
         }
 
         // Désactive le bouton de déplacement (ce qui permet de se déplacer en utilisant les méthodes citées plus haut)
