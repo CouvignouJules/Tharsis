@@ -26,18 +26,21 @@ namespace Tharsis
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        //creation du vaisseau
+        // Création du vaisseau
         Appareil falcon = new Appareil();
-        //list contenent le menbre dequipage
+        // Liste contenant les membres d'equipage
         List<Membre> equipage = new List<Membre>();
+        // Indicateur du membre d'équipage sélectionné
         int membreSelected;
  
         public MainPage()
         {
             this.InitializeComponent();
             InitEquipage();
+            shipHealth.Text = falcon.ToString();
         }
 
+        // Remplissage de la liste par les membres d'équipage
         public void InitEquipage()
         {
             equipage.Add(new Capitaine());
@@ -46,20 +49,15 @@ namespace Tharsis
             equipage.Add(new Medecin());
         }
 
-        // Ferme l'application
-        private void exitButton_Click(object sender, RoutedEventArgs e)
-        {
-            Application.Current.Exit();
-        }
-
-        // jete les dés du membre d'équipage puis affiche le résultat dans un bloc de texte
+        // Lance les dés du membre d'équipage puis désactive le bouton pour empêcher le joueur de relancer les dés
         private void B_rollDices_Click(object sender, RoutedEventArgs e)
         {
             equipage[membreSelected].MyDice = Roll.RollTheDices(equipage[membreSelected].Dices,6);
             SetDes();
-            B_rollDices.IsEnabled = false;                     
+            B_rollDices.IsEnabled = false;     
         }
 
+        // Affichage des dés lancés par le membre d'équipage et grisage des dés sélectionnés (utilisés)
         public void SetDes()
         {
             for (int i = 1; i <= equipage[membreSelected].MyDice.Count; i++)
@@ -126,6 +124,7 @@ namespace Tharsis
             }
         }
 
+        // Rétablissement des dés pour les autres membres qui n'ont pas encore lancé
         public void ResetDes()
         {
             dés1.Source = null;
@@ -148,6 +147,7 @@ namespace Tharsis
             return vaisseau.ToString();
         }
 
+        // Pour chaque salle : Si le bouton de déplacement du membre est désactivé, alors le membre sélectionné va se déplacer dans la salle sélectionnée
         private void B_survie_Click(object sender, RoutedEventArgs e)
         {
             if (!B_deplacement.IsEnabled)
@@ -155,6 +155,11 @@ namespace Tharsis
                 equipage[membreSelected].Room = 6;
                 B_deplacement.IsEnabled = true;
                 info.Text = equipage[membreSelected].Info(falcon);
+
+                B_capitaine.IsEnabled = true;
+                B_commandant.IsEnabled = true;
+                B_medecin.IsEnabled = true;
+                B_mecano.IsEnabled = true;
             }
         }
 
@@ -165,6 +170,11 @@ namespace Tharsis
                 equipage[membreSelected].Room = 4;
                 B_deplacement.IsEnabled = true;
                 info.Text = equipage[membreSelected].Info(falcon);
+
+                B_capitaine.IsEnabled = true;
+                B_commandant.IsEnabled = true;
+                B_medecin.IsEnabled = true;
+                B_mecano.IsEnabled = true;
             }
         }
 
@@ -175,6 +185,11 @@ namespace Tharsis
                 equipage[membreSelected].Room = 3;
                 B_deplacement.IsEnabled = true;
                 info.Text = equipage[membreSelected].Info(falcon);
+
+                B_capitaine.IsEnabled = true;
+                B_commandant.IsEnabled = true;
+                B_medecin.IsEnabled = true;
+                B_mecano.IsEnabled = true;
             }
         }
 
@@ -185,6 +200,11 @@ namespace Tharsis
                 equipage[membreSelected].Room = 2;
                 B_deplacement.IsEnabled = true;
                 info.Text = equipage[membreSelected].Info(falcon);
+
+                B_capitaine.IsEnabled = true;
+                B_commandant.IsEnabled = true;
+                B_medecin.IsEnabled = true;
+                B_mecano.IsEnabled = true;
             }
         }
 
@@ -195,6 +215,11 @@ namespace Tharsis
                 equipage[membreSelected].Room = 1;
                 B_deplacement.IsEnabled = true;
                 info.Text = equipage[membreSelected].Info(falcon);
+
+                B_capitaine.IsEnabled = true;
+                B_commandant.IsEnabled = true;
+                B_medecin.IsEnabled = true;
+                B_mecano.IsEnabled = true;
             }
         }
 
@@ -205,6 +230,11 @@ namespace Tharsis
                 equipage[membreSelected].Room = 7;
                 B_deplacement.IsEnabled = true;
                 info.Text = equipage[membreSelected].Info(falcon);
+
+                B_capitaine.IsEnabled = true;
+                B_commandant.IsEnabled = true;
+                B_medecin.IsEnabled = true;
+                B_mecano.IsEnabled = true;
             }
         }
 
@@ -215,20 +245,35 @@ namespace Tharsis
                 equipage[membreSelected].Room = 5;
                 B_deplacement.IsEnabled = true;
                 info.Text = equipage[membreSelected].Info(falcon);
+
+                B_capitaine.IsEnabled = true;
+                B_commandant.IsEnabled = true;
+                B_medecin.IsEnabled = true;
+                B_mecano.IsEnabled = true;
             }
         }
 
+        // Active la capacité spéciale du member d'équipage
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
             equipage[membreSelected].Capacite(falcon, equipage);
             info.Text = equipage[membreSelected].Info(falcon);
         }
 
+        // Désactive le bouton de déplacement (ce qui permet de se déplacer en utilisant les méthodes citées plus haut)
+        // Désactive aussi les boutons de sélection des autres membres afin de ne pas déplacer un autre membre après avoir cliqué
         private void B_deplacement_Click(object sender, RoutedEventArgs e)
         {
             B_deplacement.IsEnabled = false;
+            B_capitaine.IsEnabled = false;
+            B_commandant.IsEnabled = false;
+            B_medecin.IsEnabled = false;
+            B_mecano.IsEnabled = false;
         }
 
+        /* Pour chaque membre d'équipage : Établissement des dés, ouverture de la popup lui correspondant, 
+         * vérification de son nombre de dés pour les lancer, affichage de ses infos dans la popup
+         * puis appel de setDes décrite plus haut */
         private void B_capitaine_Click(object sender, RoutedEventArgs e)
         {
             ResetDes();
@@ -285,6 +330,7 @@ namespace Tharsis
             SetDes();
         }
         
+        // Grisage des dés sélectionnés
         List<int> SelectedDice = new List<int>();
         private void B_d_Click(object sender, RoutedEventArgs e)
         {
@@ -322,6 +368,7 @@ namespace Tharsis
             }
         }
 
+        // Utilisation des dés sélectionnés pour réparer la salle
         private void B_repare_Click(object sender, RoutedEventArgs e)
         {
             int totalRepart = 0;
@@ -342,6 +389,7 @@ namespace Tharsis
             B_annule.IsEnabled = false;
         }
 
+        // Annulation des sélections
         private void B_annule_Click(object sender, RoutedEventArgs e)
         {
             SelectedDice.Clear();
@@ -352,6 +400,7 @@ namespace Tharsis
             B_annule.IsEnabled = false;
         }
 
+        // Relancement des dés qui n'on pas été sélectionnés
         private void B_reRollDices_Click(object sender, RoutedEventArgs e)
         {
             B_reRollDices.IsEnabled = false;

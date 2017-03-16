@@ -8,6 +8,7 @@ namespace Vaisseau
 {
     public class Room
     {
+        // Numéro d'identification des salles
         private int numero;
         public int Numero
         {
@@ -17,6 +18,7 @@ namespace Vaisseau
             }
         }
 
+        // Numéro d'identification des pannes
         private int panne;
         public int Panne
         {
@@ -31,6 +33,7 @@ namespace Vaisseau
             }
         }
 
+        // Nom des salles
         private string nom;
         public string Nom
         {
@@ -44,6 +47,7 @@ namespace Vaisseau
             }
         }
 
+        // ctor
         public Room(int num, string nom, int panne)
         {
             this.numero = num;
@@ -51,6 +55,7 @@ namespace Vaisseau
             this.panne = panne;
         }
 
+        // Affiche l'état de la salle
         public override string ToString()
         {
             return string.Format("le montant de panne de la salle {0} est de {1}",this.Nom,this.Panne);

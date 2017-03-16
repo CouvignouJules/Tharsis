@@ -8,6 +8,7 @@ namespace Vaisseau
 {
     public class Appareil
     {
+        // Les points de vie du vaisseau
         private int hp;
         public int HP
         {
@@ -22,6 +23,7 @@ namespace Vaisseau
             }
         }
 
+        // Les salles du vaisseau
         List<Room> rooms = new List<Room>();
         public List<Room> Rooms
         {
@@ -33,6 +35,7 @@ namespace Vaisseau
 
         Random rnd = new Random();
 
+        // ctor
         public Appareil()
         {
             generateHp();
@@ -45,19 +48,22 @@ namespace Vaisseau
             rooms.Add(new Room(7, "Maintenance", 0));
         }
 
+        // Les PV de départ du vaisseau
         public void generateHp()
         {
             hp = rnd.Next(2, 6);
         }
 
+        // Accesseur du nom de la salle voulue
         public string getRommName(int numRomm)
         {
             return Rooms[numRomm-1].Nom;
         }
 
+        // Affichage de l'état du vaisseau
         public override string ToString()
         {
-            return string.Format("le vaisseau a {0} PV", HP);
+            return string.Format("Points de vie du vaisseau : {0}", HP);
         }
     }
 }

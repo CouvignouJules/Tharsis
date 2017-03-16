@@ -11,6 +11,7 @@ namespace Equipage
     {
         public Commandant() : base() { }
 
+        // Réduit le montant des pannes du vaiseau de 10 points
         public override void Capacite(Appareil vaisseau, List<Membre> equipage)
         {
             foreach(Room room in vaisseau.Rooms)

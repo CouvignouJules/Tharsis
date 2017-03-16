@@ -10,6 +10,7 @@ namespace Equipage
     {
         public Medecin() : base() { }
 
+        // Redonne 1 PV à tous les membres d'équipage
         public override void Capacite(Appareil vaisseau, List<Membre> equipage)
         {
             foreach (Membre membre in equipage)

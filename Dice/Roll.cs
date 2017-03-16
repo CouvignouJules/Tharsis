@@ -10,17 +10,17 @@ namespace Dice
     {
         private static Random _random = new Random(); // une seule instance !
 
-
+        // Lance les dés
         public static List<int> RollTheDices(int numberOfDice, int numberOfSides)
         {
             if (numberOfDice <= 0)
             {
-                throw new Exception("Number of dices must be greater than zero.");
+                throw new Exception("Le nombre de dés doit être supérieur à zéro.");
             }
 
             if (numberOfSides <= 0)
             {
-                throw new Exception("Number of sides must be greater than zero.");
+                throw new Exception("Le nombre de dés doit être supérieur à zéro.");
             }
 
             List<int> roll = new List<int>();

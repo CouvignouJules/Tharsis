@@ -13,13 +13,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// Pour plus d'informations sur le modèle d'élément Page vierge, voir la page http://go.microsoft.com/fwlink/?LinkId=234238
-
 namespace Tharsis
 {
-    /// <summary>
-    /// Une page vide peut être utilisée seule ou constituer une page de destination au sein d'un frame.
-    /// </summary>
     public sealed partial class StartPage : Page
     {
         public StartPage()
@@ -27,16 +22,19 @@ namespace Tharsis
             this.InitializeComponent();
         }
 
+        // Navigue jusqu'à la page du jeu
         private void play_Click(object sender, RoutedEventArgs e)
         {
             this.Frame.Navigate(typeof(MainPage), null);
         }
 
+        // Ferme l'application
         private void quit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Exit();
         }
 
+        // Passe le jeu en mode difficile
         private void hard_Click(object sender, RoutedEventArgs e)
         {
             /*TODO: 

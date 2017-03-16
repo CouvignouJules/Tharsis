@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Vaisseau
 {
+    // Énumération des pannes possibles
     public enum Panne
     {
         PetitePanne,

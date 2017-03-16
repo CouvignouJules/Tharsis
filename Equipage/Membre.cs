@@ -9,6 +9,7 @@ namespace Equipage
 {
     abstract public class Membre
     {
+        // Les points de vie de chaque membre d'équipage
         private int hp;
         public int HP
         {
@@ -22,6 +23,7 @@ namespace Equipage
             }
         }
 
+        // Le nombre de dés de chaque membre d'équipage
         private int dices;
         public int Dices
         {
@@ -34,6 +36,8 @@ namespace Equipage
                 this.dices = value;
             }
         }
+
+        // Les dés de chaque membre d'équipage
         private List<int> myDice = new List<int>();
         public List<int> MyDice
         {
@@ -46,6 +50,8 @@ namespace Equipage
                 this.myDice = value;
             }
         }
+
+        // Les dés déjà utilisés de chaque membre d'équipage
         private List<int> usedDice = new List<int>();
         public List<int> UsedDice
         {
@@ -58,6 +64,8 @@ namespace Equipage
                 this.usedDice = value;
             }
         }
+
+        // Savoir si un dé a déjà été utilisé
         Boolean validatDice;
         public Boolean ValidateDice
         {
@@ -71,6 +79,7 @@ namespace Equipage
             }
         }
 
+        // La salle dans laquelle chaque membre d'équipage se trouve (catégorisée par un nombre)
         private int room;
         public int Room
         {
@@ -84,6 +93,7 @@ namespace Equipage
             }
         }
 
+        // ctor
         public Membre()
         {
             GenerateHP();
@@ -92,16 +102,19 @@ namespace Equipage
             validatDice = false;
         }
 
+        // Le nombre de PV de départ du membre
         public void GenerateHP()
         {
            this.hp = RandomNumber(2, 4);
         }
 
+        // Le nombre de dés de départ du membre
         public void GenerateDices()
         {
             this.dices = RandomNumber(2, 4);
         }
 
+        // La salle de départ du membre
         public void GiveRoom()
         {
             this.room = RandomNumber(1, 7);
@@ -117,7 +130,10 @@ namespace Equipage
             }
         }
 
+        // La capacité du membre d'équipage
         public abstract void Capacite(Appareil vaisseau, List<Membre> equipage);
+
+        // Les informations du membre d'équipage (nombre de PV, de dés et salle actuelle)
         public abstract string Info(Appareil vaisseau);
     }
 }
