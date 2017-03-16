@@ -56,7 +56,7 @@
         </Button>
 
         <TextBlock Name="memberName" FontSize="30" Foreground="White" Margin="7,129,-7.797,-129.195" />
-        <TextBlock Name="shipHealth" FontSize="30" Foreground="Black" Margin="831,10,-831,-10"/>
+        <TextBlock Name="shipHealth" FontSize="30" Foreground="White" Margin="831,10,-831,-10"/>
 
 
         <Popup Name="menuaction" Height="290" Width="350" IsOpen="False" Margin="124,420,806,10" RenderTransformOrigin="0.5,0.5" >

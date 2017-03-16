@@ -253,11 +253,12 @@ namespace Tharsis
             }
         }
 
-        // Active la capacité spéciale du member d'équipage
+        // Active la capacité spéciale du membre d'équipage
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
             equipage[membreSelected].Capacite(falcon, equipage);
             info.Text = equipage[membreSelected].Info(falcon);
+            shipHealth.Text = falcon.ToString();
         }
 
         // Désactive le bouton de déplacement (ce qui permet de se déplacer en utilisant les méthodes citées plus haut)
@@ -330,7 +331,7 @@ namespace Tharsis
             SetDes();
         }
         
-        // Grisage des dés sélectionnés
+        // Sélection des dés
         List<int> SelectedDice = new List<int>();
         private void B_d_Click(object sender, RoutedEventArgs e)
         {
