@@ -43,8 +43,8 @@ namespace Vaisseau
             rooms.Add(new Room(2, "Serre", 0));
             rooms.Add(new Room(3, "Infirmerie", 0));
             rooms.Add(new Room(4, "Laboratoire", 0));
-            rooms.Add(new Room(5, "Détente", 0));
-            rooms.Add(new Room(6, "Survie", 0));
+            rooms.Add(new Room(5, "Survie", 0));
+            rooms.Add(new Room(6, "Détente", 0));
             rooms.Add(new Room(7, "Maintenance", 0));
         }
 

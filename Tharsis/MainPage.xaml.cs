@@ -36,7 +36,10 @@ namespace Tharsis
         private int semaine = 1;
         // Indicateur du nombre de membre morts (si ce nombre atteint 4, la partie est perdue)
         private int deadMembers = 0;
- 
+
+        int sallePrecedente;
+
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -61,7 +64,6 @@ namespace Tharsis
             equipage[membreSelected].MyDice = Roll.RollTheDices(equipage[membreSelected].Dices,6);
             SetDes();
             B_rollDices.IsEnabled = false;
-            
         }
 
         // Affichage des dés lancés par le membre d'équipage et grisage des dés sélectionnés (utilisés)
@@ -170,7 +172,7 @@ namespace Tharsis
         {
             if (!B_deplacement.IsEnabled)
             {
-                equipage[membreSelected].Room = 6;
+                equipage[membreSelected].Room = 5;
                 B_deplacement.IsEnabled = true;
                 info.Text = equipage[membreSelected].Info(falcon);
 
@@ -178,6 +180,20 @@ namespace Tharsis
                 B_commandant.IsEnabled = true;
                 B_medecin.IsEnabled = true;
                 B_mecano.IsEnabled = true;
+
+                B_pilotage.IsEnabled = true;
+                B_serre.IsEnabled = true;
+                B_infirmeri.IsEnabled = true;
+                B_laboratoire.IsEnabled = true;
+                B_survie.IsEnabled = true;
+                B_maintenance.IsEnabled = true;
+                B_detente.IsEnabled = true;
+
+                if(falcon.Rooms[sallePrecedente - 1].Panne > 0)
+                {
+                    equipage[membreSelected].HP--;
+                    info.Text = equipage[membreSelected].Info(falcon);
+                }
             }
         }
 
@@ -193,6 +209,20 @@ namespace Tharsis
                 B_commandant.IsEnabled = true;
                 B_medecin.IsEnabled = true;
                 B_mecano.IsEnabled = true;
+
+                B_pilotage.IsEnabled = true;
+                B_serre.IsEnabled = true;
+                B_infirmeri.IsEnabled = true;
+                B_laboratoire.IsEnabled = true;
+                B_survie.IsEnabled = true;
+                B_maintenance.IsEnabled = true;
+                B_detente.IsEnabled = true;
+
+                if (falcon.Rooms[sallePrecedente - 1].Panne > 0)
+                {
+                    equipage[membreSelected].HP--;
+                    info.Text = equipage[membreSelected].Info(falcon);
+                }
             }
         }
 
@@ -208,6 +238,20 @@ namespace Tharsis
                 B_commandant.IsEnabled = true;
                 B_medecin.IsEnabled = true;
                 B_mecano.IsEnabled = true;
+
+                B_pilotage.IsEnabled = true;
+                B_serre.IsEnabled = true;
+                B_infirmeri.IsEnabled = true;
+                B_laboratoire.IsEnabled = true;
+                B_survie.IsEnabled = true;
+                B_maintenance.IsEnabled = true;
+                B_detente.IsEnabled = true;
+
+                if (falcon.Rooms[sallePrecedente - 1].Panne > 0)
+                {
+                    equipage[membreSelected].HP--;
+                    info.Text = equipage[membreSelected].Info(falcon);
+                }
             }
         }
 
@@ -223,6 +267,20 @@ namespace Tharsis
                 B_commandant.IsEnabled = true;
                 B_medecin.IsEnabled = true;
                 B_mecano.IsEnabled = true;
+
+                B_pilotage.IsEnabled = true;
+                B_serre.IsEnabled = true;
+                B_infirmeri.IsEnabled = true;
+                B_laboratoire.IsEnabled = true;
+                B_survie.IsEnabled = true;
+                B_maintenance.IsEnabled = true;
+                B_detente.IsEnabled = true;
+
+                if (falcon.Rooms[sallePrecedente - 1].Panne > 0)
+                {
+                    equipage[membreSelected].HP--;
+                    info.Text = equipage[membreSelected].Info(falcon);
+                }
             }
         }
 
@@ -238,6 +296,20 @@ namespace Tharsis
                 B_commandant.IsEnabled = true;
                 B_medecin.IsEnabled = true;
                 B_mecano.IsEnabled = true;
+
+                B_pilotage.IsEnabled = true;
+                B_serre.IsEnabled = true;
+                B_infirmeri.IsEnabled = true;
+                B_laboratoire.IsEnabled = true;
+                B_survie.IsEnabled = true;
+                B_maintenance.IsEnabled = true;
+                B_detente.IsEnabled = true;
+
+                if (falcon.Rooms[sallePrecedente - 1].Panne > 0)
+                {
+                    equipage[membreSelected].HP--;
+                    info.Text = equipage[membreSelected].Info(falcon);
+                }
             }
         }
 
@@ -253,6 +325,20 @@ namespace Tharsis
                 B_commandant.IsEnabled = true;
                 B_medecin.IsEnabled = true;
                 B_mecano.IsEnabled = true;
+
+                B_pilotage.IsEnabled = true;
+                B_serre.IsEnabled = true;
+                B_infirmeri.IsEnabled = true;
+                B_laboratoire.IsEnabled = true;
+                B_survie.IsEnabled = true;
+                B_maintenance.IsEnabled = true;
+                B_detente.IsEnabled = true;
+
+                if (falcon.Rooms[sallePrecedente - 1].Panne > 0)
+                {
+                    equipage[membreSelected].HP--;
+                    info.Text = equipage[membreSelected].Info(falcon);
+                }
             }
         }
 
@@ -260,7 +346,7 @@ namespace Tharsis
         {
             if (!B_deplacement.IsEnabled)
             {
-                equipage[membreSelected].Room = 5;
+                equipage[membreSelected].Room = 6;
                 B_deplacement.IsEnabled = true;
                 info.Text = equipage[membreSelected].Info(falcon);
 
@@ -268,6 +354,20 @@ namespace Tharsis
                 B_commandant.IsEnabled = true;
                 B_medecin.IsEnabled = true;
                 B_mecano.IsEnabled = true;
+
+                B_pilotage.IsEnabled = true;
+                B_serre.IsEnabled = true;
+                B_infirmeri.IsEnabled = true;
+                B_laboratoire.IsEnabled = true;
+                B_survie.IsEnabled = true;
+                B_maintenance.IsEnabled = true;
+                B_detente.IsEnabled = true;
+
+                if (falcon.Rooms[sallePrecedente-1].Panne > 0)
+                {
+                    equipage[membreSelected].HP--;
+                    info.Text = equipage[membreSelected].Info(falcon);
+                }
             }
         }
 
@@ -278,7 +378,7 @@ namespace Tharsis
             info.Text = "";
             foreach(int i in SelectedDice)
             {
-                if (equipage[membreSelected].CapaciteNumber < 1)
+                if (equipage[membreSelected].CapaciteNumber < 3)
                 {
                     if(equipage[membreSelected].MyDice[i] >= 5)
                     {
@@ -308,15 +408,66 @@ namespace Tharsis
             B_annule.IsEnabled = false;
         }
 
-        // Désactive le bouton de déplacement (ce qui permet de se déplacer en utilisant les méthodes citées plus haut)
-        // Désactive aussi les boutons de sélection des autres membres afin de ne pas déplacer un autre membre après avoir cliqué
+        /* Désactive le bouton de déplacement (ce qui permet de se déplacer en utilisant les méthodes citées plus haut) 
+         * Désactive aussi les boutons de sélection des autres membres afin de ne pas déplacer un autre membre après avoir cliqué
+         * Oblige le joueur à se déplacer une salle par une salle */
         private void B_deplacement_Click(object sender, RoutedEventArgs e)
         {
+            sallePrecedente = equipage[membreSelected].Room;
+
             B_deplacement.IsEnabled = false;
             B_capitaine.IsEnabled = false;
             B_commandant.IsEnabled = false;
             B_medecin.IsEnabled = false;
             B_mecano.IsEnabled = false;
+
+            switch (equipage[membreSelected].Room)
+            {
+                case 1: // Pilotage
+                    B_infirmeri.IsEnabled = false;
+                    B_laboratoire.IsEnabled = false;
+                    B_survie.IsEnabled = false;
+                    B_maintenance.IsEnabled = false;
+                    B_detente.IsEnabled = false;
+                    break;
+                case 2: // Serre
+                    B_laboratoire.IsEnabled = false;
+                    B_survie.IsEnabled = false;
+                    B_maintenance.IsEnabled = false;
+                    B_detente.IsEnabled = false;
+                    break;
+                case 3: // Infirmerie
+                    B_pilotage.IsEnabled = false;
+                    B_maintenance.IsEnabled = false;
+                    break;
+                case 4: // Survie
+                    B_pilotage.IsEnabled = false;
+                    B_serre.IsEnabled = false;
+                    B_survie.IsEnabled = false;
+                    B_detente.IsEnabled = false;
+                    B_maintenance.IsEnabled = false;
+                    break;
+                case 5: // Laboratoire
+                    B_pilotage.IsEnabled = false;
+                    B_serre.IsEnabled = false;
+                    B_laboratoire.IsEnabled = false;
+                    B_detente.IsEnabled = false;
+                    B_maintenance.IsEnabled = false;
+                    break;
+                case 6: // Détente
+                    B_pilotage.IsEnabled = false;
+                    B_serre.IsEnabled = false;
+                    B_survie.IsEnabled = false;
+                    B_laboratoire.IsEnabled = false;
+                    break;
+                case 7: // Maintenance
+                    B_pilotage.IsEnabled = false;
+                    B_serre.IsEnabled = false;
+                    B_infirmeri.IsEnabled = false;
+                    B_survie.IsEnabled = false;
+                    B_laboratoire.IsEnabled = false;
+                    break;
+            }
         }
 
         /* Pour chaque membre d'équipage : Établissement des dés, ouverture de la popup lui correspondant, 
@@ -433,7 +584,7 @@ namespace Tharsis
             if(!equipage[membreSelected].ValidateDice)
                 B_reRollDices.IsEnabled = true;
 
-            if(equipage[membreSelected].CapaciteNumber < 1)
+            if(equipage[membreSelected].CapaciteNumber < 3)
                 B_capaciter.IsEnabled = true;
 
             B_repare.IsEnabled = true;
@@ -539,12 +690,12 @@ namespace Tharsis
                         }
 
                         info.Text = membre.Info(falcon);
+                        membre.CapaciteNumber = 0;
                     }
 
                     falcon.HP--;
                 }
                 shipHealth.Text = Health(falcon);
-
             }
 
             if(deadMembers >= 4 || falcon.HP <= 0)
