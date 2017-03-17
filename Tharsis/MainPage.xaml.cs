@@ -748,12 +748,14 @@ namespace Tharsis
                     foreach(Membre membre in equipage)
                     {
                         if(membre.HP > 0)
-                            membre.HP--;
+                            membre.HP -= Membre.RandomNumber(1,3);
 
-                        if (membre.Dices > 0)
-                            membre.Dices--;
+                        if (membre.Dices > 1)
+                            membre.Dices -= 1;
 
-                        if(membre.HP <= 0)
+                        falcon.HP -= Membre.RandomNumber(1, 4);
+
+                        if (membre.HP <= 0)
                         {
                             deadMembers++;
                         }
@@ -762,8 +764,6 @@ namespace Tharsis
                         membre.CapaciteNumber = 0;
                         membre.ValidateReroll = 0;
                     }
-
-                    falcon.HP--;
                 }
                 shipHealth.Text = Health(falcon);
             }
