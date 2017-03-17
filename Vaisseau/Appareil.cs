@@ -51,7 +51,7 @@ namespace Vaisseau
         // Les PV de départ du vaisseau
         public void generateHp()
         {
-            hp = rnd.Next(2, 5);
+            hp = rnd.Next(2, 6);
         }
 
         // Accesseur du nom de la salle voulue

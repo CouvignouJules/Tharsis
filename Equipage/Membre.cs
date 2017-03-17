@@ -133,7 +133,7 @@ namespace Equipage
         // La salle de départ du membre
         public void GiveRoom()
         {
-            this.room = RandomNumber(1, 7);
+            this.room = RandomNumber(1, 8);
         }
 
         private static readonly Random rdm = new Random();
