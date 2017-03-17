@@ -12,7 +12,6 @@ namespace Tharsis
     {
         private static XmlReader _instance;
         IEnumerable<XElement> pannes;
-        List<int> semaine = new List<int>();
 
         protected XmlReader()
         {
@@ -32,6 +31,8 @@ namespace Tharsis
 
         public List<int> getPanne(int numSemaine)
         {
+            List<int> semaine = new List<int>();
+
             foreach (var p in pannes)
             {
                 if (Int32.Parse(p.Element("numero").Value) == numSemaine)
@@ -41,6 +42,7 @@ namespace Tharsis
                     semaine.Add(Int32.Parse(p.Element("grosse").Value));
                 }
             }
+
             return semaine;
         }
     }
