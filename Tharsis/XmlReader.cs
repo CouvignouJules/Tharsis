@@ -29,6 +29,7 @@ namespace Tharsis
 
             return _instance;
         }
+
         public List<int> getPanne(int numSemaine)
         {
             foreach (var p in pannes)

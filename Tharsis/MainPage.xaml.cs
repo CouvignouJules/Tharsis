@@ -148,15 +148,14 @@ namespace Tharsis
             B_dés6.IsEnabled = true;
         }
 
+        // Affiche la semaine en cours et les pannes
         public void setPannes()
         {
             PanneInfo.Text = string.Format("Semaine {0}\n", semaine);
             foreach (Room salle in falcon.Rooms)
             {
-                if (salle.Panne > 0)
-                {
+                if(salle.Panne <= 0)
                     PanneInfo.Text += salle.ToString() + "\n";
-                }
             }
         }
 
@@ -439,7 +438,7 @@ namespace Tharsis
 
             B_repare.IsEnabled = true;
             B_annule.IsEnabled = true;
-            // Attribue l'image du dé sélectionné            
+            // Attribue l'image du dé sélectionné         
             switch (But.Tag.ToString())
             {
                 case "0":
@@ -514,6 +513,7 @@ namespace Tharsis
             SelectedDice.Clear();
         }
 
+        // Effectue les opérations affectant les PV des membres et du vaisseau en fonction des pannes actives à la fin du tour
         private void nextTurn_Click(object sender, RoutedEventArgs e)
         {
             semaine++;
@@ -548,7 +548,7 @@ namespace Tharsis
 
             }
 
-            if(deadMembers == 4 || falcon.HP <= 0)
+            if(deadMembers >= 4 || falcon.HP <= 0)
             {
                 this.Frame.Navigate(typeof(GameOverPage), null);
             }
@@ -561,9 +561,11 @@ namespace Tharsis
             {
                 this.Frame.Navigate(typeof(WinPage), null);
             }
-                
 
-            
+            // Repasse sur le capitaine par défaut
+            B_capitaine_Click(sender, e);
         }
+
+        
     }
 }
