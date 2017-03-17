@@ -148,12 +148,12 @@ namespace Tharsis
 
         public void setPannes()
         {
-            PanneInfo.Text = string.Format("Semmaine {0}\n", semaine);
+            PanneInfo.Text = string.Format("Semaine {0}\n", semaine);
             foreach (Room salle in falcon.Rooms)
             {
                 if (salle.Panne > 0)
                 {
-                    PanneInfo.Text += string.Format("{0} panne de : {1}",salle.Nom,salle.Panne);
+                    PanneInfo.Text += string.Format("{0} panne de : {1}", salle.Nom, salle.Panne);
                 }
             }
         }
@@ -323,58 +323,101 @@ namespace Tharsis
          * puis appel de setDes décrite plus haut */
         private void B_capitaine_Click(object sender, RoutedEventArgs e)
         {
-            ResetDes();
-            menuaction.IsOpen = true;
             membreSelected = 0;
-            if (equipage[membreSelected].MyDice.Count != 0)
-                B_rollDices.IsEnabled = false;
-            else
-                B_rollDices.IsEnabled = true;
-            memberName.Text = "Capitaine";
-            info.Text = equipage[membreSelected].Info(falcon);
-            SetDes();
+
+            if (equipage[membreSelected].HP > 0)
+            {
+                ResetDes();
+                menuaction.IsOpen = true;
+
+                if (equipage[membreSelected].MyDice.Count != 0)
+                    B_rollDices.IsEnabled = false;
+                else
+                    B_rollDices.IsEnabled = true;
+
+                memberName.Text = "Capitaine";
+                info.Text = equipage[membreSelected].Info(falcon);
+                SetDes();
+            } else
+            {
+                menuaction.IsOpen = false;
+                memberName.Text = "Capitaine (mort)";
+            }
         }
 
         private void B_commandant_Click(object sender, RoutedEventArgs e)
         {
-            ResetDes();
-            menuaction.IsOpen = true;
             membreSelected = 1;
-            if (equipage[membreSelected].MyDice.Count != 0)
-                B_rollDices.IsEnabled = false;
+
+            if (equipage[membreSelected].HP > 0)
+            {
+                ResetDes();
+                menuaction.IsOpen = true;
+
+                if (equipage[membreSelected].MyDice.Count != 0)
+                    B_rollDices.IsEnabled = false;
+                else
+                    B_rollDices.IsEnabled = true;
+
+                memberName.Text = "Commandant";
+                info.Text = equipage[membreSelected].Info(falcon);
+                SetDes();
+
+            }
             else
-                B_rollDices.IsEnabled = true;
-            memberName.Text = "Commandant";
-            info.Text = equipage[membreSelected].Info(falcon);
-            SetDes();
+            {
+                menuaction.IsOpen = false;
+                memberName.Text = "Commandant (mort)";
+            }
         }
 
         private void B_medecin_Click(object sender, RoutedEventArgs e)
         {
-            ResetDes();
-            menuaction.IsOpen = true;
             membreSelected = 2;
-            if (equipage[membreSelected].MyDice.Count != 0)
-                B_rollDices.IsEnabled = false;
+
+            if (equipage[membreSelected].HP > 0)
+            {
+                ResetDes();
+                menuaction.IsOpen = true;
+            
+                if (equipage[membreSelected].MyDice.Count != 0)
+                    B_rollDices.IsEnabled = false;
+                else
+                    B_rollDices.IsEnabled = true;
+
+                memberName.Text = "Médecin";
+                info.Text = equipage[membreSelected].Info(falcon);
+                SetDes();
+            }
             else
-                B_rollDices.IsEnabled = true;
-            memberName.Text = "Médecin";
-            info.Text = equipage[membreSelected].Info(falcon);
-            SetDes();
+            {
+                menuaction.IsOpen = false;
+                memberName.Text = "Médecin (mort)";
+            }
         }
 
         private void B_mecano_Click(object sender, RoutedEventArgs e)
         {
-            ResetDes();
-            menuaction.IsOpen = true;
             membreSelected = 3;
-            if (equipage[membreSelected].MyDice.Count != 0)
-                B_rollDices.IsEnabled = false;
+
+            if (equipage[membreSelected].HP > 0)
+            {
+                ResetDes();
+                menuaction.IsOpen = true;
+            
+                if (equipage[membreSelected].MyDice.Count != 0)
+                    B_rollDices.IsEnabled = false;
+                else
+                    B_rollDices.IsEnabled = true;
+                memberName.Text = "Mécanicien";
+                info.Text = equipage[membreSelected].Info(falcon);
+                SetDes();
+            }
             else
-                B_rollDices.IsEnabled = true;
-            memberName.Text = "Mécanicien";
-            info.Text = equipage[membreSelected].Info(falcon);
-            SetDes();
+            {
+                menuaction.IsOpen = false;
+                memberName.Text = "Mécanicien (mort)";
+            }
         }
         
         // Sélection des dés

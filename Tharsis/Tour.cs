@@ -19,9 +19,9 @@ namespace Tharsis
 
             if (numSemaine <= 10)
             {
-                //recuperation de la liste des pannes de la semaine en cours
+                // Récuperation de la liste des pannes de la semaine en cours
                 List<int> listPannes = reader.getPanne(numSemaine);
-                //genere les pannes requises
+                // Génère les pannes requises
                 if (listPannes[0] > 0)
                 {
                     for(int i = 0; i <= listPannes[0]; i++)
