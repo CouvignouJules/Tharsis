@@ -16,7 +16,7 @@ namespace Tharsis
 
         protected XmlReader()
         {
-            XElement doc = XElement.Load("..\\..\\Scenario.xml");
+            XElement doc = XElement.Load("Scenario.xml");
             pannes = doc.Elements();
         }
 

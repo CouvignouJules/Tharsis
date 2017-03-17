@@ -144,6 +144,14 @@ namespace Equipage
             }
         }
 
+        public Boolean IsDead()
+        {
+            if (this.HP <= 0)
+                return true;
+
+            return false;
+        }
+
         // La capacité du membre d'équipage
         public abstract void Capacite(Appareil vaisseau, List<Membre> equipage);
 

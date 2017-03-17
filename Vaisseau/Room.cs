@@ -58,7 +58,7 @@ namespace Vaisseau
         // Affiche l'état de la salle
         public override string ToString()
         {
-            return string.Format("le montant de panne de la salle {0} est de {1}",this.Nom,this.Panne);
+            return string.Format("{0} : {1} points de panne",this.Nom,this.Panne);
         }
 
     }

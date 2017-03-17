@@ -153,7 +153,7 @@ namespace Tharsis
             {
                 if (salle.Panne > 0)
                 {
-                    PanneInfo.Text += string.Format("{0} panne de : {1}", salle.Nom, salle.Panne);
+                    PanneInfo.Text += salle.ToString();
                 }
             }
         }
@@ -284,17 +284,17 @@ namespace Tharsis
                     {
                         equipage[membreSelected].Capacite(falcon, equipage);
                         equipage[membreSelected].UsedDice.Add(i);
-                        equipage[membreSelected].CapaciteNumber += 1;
-                        info.Text += "\ncapacite utiliser";
+                        equipage[membreSelected].CapaciteNumber++;
+                        info.Text += "\nCapacité utilisée";
                     }
                     else
                     {
-                        info.Text += "\ndés invalide";
+                        info.Text += "\nDés invalides";
                     }
                 }
                 else
                 {
-                    info.Text += "\nplus de capaciter utilisable";
+                    info.Text += "\nPlus de capacité utilisable";
                 }
             }
 
@@ -320,7 +320,7 @@ namespace Tharsis
 
         /* Pour chaque membre d'équipage : Établissement des dés, ouverture de la popup lui correspondant, 
          * vérification de son nombre de dés pour les lancer, affichage de ses infos dans la popup
-         * puis appel de setDes décrite plus haut */
+         * puis appel de setDes décrite plus haut. La popup ne s'ouvre pas si le personnage est mort, l'empêchant de faire quoi que ce soit */
         private void B_capitaine_Click(object sender, RoutedEventArgs e)
         {
             membreSelected = 0;
@@ -512,12 +512,14 @@ namespace Tharsis
 
         private void nextTurn_Click(object sender, RoutedEventArgs e)
         {
-            semaine += 1;
-            foreach(Membre menbre in equipage)
+            semaine++;
+            foreach(Membre membre in equipage)
             {
-                menbre.MyDice.Clear();
-                menbre.UsedDice.Clear();
+                membre.MyDice.Clear();
+                membre.UsedDice.Clear();
             }
+
+            Tour.game(semaine, equipage, falcon);
         }
     }
 }

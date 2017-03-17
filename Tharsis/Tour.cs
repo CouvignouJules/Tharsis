@@ -15,7 +15,7 @@ namespace Tharsis
         public static void game(int numSemaine,  List<Membre> equipage, Appareil vaisseau)
         { 
             XmlReader reader = XmlReader.Instance();
-            int salle = 0;
+            int salle;
 
             if (numSemaine <= 10)
             {
@@ -47,10 +47,10 @@ namespace Tharsis
                     }
                 }
             }
-            else
+            /*else
             {
                 //gg gagner
-            }          
+            }        */  
         }
     }
 }
