@@ -50,7 +50,7 @@
         <Button Name="B_mecano" Width="42" Height="69" Click="B_mecano_Click"   Margin="124,70,0,581">
             <Image Name="Mecano" Source="Assets/Mecano.png" Margin="-21,-11.333" HorizontalAlignment="Left" Width="42" Height="69"/>
         </Button>
-        <Button Name="B_medecin" Width="42" Height="69" Click="B_medecin_Click"   Margin="218,70,-208,581">
+        <Button Name="B_medecin" Width="42" Height="69" Click="B_medecin_Click"   Margin="227,70,-217,581">
             <Image Name="medecin" Source="Assets/Medecin.png" Margin="-21,-12,-21,-11" HorizontalAlignment="Left" Width="42" Height="69" RenderTransformOrigin="-1.19,0.681"/>
         </Button>
 
