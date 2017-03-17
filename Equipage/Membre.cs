@@ -106,20 +106,6 @@ namespace Equipage
             }
         }
 
-        private Boolean isDead;
-        public bool IsDead
-        {
-            get
-            {
-                return isDead;
-            }
-
-            set
-            {
-                isDead = value;
-            }
-        }
-
         // ctor
         public Membre()
         {
@@ -128,7 +114,6 @@ namespace Equipage
             GiveRoom();
             validatDice = false;
             capaciteNumber = 0;
-            isDead = false;
         }
 
         // Le nombre de PV de départ du membre

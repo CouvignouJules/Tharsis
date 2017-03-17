@@ -154,7 +154,7 @@ namespace Tharsis
             PanneInfo.Text = string.Format("Semaine {0}\n", semaine);
             foreach (Room salle in falcon.Rooms)
             {
-                if(salle.Panne <= 0)
+                if(salle.Panne > 0)
                     PanneInfo.Text += salle.ToString() + "\n";
             }
         }
@@ -326,7 +326,7 @@ namespace Tharsis
         {
             membreSelected = 0;
 
-            if (equipage[membreSelected].IsDead == false)
+            if (equipage[membreSelected].HP > 0)
             {
                 ResetDes();
                 menuaction.IsOpen = true;
@@ -350,7 +350,7 @@ namespace Tharsis
         {
             membreSelected = 1;
 
-            if (equipage[membreSelected].IsDead == false)
+            if (equipage[membreSelected].HP > 0)
             {
                 ResetDes();
                 menuaction.IsOpen = true;
@@ -376,7 +376,7 @@ namespace Tharsis
         {
             membreSelected = 2;
 
-            if (equipage[membreSelected].IsDead == false)
+            if (equipage[membreSelected].HP > 0)
             {
                 ResetDes();
                 menuaction.IsOpen = true;
@@ -400,7 +400,7 @@ namespace Tharsis
         {
             membreSelected = 3;
 
-            if (equipage[membreSelected].IsDead == false)
+            if (equipage[membreSelected].HP > 0)
             {
                 ResetDes();
                 menuaction.IsOpen = true;
@@ -530,12 +530,11 @@ namespace Tharsis
                 {
                     foreach(Membre membre in equipage)
                     {
-                        if(membre.IsDead == false)
+                        if(membre.HP > 0)
                             membre.HP--;
 
                         if(membre.HP <= 0)
                         {
-                            membre.IsDead = true;
                             deadMembers++;
                         }
 
