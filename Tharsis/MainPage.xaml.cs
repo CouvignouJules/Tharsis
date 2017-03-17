@@ -518,6 +518,10 @@ namespace Tharsis
         private void B_capitaine_Click(object sender, RoutedEventArgs e)
         {
             membreSelected = 0;
+            B_annule.IsEnabled = false;
+            B_capaciter.IsEnabled = false;
+            B_repare.IsEnabled = false;
+            B_reRollDices.IsEnabled = false;
 
             if (equipage[membreSelected].HP > 0)
             {
@@ -542,6 +546,10 @@ namespace Tharsis
         private void B_commandant_Click(object sender, RoutedEventArgs e)
         {
             membreSelected = 1;
+            B_annule.IsEnabled = false;
+            B_capaciter.IsEnabled = false;
+            B_repare.IsEnabled = false;
+            B_reRollDices.IsEnabled = false;
 
             if (equipage[membreSelected].HP > 0)
             {
@@ -568,6 +576,10 @@ namespace Tharsis
         private void B_mecano_Click(object sender, RoutedEventArgs e)
         {
             membreSelected = 2;
+            B_annule.IsEnabled = false;
+            B_capaciter.IsEnabled = false;
+            B_repare.IsEnabled = false;
+            B_reRollDices.IsEnabled = false;
 
             if (equipage[membreSelected].HP > 0)
             {
@@ -592,6 +604,10 @@ namespace Tharsis
         private void B_medecin_Click(object sender, RoutedEventArgs e)
         {
             membreSelected = 3;
+            B_annule.IsEnabled = false;
+            B_capaciter.IsEnabled = false;
+            B_repare.IsEnabled = false;
+            B_reRollDices.IsEnabled = false;
 
             if (equipage[membreSelected].HP > 0)
             {
