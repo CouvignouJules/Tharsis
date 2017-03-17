@@ -36,9 +36,8 @@ namespace Tharsis
         private int semaine = 1;
         // Indicateur du nombre de membre morts (si ce nombre atteint 4, la partie est perdue)
         private int deadMembers = 0;
-
-        int sallePrecedente;
-
+        // Indicateur de la salle d'où vient le membre d'équipage pour vérifier s'il reçoit des dégats à cause d'une panne
+        private int sallePrecedente;
 
         public MainPage()
         {
@@ -49,7 +48,9 @@ namespace Tharsis
             setPannes();
         }
 
-        // Remplissage de la liste par les membres d'équipage
+        /// <summary>
+        /// Remplissage de la liste par les membres d'équipage
+        /// </summary>
         public void InitEquipage()
         {
             equipage.Add(new Capitaine());
@@ -58,7 +59,11 @@ namespace Tharsis
             equipage.Add(new Medecin());
         }
 
-        // Lance les dés du membre d'équipage puis désactive le bouton pour empêcher le joueur de relancer les dés
+        /// <summary>
+        /// Lance les dés du membre d'équipage puis désactive le bouton pour empêcher le joueur de relancer les dés
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void B_rollDices_Click(object sender, RoutedEventArgs e)
         {
             equipage[membreSelected].MyDice = Roll.RollTheDices(equipage[membreSelected].Dices,6);
@@ -66,7 +71,9 @@ namespace Tharsis
             B_rollDices.IsEnabled = false;
         }
 
-        // Affichage des dés lancés par le membre d'équipage et grisage des dés sélectionnés (utilisés)
+        /// <summary>
+        /// Affichage des dés lancés par le membre d'équipage et grisage des dés sélectionnés (utilisés)
+        /// </summary>
         public void SetDes()
         {
             for (int i = 1; i <= equipage[membreSelected].MyDice.Count; i++)
@@ -133,7 +140,9 @@ namespace Tharsis
             }
         }
 
-        // Rétablissement des dés pour les autres membres qui n'ont pas encore lancé
+        /// <summary>
+        /// Rétablissement des dés pour les autres membres qui n'ont pas encore lancé
+        /// </summary>
         public void ResetDes()
         {
             dés1.Source = null;
@@ -150,7 +159,9 @@ namespace Tharsis
             B_dés6.IsEnabled = true;
         }
 
-        // Affiche la semaine en cours et les pannes
+        /// <summary>
+        /// Affiche la semaine en cours et les pannes
+        /// </summary>
         public void setPannes()
         {
             PanneInfo.Text = string.Format("Semaine {0}\n", semaine);
@@ -167,7 +178,11 @@ namespace Tharsis
             return vaisseau.ToString();
         }
 
-        // Pour chaque salle : Si le bouton de déplacement du membre est désactivé, alors le membre sélectionné va se déplacer dans la salle sélectionnée
+        /// <summary>
+        /// Pour chaque salle : Si le bouton de déplacement du membre est désactivé, alors le membre sélectionné va se déplacer dans la salle sélectionnée
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void B_survie_Click(object sender, RoutedEventArgs e)
         {
             if (!B_deplacement.IsEnabled)
@@ -371,7 +386,11 @@ namespace Tharsis
             }
         }
 
-        // Active la capacité spéciale du membre d'équipage
+        /// <summary>
+        /// Active la capacité spéciale du membre d'équipage
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
             //info.Text = equipage[membreSelected].Info(falcon);
@@ -408,9 +427,13 @@ namespace Tharsis
             B_annule.IsEnabled = false;
         }
 
-        /* Désactive le bouton de déplacement (ce qui permet de se déplacer en utilisant les méthodes citées plus haut) 
-         * Désactive aussi les boutons de sélection des autres membres afin de ne pas déplacer un autre membre après avoir cliqué
-         * Oblige le joueur à se déplacer une salle par une salle */
+        /// <summary>
+        /// Désactive le bouton de déplacement (ce qui permet de se déplacer en utilisant les méthodes citées plus haut) 
+        /// Désactive aussi les boutons de sélection des autres membres afin de ne pas déplacer un autre membre après avoir cliqué
+        /// Oblige le joueur à se déplacer une salle par une salle
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void B_deplacement_Click(object sender, RoutedEventArgs e)
         {
             sallePrecedente = equipage[membreSelected].Room;
@@ -470,9 +493,13 @@ namespace Tharsis
             }
         }
 
-        /* Pour chaque membre d'équipage : Établissement des dés, ouverture de la popup lui correspondant, 
-         * vérification de son nombre de dés pour les lancer, affichage de ses infos dans la popup
-         * puis appel de setDes décrite plus haut. La popup ne s'ouvre pas si le personnage est mort, l'empêchant de faire quoi que ce soit */
+        /// <summary>
+        /// Pour chaque membre d'équipage : Établissement des dés, ouverture de la popup lui correspondant, 
+        /// vérification de son nombre de dés pour les lancer, affichage de ses infos dans la popup
+        /// puis appel de setDes décrite plus haut.La popup ne s'ouvre pas si le personnage est mort, l'empêchant de faire quoi que ce soit
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void B_capitaine_Click(object sender, RoutedEventArgs e)
         {
             membreSelected = 0;
@@ -572,8 +599,12 @@ namespace Tharsis
             }
         }
         
-        // Sélection des dés
         List<int> SelectedDice = new List<int>();
+        /// <summary>
+        /// Sélection des dés
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void B_d_Click(object sender, RoutedEventArgs e)
         {
             Button But = (Button)sender;
@@ -581,7 +612,7 @@ namespace Tharsis
             SelectedDice.Add(Int32.Parse(But.Tag.ToString()));
             But.IsEnabled = false;
 
-            if(!equipage[membreSelected].ValidateDice)
+            if(equipage[membreSelected].ValidateReroll < 3)
                 B_reRollDices.IsEnabled = true;
 
             if(equipage[membreSelected].CapaciteNumber < 3)
@@ -659,12 +690,16 @@ namespace Tharsis
             {
                 equipage[membreSelected].MyDice[des] = Roll.RollTheDices(1,6)[0];
             }
-            equipage[membreSelected].ValidateDice = true;
+            equipage[membreSelected].ValidateReroll++;
             SetDes();
             SelectedDice.Clear();
         }
 
-        // Effectue les opérations affectant les PV des membres et du vaisseau en fonction des pannes actives à la fin du tour
+        /// <summary>
+        /// Effectue les opérations affectant les PV des membres et du vaisseau en fonction des pannes actives à la fin du tour
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void nextTurn_Click(object sender, RoutedEventArgs e)
         {
             semaine++;
@@ -691,6 +726,7 @@ namespace Tharsis
 
                         info.Text = membre.Info(falcon);
                         membre.CapaciteNumber = 0;
+                        membre.ValidateReroll = 0;
                     }
 
                     falcon.HP--;

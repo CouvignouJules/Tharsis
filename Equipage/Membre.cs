@@ -65,20 +65,7 @@ namespace Equipage
             }
         }
 
-        // Savoir si un dé a déjà été utilisé
-        private Boolean validatDice;
-        public Boolean ValidateDice
-        {
-            get
-            {
-                return validatDice;
-            }
-            set
-            {
-                this.validatDice = value;
-            }
-        }
-
+        // Nombre de fois qu'il est possible d'activer la capacité par tour
         private int capaciteNumber;
         public int CapaciteNumber
         {
@@ -106,13 +93,28 @@ namespace Equipage
             }
         }
 
+        // Nombre de fois qu'il est possible de relancer les dés sélectionnés
+        private int validateReroll;
+        public int ValidateReroll
+        {
+            get
+            {
+                return validateReroll;
+            }
+
+            set
+            {
+                validateReroll = value;
+            }
+        }
+
         // ctor
         public Membre()
         {
             GenerateHP();
             GenerateDices();
             GiveRoom();
-            validatDice = false;
+            validateReroll = 0;
             capaciteNumber = 0;
         }
 
