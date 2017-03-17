@@ -10,12 +10,12 @@ namespace Equipage
     {
         public Medecin() : base() { }
 
-        // Redonne 1 PV à tous les membres d'équipage
+        // Redonne 1 PV à tous les membres d'équipage à condition que ceux-ci soient vivants
         public override void Capacite(Appareil vaisseau, List<Membre> equipage)
         {
             foreach (Membre membre in equipage)
             {
-                if (membre.HP < 6 && membre.HP > 0)
+                if ((membre.HP < 6 && membre.HP > 0) && (membre.IsDead = false))
                     membre.HP += 1;
             }
         }

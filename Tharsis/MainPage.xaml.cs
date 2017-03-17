@@ -153,7 +153,7 @@ namespace Tharsis
             {
                 if (salle.Panne > 0)
                 {
-                    PanneInfo.Text += salle.ToString();
+                    PanneInfo.Text += salle.ToString() + "\n";
                 }
             }
         }
@@ -274,7 +274,6 @@ namespace Tharsis
         private void B_capaciter_Click(object sender, RoutedEventArgs e)
         {
             //info.Text = equipage[membreSelected].Info(falcon);
-            shipHealth.Text = falcon.ToString();
             info.Text = "";
             foreach(int i in SelectedDice)
             {
@@ -285,7 +284,8 @@ namespace Tharsis
                         equipage[membreSelected].Capacite(falcon, equipage);
                         equipage[membreSelected].UsedDice.Add(i);
                         equipage[membreSelected].CapaciteNumber++;
-                        info.Text += "\nCapacité utilisée";
+                        info.Text = equipage[membreSelected].Info(falcon);
+                        shipHealth.Text = Health(falcon);
                     }
                     else
                     {
@@ -371,9 +371,33 @@ namespace Tharsis
             }
         }
 
-        private void B_medecin_Click(object sender, RoutedEventArgs e)
+        private void B_mecano_Click(object sender, RoutedEventArgs e)
         {
             membreSelected = 2;
+
+            if (equipage[membreSelected].HP > 0)
+            {
+                ResetDes();
+                menuaction.IsOpen = true;
+
+                if (equipage[membreSelected].MyDice.Count != 0)
+                    B_rollDices.IsEnabled = false;
+                else
+                    B_rollDices.IsEnabled = true;
+                memberName.Text = "Mécanicien";
+                info.Text = equipage[membreSelected].Info(falcon);
+                SetDes();
+            }
+            else
+            {
+                menuaction.IsOpen = false;
+                memberName.Text = "Mécanicien (mort)";
+            }
+        }
+
+        private void B_medecin_Click(object sender, RoutedEventArgs e)
+        {
+            membreSelected = 3;
 
             if (equipage[membreSelected].HP > 0)
             {
@@ -395,30 +419,6 @@ namespace Tharsis
                 memberName.Text = "Médecin (mort)";
             }
         }
-
-        private void B_mecano_Click(object sender, RoutedEventArgs e)
-        {
-            membreSelected = 3;
-
-            if (equipage[membreSelected].HP > 0)
-            {
-                ResetDes();
-                menuaction.IsOpen = true;
-            
-                if (equipage[membreSelected].MyDice.Count != 0)
-                    B_rollDices.IsEnabled = false;
-                else
-                    B_rollDices.IsEnabled = true;
-                memberName.Text = "Mécanicien";
-                info.Text = equipage[membreSelected].Info(falcon);
-                SetDes();
-            }
-            else
-            {
-                menuaction.IsOpen = false;
-                memberName.Text = "Mécanicien (mort)";
-            }
-        }
         
         // Sélection des dés
         List<int> SelectedDice = new List<int>();
@@ -437,7 +437,7 @@ namespace Tharsis
 
             B_repare.IsEnabled = true;
             B_annule.IsEnabled = true;
-            //atribut limage du des selectione
+            // Attribue l'image du dé sélectionné            
             switch (But.Tag.ToString())
             {
                 case "0":
@@ -469,8 +469,10 @@ namespace Tharsis
             {               
                 totalRepart += equipage[membreSelected].MyDice[nDés];
             }
-            falcon.Rooms[equipage[membreSelected].Room].Panne -= totalRepart;
-            info.Text += string.Format("panne {0} - {1}", falcon.getRommName(equipage[membreSelected].Room),totalRepart);
+            falcon.Rooms[equipage[membreSelected].Room-1].Panne -= totalRepart;
+
+            if (falcon.Rooms[equipage[membreSelected].Room - 1].Panne < 0)
+                falcon.Rooms[equipage[membreSelected].Room - 1].Panne = 0;
 
             foreach (int i in SelectedDice)
                 equipage[membreSelected].UsedDice.Add(i);
@@ -517,9 +519,22 @@ namespace Tharsis
             {
                 membre.MyDice.Clear();
                 membre.UsedDice.Clear();
+                info.Text = membre.Info(falcon);
             }
 
-            Tour.game(semaine, equipage, falcon);
+            // modifier le booléen isDead du membre d'équipage pour savoir s'il peut être heal ou non par le médecin
+
+            if(semaine <= 10)
+            {
+                Tour.game(semaine, equipage, falcon);
+                setPannes();
+            } else
+            {
+                //this.Frame.Navigate();
+            }
+                
+
+            
         }
     }
 }

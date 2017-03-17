@@ -106,6 +106,20 @@ namespace Equipage
             }
         }
 
+        private Boolean isDead;
+        public bool IsDead
+        {
+            get
+            {
+                return isDead;
+            }
+
+            set
+            {
+                isDead = value;
+            }
+        }
+
         // ctor
         public Membre()
         {
@@ -114,6 +128,7 @@ namespace Equipage
             GiveRoom();
             validatDice = false;
             capaciteNumber = 0;
+            isDead = false;
         }
 
         // Le nombre de PV de départ du membre
@@ -142,14 +157,6 @@ namespace Equipage
             {
                 return rdm.Next(min, max);
             }
-        }
-
-        public Boolean IsDead()
-        {
-            if (this.HP <= 0)
-                return true;
-
-            return false;
         }
 
         // La capacité du membre d'équipage

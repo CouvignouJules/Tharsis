@@ -33,15 +33,5 @@ namespace Tharsis
         {
             Application.Current.Exit();
         }
-
-        // Passe le jeu en mode difficile
-        private void hard_Click(object sender, RoutedEventArgs e)
-        {
-            /*TODO: 
-                - Page Hardmode
-                - Mode difficile
-             
-             */
-        }
     }
 }

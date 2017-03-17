@@ -11,13 +11,17 @@ namespace Equipage
     {
         public Commandant() : base() { }
 
-        // Réduit le montant des pannes du vaiseau de 10 points
+        // Réduit le montant des pannes de la salle dans laquelle le commandant se situe de 10 points
         public override void Capacite(Appareil vaisseau, List<Membre> equipage)
         {
             foreach(Room room in vaisseau.Rooms)
             {
-                if (room.Numero == this.Room)
+                if (room.Numero == this.Room && room.Panne > 0)
+                {
                     room.Panne -= 10;
+                    if (room.Panne < 0)
+                        room.Panne = 0;
+                }
             }
         }
 
