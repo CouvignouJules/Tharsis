@@ -31,15 +31,17 @@ namespace Tharsis
         // Liste contenant les membres d'equipage
         List<Membre> equipage = new List<Membre>();
         // Indicateur du membre d'équipage sélectionné
-        int membreSelected;
-
-        int semaine = 1;
+        private int membreSelected;
+        // Indicateur de la semaine en cours
+        private int semaine = 1;
+        // Indicateur du nombre de membre morts (si ce nombre atteint 4, la partie est perdue)
+        private int deadMembers = 0;
  
         public MainPage()
         {
             this.InitializeComponent();
             InitEquipage();
-            shipHealth.Text = falcon.ToString();
+            shipHealth.Text = Health(falcon);
             Tour.game(semaine, equipage, falcon);
             setPannes();
         }
@@ -325,7 +327,7 @@ namespace Tharsis
         {
             membreSelected = 0;
 
-            if (equipage[membreSelected].HP > 0)
+            if (equipage[membreSelected].IsDead == false)
             {
                 ResetDes();
                 menuaction.IsOpen = true;
@@ -349,7 +351,7 @@ namespace Tharsis
         {
             membreSelected = 1;
 
-            if (equipage[membreSelected].HP > 0)
+            if (equipage[membreSelected].IsDead == false)
             {
                 ResetDes();
                 menuaction.IsOpen = true;
@@ -375,7 +377,7 @@ namespace Tharsis
         {
             membreSelected = 2;
 
-            if (equipage[membreSelected].HP > 0)
+            if (equipage[membreSelected].IsDead == false)
             {
                 ResetDes();
                 menuaction.IsOpen = true;
@@ -399,7 +401,7 @@ namespace Tharsis
         {
             membreSelected = 3;
 
-            if (equipage[membreSelected].HP > 0)
+            if (equipage[membreSelected].IsDead == false)
             {
                 ResetDes();
                 menuaction.IsOpen = true;
@@ -522,7 +524,34 @@ namespace Tharsis
                 info.Text = membre.Info(falcon);
             }
 
-            // modifier le booléen isDead du membre d'équipage pour savoir s'il peut être heal ou non par le médecin
+            foreach (Room salle in falcon.Rooms)
+            {
+                if (salle.Panne > 0)
+                {
+                    foreach(Membre membre in equipage)
+                    {
+                        if(membre.IsDead == false)
+                            membre.HP--;
+
+                        if(membre.HP <= 0)
+                        {
+                            membre.IsDead = true;
+                            deadMembers++;
+                        }
+
+                        info.Text = membre.Info(falcon);
+                    }
+
+                    falcon.HP--;
+                }
+                shipHealth.Text = Health(falcon);
+
+            }
+
+            if(deadMembers == 4 || falcon.HP <= 0)
+            {
+                this.Frame.Navigate(typeof(GameOverPage), null);
+            }
 
             if(semaine <= 10)
             {
@@ -530,7 +559,7 @@ namespace Tharsis
                 setPannes();
             } else
             {
-                //this.Frame.Navigate();
+                this.Frame.Navigate(typeof(WinPage), null);
             }
                 
 

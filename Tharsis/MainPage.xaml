@@ -6,9 +6,9 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:gif="using:XamlAnimatedGif"
-    mc:Ignorable="d" Height="720" Width="1208" >
+    mc:Ignorable="d" Height="720" Width="1280" >
 
-    <RelativePanel Margin="0,0,-72,0">
+    <RelativePanel>
         <!--
         <RelativePanel.Background>
             <ImageBrush ImageSource="Assets/space.gif"/>
@@ -56,10 +56,18 @@
         </Button>
 
         <TextBlock Name="memberName" FontSize="30"  Margin="7,129,-7.797,-129.195" />
-        <TextBlock Name="shipHealth" FontSize="30"  Margin="831,10,-831,-10"/>
+        <TextBlock Name="shipHealth" FontSize="30" Height="40" Margin="0,0,-530,0" />
 
-        <TextBlock Name="PanneInfo" FontSize="30" Margin="767,70,-1220,-228"/>
+        <TextBlock Name="PanneInfo" FontSize="30" Margin="767,11,-1220,-169"/>
         <TextBlock Name="tourInfo" FontSize="30" Margin="767,460,-1220,-618"/>
+
+        <TextBlock Name="pilotageName" Text="Pilotage" FontSize="30" Height="40" Margin="227,196,-227,-196" />
+        <TextBlock Name="serreName" Text="Serre" FontSize="30" Height="40" Margin="411,196,-489,-196" />
+        <TextBlock Name="survieName" Text="Survie" FontSize="30" Height="40" Margin="499,494,-577,-494" />
+        <TextBlock Name="laboName" Text="Laboratoire" FontSize="30" Height="40" Margin="411,137,-489,-137" />
+        <TextBlock Name="detenteName" Text="Détente" FontSize="30" Height="40" Margin="746,427,-824,-427" />
+        <TextBlock Name="maintenanceName" Text="Maintenance" FontSize="30" Height="40" Margin="869,410,-947,-410" />
+        <TextBlock Name="infirmerieName" Text="Infirmerie" FontSize="30" Height="40" Margin="712,233,-790,-233" />
 
         <Button Name="nextTurn" Background="Gray" Content="Finir la semaine" Click="nextTurn_Click" Margin="1097,648,-1098,-648"></Button>
 

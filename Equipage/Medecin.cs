@@ -15,7 +15,7 @@ namespace Equipage
         {
             foreach (Membre membre in equipage)
             {
-                if ((membre.HP < 6 && membre.HP > 0) && (membre.IsDead = false))
+                if (membre.HP < 6 && membre.HP > 0 && membre.IsDead == false)
                     membre.HP += 1;
             }
         }
