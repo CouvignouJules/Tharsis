@@ -119,6 +119,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\background.png" />
+    <Content Include="Assets\bouton_jouer.gif" />
+    <Content Include="Assets\bouton_quitter.gif" />
+    <Content Include="Assets\bouton_recommencer.gif" />
+    <Content Include="Assets\bouton_retry.gif" />
     <Content Include="Assets\Capitaine.png" />
     <Content Include="Assets\Commandant.png" />
     <Content Include="Assets\d1_select.jpeg" />
