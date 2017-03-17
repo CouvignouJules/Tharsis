@@ -27,7 +27,7 @@
 
             <TextBlock Name="WinText" Text="Bravo, vous avez gagné !" Height="150" Foreground="White" FontSize="62" FontWeight="ExtraBold" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="1"/>
 
-            <Button FontSize="50" FontFamily="Arial" Width="442" Height="110" Grid.Column="1"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="play_Click" Margin="163,60,163,10">
+            <Button FontSize="50" FontFamily="Arial" Width="442" Height="110" Grid.Column="1"  Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center" Click="retry_Click" Margin="163,60,163,10">
                 <Image Source="assets/bouton_Recommencer.gif" Margin="-71,-45,-71,-44" HorizontalAlignment="Left" Width="442" RenderTransformOrigin="-1.19,0.681"/>
             </Button>
 
