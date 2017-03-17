@@ -750,6 +750,9 @@ namespace Tharsis
                         if(membre.HP > 0)
                             membre.HP--;
 
+                        if (membre.Dices > 0)
+                            membre.Dices--;
+
                         if(membre.HP <= 0)
                         {
                             deadMembers++;
