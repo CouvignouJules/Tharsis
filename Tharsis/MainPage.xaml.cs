@@ -208,6 +208,8 @@ namespace Tharsis
                 {
                     equipage[membreSelected].HP--;
                     info.Text = equipage[membreSelected].Info(falcon);
+                    if (equipage[membreSelected].HP == 0)
+                        menuaction.IsOpen = false;
                 }
             }
         }
@@ -237,6 +239,8 @@ namespace Tharsis
                 {
                     equipage[membreSelected].HP--;
                     info.Text = equipage[membreSelected].Info(falcon);
+                    if (equipage[membreSelected].HP == 0)
+                        menuaction.IsOpen = false;
                 }
             }
         }
@@ -266,6 +270,8 @@ namespace Tharsis
                 {
                     equipage[membreSelected].HP--;
                     info.Text = equipage[membreSelected].Info(falcon);
+                    if (equipage[membreSelected].HP == 0)
+                        menuaction.IsOpen = false;
                 }
             }
         }
@@ -295,6 +301,8 @@ namespace Tharsis
                 {
                     equipage[membreSelected].HP--;
                     info.Text = equipage[membreSelected].Info(falcon);
+                    if (equipage[membreSelected].HP == 0)
+                        menuaction.IsOpen = false;
                 }
             }
         }
@@ -324,6 +332,8 @@ namespace Tharsis
                 {
                     equipage[membreSelected].HP--;
                     info.Text = equipage[membreSelected].Info(falcon);
+                    if (equipage[membreSelected].HP == 0)
+                        menuaction.IsOpen = false;
                 }
             }
         }
@@ -353,6 +363,8 @@ namespace Tharsis
                 {
                     equipage[membreSelected].HP--;
                     info.Text = equipage[membreSelected].Info(falcon);
+                    if (equipage[membreSelected].HP == 0)
+                        menuaction.IsOpen = false;
                 }
             }
         }
@@ -382,6 +394,8 @@ namespace Tharsis
                 {
                     equipage[membreSelected].HP--;
                     info.Text = equipage[membreSelected].Info(falcon);
+                    if (equipage[membreSelected].HP == 0)
+                        menuaction.IsOpen = false;
                 }
             }
         }
@@ -491,6 +505,7 @@ namespace Tharsis
                     B_laboratoire.IsEnabled = false;
                     break;
             }
+            
         }
 
         /// <summary>
